@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "Menu principal"
+  navbar:
+    right:
+      - text: "À propos" 
+        href: about.qmd
+      - icon: github
+        href: https://github.com/isabel6198
+      - icon: linkedin  
+        text: "LinkedIn"
+        href: https://www.linkedin.com/in/isabel-palacio-9470a291/
+
+execute:
+  freeze: true 
+
+format:
+  html:
+    toc: true
+    toc_float: 
+      collapsed: false
+      smooth_scroll: true
+    css: styles.css  
+editor: visual

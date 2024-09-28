@@ -1,0 +1,1397 @@
+---
+title: "Mémoire"
+date: "2024-06-12"
+format: 
+  html:
+    toc: true
+    toc_float: 
+      collapsed: false
+      smooth_scroll: true
+      css: styles.css
+categories: [Séries temporelles, R, MCO, ARMAX]
+---
+
+**Sensibilité des prix agricoles face aux chocs climatiques**
+
+**Séries temporelles au Brésil de janvier 2000 à décembre 2022**
+
+# **Présentation**
+
+Cette étude analyse les prix des produits agricoles au Brésil, un acteur clé des enjeux agricoles mondiaux, en utilisant l'indice des prix à la production agricole (IPA) de janvier 2000 à décembre 2022. L'étude a intégré des variables climatiques pour évaluer leur impact, en utilisant des modèles de régression tels que les Moindres Carrés Ordinaires (MCO) et ARMAX. Dans notre approche par les MCO, nous avons rencontré des difficultés telles que l'autocorrélation des résidus et l'hétéroscédasticité. Malgré plusieurs tentatives, le modèle MCO n'a pas pu être validé et nous avons adopté le modèle ARMAX qui s'est avéré plus efficace. Les résultats montrent que le taux de change, le prix du pétrole et l'influence des valeurs passées de l'IPA ont eu un impact statistiquement significatif. Nos recherches révèlent que, bien que les variables climatiques n'aient pas eu un effet notable, la complexité du système agricole suggère qu'une approche globale et uniforme n'est pas adéquate. Ainsi, nous préconisons, tant dans les études que dans l'élaboration des stratégies, l'adoption de mesures localisées qui répondent mieux aux besoins spécifiques des communautés agricoles.
+
+**Mots clés *:*** *Prix agricoles, Brésil, MCO, ARMAX,  R*
+
+### Sujet d’étude
+
+Le Brésil, l'un des plus grands producteurs agricoles mondiaux, est également riche en biodiversité et ressources environnementales. Toutefois, le pays est marqué par d'importantes disparités économiques et sociales, reflétées dans son secteur agricole qui se divise entre l'agriculture familiale et l'agrobusiness. Depuis 2000, les politiques brésiliennes ont alterné entre progrès et régression. Sous Lula da Silva, des avancées significatives ont été réalisées, tandis que les administrations suivantes ont vu des reculs, notamment avec la suppression de ministères clés et la libéralisation de la politique de réforme agraire. L'administration de Bolsonaro a augmenté les tensions entre développement agricole et conservation environnementale, en particulier avec l'augmentation de la déforestation en Amazonie. En tant que membre des BRICS et du MERCOSUR, le Brésil joue un rôle important dans les discussions internationales. Le traité de libre-échange entre l'UE et le MERCOSUR est un bon exemple de l'importance croissante du pays sur la scène internationale. L’objectif est de comprendre les facteurs qui influencent les prix à la production agricole du pays que beaucoup surnomment « la ferme du monde ».
+
+### Présentation des données
+
+Les données s'étendant de janvier 2000 à décembre 2022 avec une fréquence mensuelle, proviennent de trois sources : l'Institut de Recherche Économique Appliquée (IPEA DATA), les Statistiques de l'ONU pour l'alimentation et l'agriculture (FAO STAT), et le Portail de connaissances sur le changement climatique de la Banque mondiale (CCKP). Les variables explicatives incluent les variations de température (°C), les précipitations (mm), le nombre de jours secs consécutifs, le prix du pétrole, le taux de change (BRL/USD), le salaire minimum nominal (SMIC), et les indices des exportations et importations agricoles.
+
+Des statistiques descriptives ont mis en évidence une hausse marquée de l’IPA, particulièrement après 2016.
+
+![](memoire_y.png)
+
+Sur le plan climatique, les données indiquent des périodes de sécheresse plus longues et des fluctuations de température tendant vers des valeurs maximales. En ce qui concerne les variables économiques, le prix du pétrole a subi de fortes fluctuations au cours des deux dernières décennies, principalement en raison du contexte géopolitique mondial. Le taux de change a connu une dévaluation notable depuis 2019, en réponse à la crise du COVID-19, ce qui a contribué à une augmentation exponentielle des exportations, accentuant une tendance déjà forte depuis 2010. Un prétraitement de nos données a été nécessaire en raison de la présence de valeurs atypiques.
+
+### Méthodologie
+
+Pour analyser les variations de l'IPA, nous avons utilisé deux méthodes : MCO et ARMAX. Afin d’éviter les régressions fallacieuses et assurer la validité de nos modèles, nous avons vérifié la stationnarité avec les tests ADF et KPSS.
+
+Les séries temporelles présentant une saisonnalité ont été décomposées afin de corriger les variations saisonnières, permettant de mieux isoler les effets des variables explicatives. Nous avons aussi utilisé les tests de Breusch-Godfrey et Breusch-Pagan pour détecter l'autocorrélation et l'hétéroscédasticité, le test de Kolmogorov-Smirnov pour la normalité des résidus, et le test RESET pour la spécification du modèle, confirmant l'adéquation des modèles et la fiabilité des estimations des coefficients.
+
+Nous avons exploré plusieurs modèles en utilisant l'approche MCO. Les problèmes d'hétéroscédasticité et de spécificité ont été corrigés en adoptant une forme semi-logarithmique. Cependant, malgré diverses tentatives, telles que l'introduction d'une variable temporelle, la correction de la tendance déterministe, et l’ajustement des résidus avec un modèle AR(1), les modèles ont continué de présenter une capacité explicative limitée et des problèmes de conformité aux hypothèses. Nous avons alors opté pour des modèles ARMAX, lesquels intègrent les effets des variables exogènes ainsi que la dynamique interne des séries temporelles.
+
+![](memoire_modeles.png)
+
+Le modèle révèle que les valeurs futures de notre série temporelle sont significativement influencées par les valeurs immédiatement antérieures, avec un niveau de significativité de 1%. Par ailleurs, le prix du pétrole est statistiquement significatif au seuil de risque de 5%. Avec un coefficient positif, lorsque les prix du pétrole augmentent, l'indice IPA augmente également. Il en est de même pour le taux de change, cela signifie que lorsque le real brésilien se déprécie,  les prix à la production agricole tendent à augmenter.
+
+Concernant les autres variables du modèle, elles ne montrent pas d'impact significatif . Quant à notre variable climatique, la précipitation, elle s'est révélée non significative, indiquant que , dans le cadre de cette étude,  les variations des précipitations n'ont pas un impact notable sur l'indice des prix à la production agricole de manière statistiquement mesurable.
+
+### Conclusion et discussion
+
+Cette étude nous a montré la complexité du système agricole brésilien et, bien que nos résultats n'aient pas été ceux attendus, cela peut s'expliquer par la manière dont l'agriculture s'adapte aux changements climatiques. Alors que certaines régions voient leur production agricole diminuer en raison de conditions défavorables, d'autres connaissent une augmentation ou délocalisent leur production. Lorsque ces variations régionales sont agrégées au niveau national, les impacts locaux peuvent être masqués, minimisant ainsi les effets perceptibles sur les prix nationaux.
+
+Par ailleurs, les progrès technologiques en agriculture, bien qu'ils puissent améliorer les rendements et la gestion des cultures, introduisent une complexité supplémentaire dans l'évaluation des impacts directs du climat. Les innovations, comme les variétés résistantes à la sécheresse et l'optimisation des intrants, ont renforcé la résilience des cultures face aux aléas climatiques, permettant de maintenir des niveaux de production élevés même dans des conditions difficiles. Cependant, cette intensification pose des défis environnementaux significatifs, tels que l'épuisement des sols et une dépendance accrue aux produits chimiques, qui compliquent l'attribution précise des impacts du changement climatique dans les analyses économiques agricoles.
+
+Il est donc important de mettre en œuvre les avancées technologiques de manière réfléchie pour éviter des conséquences indésirables et de revoir les politiques agricoles pour assurer la durabilité et la sécurité alimentaire dans un climat changeant, en adaptant les pratiques agricoles aux nouvelles réalités climatiques et économiques.
+
+::: {style="text-align: center;"}
+<iframe src="/pdf/memoire.pdf" width="80%" height="500px">
+
+</iframe>
+:::
+
+Vous avez la possibilité de télécharger le document ici :) [📥 Télécharger le fichier PDF](/pdf/memoire.pdf)
+
+**Présentation du code**
+
+Je vous présente ci-dessous, le code utilisé pour mener à bien ce projet, avec les étapes et explications correspondantes.
+
+### Librairies
+
+```{r}
+suppressPackageStartupMessages({
+library(readxl)
+library(ggplot2)
+library(plotly)
+library(tidyr)
+library(dplyr)
+library(ggcorrplot)
+library(PerformanceAnalytics)
+library(trend)
+library(seastests)
+library(tseries)
+library(forecast)
+library(tsoutliers)
+library(EnvStats)
+library(RJDemetra)
+library(TSA)
+library(lubridate)
+library(tsoutliers)
+library(leaps)
+library(MASS)
+library(car)
+library(lmtest)
+library(BeSS)
+library(nlme)
+library(here)
+})
+```
+
+# Analyse exploratoire
+
+## Chargement de données
+
+Les données de la variable du prix du pétrole ont une fréquence journalière, nous calculons donc la moyenne pour avoir un prix moyen mensuel
+
+```{r}
+
+petrole <- read_excel(here("data", "donnees_br.xlsx"), sheet = 'prix_petrole')
+
+petrole$date <- as.Date(petrole$date)
+
+#  Colonnes pour l'année et le mois
+petrole <- petrole %>%
+  mutate(
+    year = year(date),
+    month = month(date)
+  )
+
+prix_petrole <- petrole %>%
+  group_by(year, month) %>%
+  summarise(
+    prix_moyen = mean(prix, na.rm = TRUE), 
+    .groups = 'drop'  # regroupement après le summarise
+  )
+rm(petrole) # supprime pétrole en jours
+```
+
+Récupération de l'ensemble de nos variables et remplacement de la variable prix du pétrole en jours, par le prix moyen mensuel
+
+```{r}
+# ensemble de variables
+
+data <- read_excel(here("data", "donnees_br.xlsx"))
+
+data$petrole <- prix_petrole$prix_moyen 
+
+```
+
+### Valeurs manquantes et format des données
+
+```{r}
+sum(is.na(data)) # vérification des valeurs manquants
+data <- drop_na(data)
+dim(data)
+str(data) # vérification format
+
+# On transforme la variable smic en numérique
+data$SMIC <- as.numeric(data$SMIC)
+
+
+# Conversion la colonne de date en type  yearmon
+data$date <- as.yearmon(data$date, "%Y.%m")
+
+```
+
+Les données climatiques sont complètes jusqu'au mois de décembre 2022, on conserve donc l'ensemble des données du mois de janvier 2000 à décembre 2022. Au total nous avons 276 observations pour 13 variables.
+
+## Statistiques descriptives
+
+```{r}
+summary(data)
+```
+
+### Boxplot
+
+```{r}
+data|>
+pivot_longer(
+cols = where(is.numeric)
+) |>
+ggplot() +
+aes(y = value) +
+facet_wrap(~ name, scales = "free_y") +
+geom_boxplot() +
+theme_light()
+```
+
+### Graphiques des séries
+
+```{r}
+data$date <- as.Date(as.yearmon(data$date))
+
+# Boucle sur chaque colonne sauf la date pour créer des graphiques
+for (column_name in names(data)[-1]) {
+p <- ggplot(data, aes(x = date, y = .data[[column_name]], colour = .data[[column_name]])) + 
+        geom_line() +
+        scale_color_gradient(low = "blue", high = "red") + 
+        labs(title = paste("Série temporelle: ", column_name),
+             x = "Date",
+             y = column_name,
+             colour = "Intensité") +  
+        theme_minimal()
+ print(p)
+}
+    print(p)
+
+
+```
+
+### Convertir en time series
+
+```{r}
+# Boucle pour convertir chaque colonne en ts et les stocker comme variables séparées
+for(column_name in names(data)[-1]) {  # Exclure la colonne de date
+    # Créer une série temporelle pour la colonne actuelle
+    ts_data <- ts(data[[column_name]], start = c(2000, 1), frequency = 12)
+  # variable dans l'environnement global avec un nom dynamique
+    assign(paste0("ts_", column_name), ts_data)
+}
+
+```
+
+## Points atypiques ou Outliers
+
+(attention cela peut prendre quelques minutes, possibilité de charger le fichier après correction data.adj (pour données ajustées))
+
+```{r}
+#|warning: false
+#|message: false
+
+# on utilise tso() pour chercher les outliers
+fit_CDD <- tso(ts_CDD)
+fit_IPA <- tso(ts_IPA)
+fit_importations <- tso(ts_importations)
+fit_exportations <- tso(ts_exportations)
+fit_petrole <- tso(ts_petrole)
+fit_taux_change <- tso(ts_taux_change)
+fit_SMIC <- tso(ts_SMIC)
+fit_precipitation <- tso(ts_precipitation)
+fit_temperature <- tso(ts_temperature)
+
+
+# pour regarder les points atypiques de chaque serie 
+fit_CDD # sans outliers 
+fit_IPA 
+fit_importations 
+fit_exportations 
+fit_petrole  # sans outliers
+fit_taux_change 
+fit_SMIC 
+fit_precipitation 
+fit_temperature # sans outliers
+
+# Graphique
+plot(fit_IPA)
+plot(fit_SMIC)
+plot(fit_precipitation)
+plot(fit_taux_change)
+plot(fit_exportations)
+plot(fit_importations)
+plot(fit_CDD )
+
+
+
+
+# recuperation des séries ajustés 
+adj_IPA <- fit_IPA$yadj 
+adj_CDD <- fit_CDD$yadj 
+adj_importations <- fit_importations$yadj 
+adj_exportations <- fit_exportations$yadj 
+adj_petrole <- fit_petrole$yadj 
+adj_taux_change <- fit_taux_change$yadj 
+adj_SMIC <- fit_SMIC$yadj 
+adj_precipitation <- fit_precipitation$yadj 
+adj_temperature <- fit_temperature$yadj 
+
+
+```
+
+### Enregistrement données ajustés
+
+```{r}
+# création d'un dataframe où les séries ajustés seront stockés pour êtres réutilises si nécessaire plus tard 
+data_adj <- data.frame(
+  Date = data$date,  
+  IPA = adj_IPA,
+  CDD = adj_CDD,
+  importations = adj_importations,
+  exportations = adj_exportations,
+  petrole = adj_petrole,
+  taux_change = adj_taux_change,
+  SMIC = adj_SMIC,
+  precipitation = adj_precipitation,
+  temperature = adj_temperature
+)
+
+#write.csv(data_adj, "data_adj.csv", row.names = FALSE)
+
+
+```
+
+## Récupération base de données ajustées
+
+```{r}
+#data_adj <- read.csv("/Users/Isabel/Desktop/memoire3/data_adj.csv")
+
+data_adj$Date <- as.Date(data_adj$Date)
+
+
+#  variables
+variables <- c("IPA", "CDD", "precipitation", "temperature",  "exportations", "importations", "taux_change", "SMIC", "petrole")
+```
+
+### Skewness, kurtosis
+
+```{r}
+
+skew_kurt_df <- data.frame(
+  Variable = variables,
+  # Calcul de skewness
+  Skewness = sapply(data_adj[variables], PerformanceAnalytics::skewness),
+  # Calcul de kurtosis
+  Kurtosis = sapply(data_adj[variables], PerformanceAnalytics::kurtosis)
+)
+skew_kurt_df
+
+```
+
+### Test de normalité
+
+```{r}
+#vérification de la normalité des variables 
+lapply(data_adj[variables], shapiro.test)
+
+```
+
+### Corrélation
+
+```{r}
+#|warning: false
+#|message: false
+
+#  Matrice de corrélation
+cor_matrix <- cor(data_adj[, variables], use = "complete.obs", method = "spearman")
+cor_matrix
+# Visualiser la matrice de corrélation
+
+ggcorrplot(cor_matrix,
+  hc.order = TRUE, type = "lower",
+  lab = TRUE,
+  ggtheme = ggplot2::theme_gray,
+  colors = c("blue", "white", "red"))
+
+
+# spearman correlation test
+#chart.Correlation(data_adj[variables], histogram=TRUE, pch=19,method = c("spearman"))
+```
+
+Le calcul de la corrélation de Spearman est recommandé lorsque les variables ne suivent pas une loi normalece type de corrélation est dit robuste car il ne dépend pas de la distribution des données. (cours M.Travers)
+
+## Composants
+
+Nous commençons cette partie par deux tests : le premier est le test de tendance monotone de Mann-Kendall,et le deuxième est le test de saisonalité
+
+## Test de tendance Mann-Kendall
+
+```{r}
+# Test de tenance pour chaque variable 
+lapply(data_adj[variables], function(x) {
+  mk.test(x, alternative = "greater")
+})
+```
+
+## Test Saisonnière
+
+```{r}
+# On transforme en format tsv
+ts_data <- ts(data_adj[, 2:10], frequency = 12,  start = c(2000, 1))
+
+## Verfication de la saisonnalité 
+test_saison <- vector("logical", ncol(ts_data))  # vecteur pour stocker les résultats
+names(test_saison) <- colnames(ts_data)  # nomme les résultats selon les variables
+
+for (i in 1:ncol(ts_data)) {
+  test_saison[i] <- isSeasonal(ts_data[, i], test = "wo")
+}
+test_saison
+
+# Deuxième test Seasonal dummies
+for (i in 1:ncol(ts_data)) {
+  nom_var <- colnames(ts_data)[i]
+  result <- seasdum(ts_data[, i])
+  cat("\nTest Seasonal dummies: ", nom_var, ":\n")
+  print(result)
+}
+
+```
+
+Les variables pressentant une saisonnalité d’après les tests sont CDD, importations, Exportations, Précipitation et température
+
+Le code ci-dessous et similaire à celui que nous avons fait precedement pour transformer les variables en time series, on a besoin si nous téléchargeons le fichier data.adj
+
+```{r}
+# Boucle pour convertir chaque colonne en ts et les stocker comme variables séparées
+for(column_name in names(data_adj)[-1]) {  # Exclure la colonne de date
+    # Créer une série temporelle pour la colonne actuelle
+    ts_list <- ts(data_adj[[column_name]], start = c(2000, 1), frequency = 12)
+  # variable dans l'environnement global avec un nom dynamique
+    assign(paste0("ts_", column_name), ts_list)
+}
+
+```
+
+### Correlogramme des variables saisonnières
+
+```{r}
+par(mfrow=c(2,2))
+
+# ACF pour les variables presentant une saisonalité 
+# CDD
+acf(ts_CDD, main = "ACF CDD sur la série en niveau")
+acf(diff(ts_CDD,differences = 1), main = "ACF CDD sur la série en différence premiére")
+# Précipitation
+acf(ts_precipitation, main = "ACF Precipitations sur la série en niveau")
+acf(diff(ts_precipitation,differences = 1), main = "ACF Precipitations sur la série en différence premiére")
+# Témperature
+acf(ts_temperature, main = "ACF Témperature sur la série en niveau ")
+acf(diff(ts_temperature,differences = 1), main = "ACF Témperature sur la série en différence premiére")
+# Importations
+acf(ts_importations, main = "ACF Importations sur la série en niveau")
+acf(diff(ts_importations, differences = 1),main = "ACF Importations sur la série en différence premiére")
+# Exportations
+acf(ts_exportations, main = "ACF Exportations sur la série en niveau")
+acf(diff(ts_exportations,differences = 1), main = "ACF Exportations sur la série en différence premiére")
+```
+
+### Périodogramme
+
+```{r}
+# Périodogramme ou filtre spectra pour les sérires presentant une saisonalité
+# CDD
+periodogram(ts_CDD, main = "Périodogramme CDD sur la série en niveau")
+periodogram(diff(ts_CDD,differences = 1), main = "Périodogramme CDD sur la série en différence premiére")
+
+# Precipitations
+periodogram(ts_precipitation, main = "Périodogramme Precipitations sur la série en niveau")
+periodogram(diff(ts_precipitation,differences = 1), main = "Périodogramme Precipitations sur la série en différence premiére")
+
+# Temperature
+periodogram(ts_temperature, main = "Périodogramme Témperature sur la série en niveau ")
+periodogram(diff(ts_temperature,differences = 1), main = "Périodogramme Témperature sur la série en différence premiére")
+
+# Importations
+periodogram(ts_importations, main = "Périodogramme Importations sur la série en niveau")
+periodogram(diff(ts_importations, differences = 1),main = "Périodogramme Importations sur la série en différence premiére")
+
+# Exportations 
+periodogram(ts_exportations, main = "Périodogramme Exportations sur la série en niveau")
+periodogram(diff(ts_exportations,differences = 1), main = "Périodogramme Exportations sur la série en différence premiére")
+
+```
+
+```{r}
+par(mfrow=c(1,2))
+
+# Boxplots pour les variables climatiques avec les cycles correspondants à chaque série
+boxplot(ts_CDD ~ cycle(ts_CDD), main = "Boîte à moustaches des CDD par cycle", xlab = "Cycle", ylab = "CDD en jours")
+boxplot(ts_precipitation ~ cycle(ts_precipitation), main = "Boîte à moustaches des précipitations par cycle", xlab = "Cycle", ylab = "Précipitations en mm")
+boxplot(ts_temperature ~ cycle(ts_temperature), main = "Boîte à moustaches de la température par cycle", xlab = "Cycle", ylab = "Variations de température")
+
+# Variables export - importation
+boxplot(ts_importations ~ cycle(ts_importations), main = "Boîte à moustaches des importations par cycle", xlab = "Cycle", ylab = "Valeurs des importations")
+boxplot(ts_exportations ~ cycle(ts_exportations), main = "Boîte à moustaches des exportations par cycle", xlab = "Cycle", ylab = "Valeurs des exportations")
+
+```
+
+## Test ADF
+
+```{r}
+#|warning: false
+#|message: false
+
+# test ADF 
+lapply(data_adj[variables], function(x) {
+  adf.test(x, alternative = "stationary")
+})
+
+```
+
+### Graphiques des variables non stationnaires Test ADF
+
+```{r}
+# Graphique pour la série IPA
+ggplot(data = data_adj, aes(x = Date, y = IPA)) +
+  geom_line(color = "blue", size = 0.5) +
+  stat_smooth(color = "red", fill = "red", method = "loess", show.legend = TRUE,  size = 0.2) +
+  ggtitle("Analyse de la tendance de l'IPA-DI sur la période 01/2000 - 12/2022") +
+  xlab("Date") +
+  ylab("IPA Value") 
+
+
+# Graphique pour la série petrole
+
+ggplot(data = data_adj, aes(x = Date, y = petrole)) +
+  geom_line(color = "blue", size = 0.5) +
+  stat_smooth(color = "red", fill = "red", method = "loess", show.legend = TRUE, size = 0.2) +
+  ggtitle("Analyse de la tendance du prix du pétrole sur la période 01/2000 - 12/2022") +
+  xlab("Date") +
+  ylab("Petrole Value") 
+
+# Graphique pour la série taux de change 
+
+ggplot(data = data_adj, aes(x = Date, y = taux_change)) +
+  geom_line(color = "blue", size = 0.5) +
+  stat_smooth(color = "red", fill = "red", method = "loess", show.legend = TRUE, size = 0.2) +
+  ggtitle("Analyse de la tendance du taux de change sur la période 01/2000 - 12/2022") +
+  xlab("Date") +
+  ylab("Taux de change") 
+
+
+```
+
+La fonction stat_smooth(method = "loess") ajoute une courbe de lissage aux données, utilisant la méthode LOESS (Locally Estimated Scatterplot Smoothing). Cette courbe est utile pour visualiser une tendance centrale plus lisse dans les données, ce qui peut être particulièrement bénéfique dans les cas où les données sont bruyantes ou volatiles
+
+## Test KPSS
+
+```{r}
+#|warning: false
+#|message: false
+
+## Trend 
+for (i in 1:ncol(ts_data)) {
+  nom_var <- colnames(ts_data)[i]
+  result <- kpss.test(ts_data[, i], null = "Trend")
+  cat("\nTest KPSS: ", nom_var, ":\n")
+  print(result)
+}
+
+## Level 
+for (i in 1:ncol(ts_data)) {
+  nom_var <- colnames(ts_data)[i]
+  result <- kpss.test(ts_data[, i], null = "Level")
+  cat("\nTest KPSS: ", nom_var, ":\n")
+  print(result)
+}
+
+
+```
+
+## Correction
+
+Nous allons maintenant déterminer le type de schéma des séries, multiplicatif ou addif
+
+```{r}
+# Approche Graphique 
+plot(ts_CDD)
+plot(ts_precipitation)
+plot(ts_temperature)
+plot(ts_importations)
+plot(ts_exportations)
+
+#  Test log-level
+regx13_CDD <- regarima_x13(ts_CDD, spec ="RG5c") 
+s_transform(regx13_CDD)
+
+regx13_precipitation <- regarima_x13(ts_precipitation, spec ="RG5c") 
+s_transform(regx13_precipitation)
+
+regx13_temperature <- regarima_x13(ts_temperature, spec ="RG5c") 
+s_transform(regx13_temperature)
+
+regx13_importations <- regarima_x13(ts_importations, spec ="RG5c") 
+s_transform(regx13_importations)
+
+regx13_exportations <- regarima_x13(ts_exportations, spec ="RG5c") 
+s_transform(regx13_exportations)
+
+```
+
+Ce test est spécifiquement conçu pour décider si une transformation logarithmique des données est appropriée
+
+### Décomposition
+
+Utilisation de decompose pour une décomposition additive
+
+```{r}
+# Décomposition 
+decom_CDD <- decompose(ts_CDD, type="additive")
+decom_precipitations<- decompose(ts_precipitation, type="additive")
+decom_temperature <- decompose(ts_temperature, type="additive")
+decom_importations <- decompose(ts_importations, type="additive")
+decom_importations <- decompose(ts_importations, type="additive")
+decom_exportations <- decompose(ts_exportations, type = "additive")
+
+# Plot 
+
+
+plot(decom_CDD)
+plot(decom_temperature)
+plot(decom_precipitations)
+plot(decom_importations)
+plot(decom_exportations)
+
+```
+
+Chacune de nos variables saisonnières est décomposé en 'trend', 'seasonl', 'random'
+
+### Désaisonalitation
+
+CDD
+
+```{r}
+CDD_deseason <- ts_CDD - decom_CDD$seasonal
+cdd <- ts.intersect(ts_CDD, CDD_deseason)
+# Graphique 
+plot.ts(cdd, 
+        plot.type = "single",
+        col = c("red", "blue"),
+        main = "CDD série originale (rouge) et désaisonnalisée (bleu)",
+        xlab = "Période",
+        ylab= "Nombre de jours")
+
+```
+
+Température
+
+```{r}
+temperature_deseason <- ts_temperature - decom_temperature$seasonal
+temperature <- ts.intersect(ts_temperature, temperature_deseason)
+# Graphique 
+plot.ts(temperature, 
+        plot.type = "single",
+        col = c("red", "blue"),
+        main = "Témperature série originale (rouge) et désaisonnalisée (bleu)",
+        xlab = "Période",
+        ylab= "Variation de la témperature")
+```
+
+Précipitations
+
+```{r}
+precipitations_deseason <- ts_precipitation - decom_precipitations$seasonal
+
+precipitations <- ts.intersect(ts_precipitation, precipitations_deseason)
+# Graphique 
+plot.ts(precipitations, 
+        plot.type = "single",
+        col = c("red", "blue"),
+        main = "Précipitations série originale (rouge) et désaisonnalisée (bleu)",
+        xlab = "Période",
+        ylab= "Précipations en mm")
+```
+
+Exportation
+
+```{r}
+exportations_deseason <- ts_exportations - decom_exportations$seasonal
+
+exportations <- ts.intersect(ts_exportations, exportations_deseason)
+# Graphique 
+plot.ts(exportations, 
+        plot.type = "single",
+        col = c("red", "blue"),
+        main = "Exportations série originale (rouge) et désaisonnalisée (bleu)",
+        xlab = "Période",
+        ylab= "Indice exportation")
+```
+
+Importation
+
+```{r}
+importations_deseason <- ts_importations - decom_importations$seasonal
+
+importations <- ts.intersect(ts_importations, importations_deseason)
+# Graphique 
+plot.ts(importations, 
+        plot.type = "single",
+        col = c("red", "blue"),
+        main = "Importations série originale (rouge) et désaisonnalisée (bleu)",
+        xlab = "Période",
+        ylab= "Indice importations")
+
+
+```
+
+```{r}
+# CDD 
+adf.test(CDD_deseason, alternative = "stationary")
+kpss.test(CDD_deseason,  null = "Trend")
+kpss.test(CDD_deseason,  null = "Level")
+
+```
+
+```{r}
+# temperature 
+adf.test(temperature_deseason, alternative = "stationary")
+kpss.test(temperature_deseason,  null = "Trend")
+kpss.test(temperature_deseason,  null = "Level")
+```
+
+```{r}
+# precipitation
+adf.test(precipitations_deseason, alternative = "stationary")
+kpss.test(precipitations_deseason,  null = "Trend")
+kpss.test(precipitations_deseason,  null = "Level")
+```
+
+```{r}
+# Importations
+adf.test(importations_deseason, alternative = "stationary")
+kpss.test(importations_deseason,  null = "Trend")
+kpss.test(importations_deseason,  null = "Level")
+
+
+# Differenciaiton
+importation_diff <- diff(importations_deseason, differences = 1)
+adf.test(importation_diff, alternative = "stationary")
+kpss.test(importation_diff,  null = "Trend")
+kpss.test(importation_diff,  null = "Level")
+
+
+```
+
+```{r}
+# Exportations 
+adf.test(exportations_deseason, alternative = "stationary")
+kpss.test(exportations_deseason,  null = "Trend")
+kpss.test(exportations_deseason,  null = "Level")
+
+```
+
+### Différenciation des séries non stationnaires par la tendance stochastique
+
+### Tests après corrections
+
+```{r}
+#|warning: false
+#|message: false
+
+# Differenciation 
+ipa_diff <- diff(ts_data[, "IPA"])
+taux_change_diff <- diff(ts_data[, "taux_change"])
+petrole_diff <- diff(ts_data[, "petrole"])
+
+# TESTS FINAL ADF ET KPSS 
+
+#IPA
+adf.test(ipa_diff, alternative = "stationary")
+kpss.test(ipa_diff,  null = "Trend")
+kpss.test(ipa_diff,  null = "Level")
+
+
+# Taux de change
+adf.test(taux_change_diff, alternative = "stationary")
+kpss.test(taux_change_diff,  null = "Trend")
+kpss.test(taux_change_diff,  null = "Level")
+
+# Pétrole
+adf.test(petrole_diff, alternative = "stationary")
+kpss.test(petrole_diff,  null = "Trend")
+kpss.test(petrole_diff,  null = "Level")
+
+# smic
+adf.test(ts_SMIC, alternative = "stationary")
+kpss.test(ts_SMIC,  null = "Trend")
+kpss.test(ts_SMIC,  null = "Level")
+
+```
+
+### Data frame avec les variables stationnaires
+
+Maintenant que nos séries ont été rendues stationnaires, nous allons créer un nouveau dataframe avec ces variables. Cependant, du fait que la différenciation entraîne la perte de la première observation, nous devrons également supprimer la première observation des séries qui étaient déjà stationnaires. Ainsi, nous ajusterons toutes les séries pour aligner leurs longueurs.
+
+```{r}
+#|warning: false
+#|message: false
+# Suppression de la première observation des séries non différenciées
+
+#  dataframe avec des longueurs alignées
+stationnaire_data <- data.frame(
+  Date = data_adj$Date[-1],
+  IPA = ipa_diff,  
+  CDD = CDD_deseason[-1],  
+  importations = importation_diff,
+  exportations = exportations_deseason[-1],
+  petrole = petrole_diff, 
+  taux_change = taux_change_diff,  
+  SMIC = ts_SMIC[-1],
+  precipitation = precipitations_deseason[-1],
+  temperature = temperature_deseason[-1]
+)
+
+
+```
+
+```{r}
+#|warning: false
+#|message: false
+
+
+# Re vérification du test ADF 
+lapply(stationnaire_data[variables], function(x) {
+  adf.test(x, alternative = "stationary")
+})
+
+# test kpss 
+lapply(stationnaire_data[variables], function(x) {
+  kpss.test(x, null = "Trend")
+})
+
+# test kpss 
+lapply(stationnaire_data[variables], function(x) {
+  kpss.test(x, null = "Level")
+})
+```
+
+## Sélection des variables
+
+1er méthode
+
+```{r}
+
+leaps <- regsubsets(IPA ~ CDD +  importations + exportations +  petrole +  taux_change + SMIC + precipitation + temperature, data=stationnaire_data, nbest=1, method=c("exhaustive"))
+
+summary(leaps)
+
+
+# Résumé des critères pour choisir le modèle optimal
+res.sum <- summary(leaps)
+optimal_model <- data.frame(
+  Adj.R2 = which.max(res.sum$adjr2),
+  CP = which.min(res.sum$cp),
+  BIC = which.min(res.sum$bic)
+)
+
+# Affichage des résultats
+print(optimal_model)
+print(res.sum)
+# plot a table of models showing variables in each model.
+# models are ordered by the selection statistic
+# Other options for plot( ) are bic, Cp, and adjr2
+par(mfrow=c(1,1))
+
+plot(leaps, scale="adjr2", main = "Adjusted R^2")
+plot(leaps, scale="Cp", main = "Mallow's Cp")
+plot(leaps, scale="bic", main = "BIC")
+
+```
+
+## Deuxième approche de sélection
+
+```{r}
+
+# Modele avec toutes les variables, ne sera pas utilisé dans notre analyse - voir méthode STEP
+
+modele1 <- lm(IPA ~  CDD +  importations + exportations +  petrole +  taux_change + SMIC + precipitation + temperature, data=stationnaire_data)
+
+summary(modele1)
+
+# Step : Sélection des variables explicatives significatives (modèle linéaire = modele1 )
+
+modele0 <- lm(IPA~1,data=stationnaire_data)
+summary(modele0)
+
+### Méthode ascendante
+step1 <- step(modele0, scope=list(lower=modele0, upper=modele1), data=stationnaire_data, direction="forward")
+
+### Méthode descendante
+step2 <- step(modele1,data=stationnaire_data,direction="backward")
+
+### Méthode double
+#méthode dans les 2 sens
+step3 <- step(modele0,scope=list(upper=modele1),data=stationnaire_data,direction="both")
+
+
+```
+
+# MODELES
+
+Après les méthodes de sélections les variables IPA \~ exportations + CDD + petrole + taux_change + precipitation
+
+## 1. Modèle
+
+1 retenue
+
+```{r}
+lm_model1 <- lm(IPA ~ exportations + CDD + petrole + taux_change + precipitation, data=stationnaire_data)
+
+summary(lm_model1)
+
+```
+
+### Hypothèses
+
+Test de normalité des résidus
+
+```{r}
+# Résidus
+# Test de normalité des résidus
+residus <- residuals(lm_model1)
+# Test de normalité des résidus
+ks.test(residus, "pnorm", mean = mean(residus), sd = sd(residus))
+
+```
+
+p-value = 0.001723, Refus de l’hypothèse de normalité des résidus au seuil de risque de 5%
+
+Test d’homoscédasticité des résidus
+
+```{r}
+# Test de Breusch-Pagan pour l'hétéroscédasticité
+bptest(lm_model1)
+```
+
+p-value = 8.844e-05, Refus de l’hypothèse d’homoscédacticité des résidus au seuil de risque de 5%
+
+Forme fonctionnelle
+
+```{r}
+# Test RESET
+reset(lm_model1)
+```
+
+p-value = 0.001495; Forme fonctionnelle linéaire du modèle spécifié acceptée au seuil de 5%
+
+Analyse des observations influençant l’estimation
+
+```{r}
+# Distance de Cook pour identifier les points influents
+plot(cooks.distance(lm_model1), type = "h", main = "Distance de Cook")
+```
+
+multicollinéarité
+
+```{r}
+vif(lm_model1)
+```
+
+Autocorrelation de résidus
+
+```{r}
+checkresiduals(lm_model1)
+```
+
+p-value \< 2.2e-16. il existe des preuves significatives d’auto-corrélation résiduelle dans les données.
+
+## 2. Modèle 2: différencié - logarithmique
+
+Dans ce model nous appliquons le logarithme avant la différenciation p
+
+```{r}
+d_l_IPA <- diff(log(data_adj$IPA), differences = 1)
+plot(ts(d_l_IPA))
+adf.test(d_l_IPA) # on verifie stationnarité 
+
+# creation df avec la dif du log de ipa
+st2_data <- data.frame(
+  Date = data_adj$Date[-1],
+  IPA = d_l_IPA,  
+  CDD = CDD_deseason[-1],  
+  importations = importation_diff,
+  exportations = exportations_deseason[-1],
+  petrole = petrole_diff, 
+  taux_change = taux_change_diff,  
+  SMIC = ts_SMIC[-1],
+  precipitation = precipitations_deseason[-1],
+  temperature = temperature_deseason[-1]
+)
+
+# estimation modele avec ipa differencié et log
+modele1_2 <- lm(IPA ~ CDD +  importations + exportations +  petrole +  taux_change + SMIC + precipitation + temperature, data=st2_data)
+summary(modele1_2)
+
+# Step : Sélection des variables explicatives significatives (modèle linéaire = modele1 )
+
+modele0_2 <- (lm(IPA~1,data=st2_data))
+summary(modele0_2)
+### Méthode ascendante
+step(modele0_2, scope=list(lower=modele0_2, upper=modele1_2), data=st2_data, direction="forward")
+### Méthode descendante
+step(modele1_2,data=st2_data,direction="backward")
+### Méthode double
+#méthode dans les 2 sens
+step(modele0_2,scope=list(upper=modele1_2),data=st2_data,direction="both")
+
+# MODELO 3 RETENUE
+lm_model2 <- lm(IPA ~ taux_change + petrole + precipitation + exportations, 
+    data = st2_data)
+summary(lm_model2)
+
+
+## TESTS 
+residus2 <- residuals(lm_model2)
+# Test de normalité des résidus
+ks.test(residus2, "pnorm", mean = mean(residus2), sd = sd(residus2))
+bptest(lm_model2)
+reset(lm_model2)
+vif(lm_model2)
+checkresiduals(lm_model2)
+
+```
+
+Le modèle 3 inclut une variable de temps pour capturer la tendance déterministe. Cela permet de modéliser explicitement les effets de la tendance dans les données et peut aider à réduire l'autocorrélation dans les résidus.
+
+## 3. Modèle 3 index temporel
+
+```{r}
+# Ajout d'un index temporel
+st3_data <- st2_data
+st3_data$time <- 1:nrow(st3_data)
+
+# Modèle de régression avec la variable de temps
+modele1_3 <- lm(IPA ~ CDD +  importations + exportations +  petrole +  taux_change + SMIC + precipitation + temperature+ time, data = st3_data)
+summary(modele1_3)
+
+
+modele0_3 <- (lm((IPA)~1,data=st3_data))
+summary(modele0_3)
+### Méthode ascendante
+step(modele0_3, scope=list(lower=modele0_3, upper=modele1_3), data=st3_data, direction="forward")
+### Méthode descendante
+step(modele1_3,data=st3_data,direction="backward")
+### Méthode double
+#méthode dans les 2 sens
+step(modele0_3,scope=list(upper=modele1_3),data=st3_data,direction="both")
+
+# modele 3 
+lm_model3 <- lm(formula = (IPA) ~ taux_change + petrole + precipitation + 
+    exportations + time, data = st3_data)
+
+summary(lm_model3)
+
+## TESTS 
+residus3 <- residuals(lm_model3)
+# Test de normalité des résidus
+ks.test(residus3, "pnorm", mean = mean(residus3), sd = sd(residus3))
+reset(lm_model3)
+bptest(lm_model3)
+vif(lm_model3)
+checkresiduals(lm_model3)
+
+```
+
+## 4. Modèle 4 tendance déterministe corrigée
+
+```{r}
+# Fonction pour corriger la tendance déterministe par régression
+correct_trend <- function(series) {
+  model <- lm(series ~ time(series))
+  residuals(model)
+}
+# Appliquer la correction à chaque variable explicative
+for (var in variables) {
+  # Corriger la tendance déterministe
+  corrected_series <- correct_trend(stationnaire_data[[var]])
+  # Ajouter les séries corrigées au data frame
+  stationnaire_data[[paste(var, "detrended", sep = "_")]] <- corrected_series
+}
+
+# Affiche la structure du data frame pour vérifier les changements
+str(stationnaire_data)
+
+# Modele avec toutes les variables, ne sera pas utilisé dans notre analyse - voir méthode STEP
+modele1_4 <- lm(IPA_detrended ~  CDD_detrended +  importations_detrended + exportations_detrended +  petrole_detrended +    taux_change_detrended + SMIC_detrended + precipitation_detrended + temperature_detrended, data=stationnaire_data)
+
+summary(modele1_4)
+
+# Step : Sélection des variables explicatives significatives (modèle linéaire = modele1_4 )
+
+modele0_4 <- (lm(IPA_detrended~1,data=stationnaire_data))
+summary(modele0_4)
+
+### Méthode ascendante
+ step(modele0_4, scope=list(lower=modele0_4, upper=modele1_4), data=stationnaire_data, direction="forward")
+
+### Méthode descendante
+step(modele1_4,data=stationnaire_data,direction="backward")
+
+### Méthode double
+#méthode dans les 2 sens
+step(modele0_4,scope=list(upper=modele1_4),data=stationnaire_data,direction="both")
+# 1. MCO modele retenue
+lm_model4<-  lm(formula = IPA_detrended ~ CDD_detrended + petrole_detrended + 
+    exportations_detrended + taux_change_detrended + precipitation_detrended, 
+    data = stationnaire_data)
+summary(lm_model4)
+## Hypotheses
+#### Test de normalité des résidus
+# Résidus
+residus4 <- residuals(lm_model4)
+# Test de normalité des résidus
+ks.test(residus4, "pnorm", mean = mean(residus4), sd = sd(residus4))
+# Test de Breusch-Pagan pour l'hétéroscédasticité
+bptest(lm_model4)
+# Test RESET
+reset(lm_model4)
+#### multicollinéarité
+vif(lm_model4)
+#### Autocorrelation de résidus
+checkresiduals(lm_model4)
+
+```
+
+## 5. Modèle 5 avec lag
+
+```{r}
+# Création du lag 
+st3_data$IPA_lag1 <- stats::lag(st3_data$IPA, 1) 
+st3_data$IPA_lag2 <- stats::lag(st3_data$IPA, 2) 
+
+st3_data <- na.omit(st3_data)
+
+
+# Modèle de régression avec Lag 1 , toutes les variables
+modele1_5 <- lm(IPA ~ CDD +  importations + exportations +  petrole +  taux_change + SMIC + precipitation + temperature+ IPA_lag1 + IPA_lag2, data = st3_data)
+summary(modele1_5)
+
+
+modele0_5 <- (lm((IPA)~1,data=st3_data))
+summary(modele0_5)
+### Méthode ascendante
+step(modele0_5, scope=list(lower=modele0_5, upper=modele1_5), data=st3_data, direction="forward")
+### Méthode descendante
+step(modele1_5,data=st3_data,direction="backward")
+### Méthode double
+#méthode dans les 2 sens
+step(modele0_5,scope=list(upper=modele1_5),data=st3_data,direction="both")
+
+
+# modele 7 
+model5 <- lm(formula = (IPA) ~ IPA_lag1 + taux_change + petrole + precipitation,   data = st3_data)
+summary(model5)
+
+## TESTS 
+residus7 <- residuals(model5)
+# Test de normalité des résidus
+ks.test(residus7, "pnorm", mean = mean(residus7), sd = sd(residus7))
+bptest(model5)
+reset(model5)
+vif(model5)
+checkresiduals(model5)
+
+
+```
+
+-   La présence d'hétéroscédasticité signifie que la variance des résidus n'est pas constante. Cela peut affecter la validité des tests de significativité des coefficients.
+
+-   Le test RESET suggère que le modèle pourrait être mal spécifié, indiquant que la relation entre les variables n'est pas correctement capturée par le modèle linéaire.
+
+-   On ne peut donc pas utiliser la méthode des MCO pour estimer le modèle : les coefficients MCO ne sont pas biaisés mais la variance de l’estimateur est non minimale
+
+# Conclusion
+
+Tous les modèles estimés avec les MCO présentent de l'autocorrelation de résidus, c'est à dire une corrélation entre les résidus eux-mêmes à travers le temps.
+
+Introduire des lags peut régler le problème mais cela a généré un surajustement et aussi de l'heteroscedasticité et la forme linéaire n'est pas accepte
+
+# ARMAX
+
+Modèle 0 de test avec ARMAX avec toutes les variables et sans stationnaire
+
+```{r}
+y0 <- ts_data[,1]
+vars0 <- ts_data[,2:9]
+# Estimation du modèle ARMAX
+armax_model0 <- auto.arima(y0, xreg = vars0, stationary=FALSE, seasonal = TRUE)
+# Résumé du modèle ARMAX
+summary(armax_model0)
+coeftest(armax_model0)
+
+# Test hypotheses 
+# Résidus du modèle ARMAX
+residuals_armax0 <- residuals(armax_model0)
+# Test de normalité des résidus
+ks.test(residuals_armax0, "pnorm", mean = mean(residuals_armax0), sd = sd(residuals_armax0))
+# Test de Ljung-Box pour l'autocorrélation des résidus
+checkresiduals(armax_model0)
+# Test de Breusch-Pagan pour l'hétéroscédasticité
+bptest(residuals_armax0 ~ vars0)
+
+```
+
+Problème d’autocorrelation Ljung-Box test p-value \< 2.2e-16
+
+Problème d’homoscedasticité Breusch-Pagan p-value test 2.703e-06
+
+Problème normalité Kolmogorov-Smirnov test p-value = 0.01913
+
+## 1. Test Modèle ARMAX avec toutes les variables stationnaires
+
+Inclut toutes les variables (stationnaires)
+
+```{r}
+# Préparation des séries temporelles pour ARMAX
+y1 <- ts(stationnaire_data[,2], start = c(2000, 2), frequency = 12)
+vars1 <- as.matrix(stationnaire_data[, 3:10]) 
+# Estimation du modèle ARMAX avec toutes les variables
+armax_model1 <- auto.arima(y1, xreg = vars1, stationary=TRUE)
+# Résumé du modèle ARMAX
+summary(armax_model1)
+coeftest(armax_model1)
+
+# Test hypotheses 
+# Résidus du modèle ARMAX
+# Test de Ljung-Box pour l'autocorrélation des résidus
+checkresiduals(armax_model1)
+residuals_armax1 <- residuals(armax_model1)
+# Test de normalité des résidus
+ks.test(residuals_armax1, "pnorm", mean = mean(residuals_armax1), sd = sd(residuals_armax1))
+# Test de Breusch-Pagan pour l'hétéroscédasticité
+bptest(residuals_armax1 ~ vars1)
+
+
+```
+
+## 2. ARMAX Avec variables sélectionnes par stepwise et best sub
+
+```{r}
+
+y2 <- ts(stationnaire_data[,2], start = c(2000, 2), frequency = 12)
+vars2 <- as.matrix(stationnaire_data[, c("exportations", "petrole", "precipitation", "taux_change", "CDD")])
+# Estimation du modèle ARMAX
+armax_model2 <- auto.arima(y2, xreg = vars2, stationary=TRUE)
+# Résumé du modèle ARMAX
+summary(armax_model2)
+
+coeftest(armax_model2)
+
+
+# Test hypothèses 
+# Résidus du modèle ARMAX
+residuals_armax2 <- residuals(armax_model2)
+# Test de Ljung-Box pour l'autocorrélation des résidus
+checkresiduals(armax_model2)
+# Test de normalité des résidus
+ks.test(residuals_armax2, "pnorm", mean = mean(residuals_armax2), sd = sd(residuals_armax2))
+
+# Test de Breusch-Pagan pour l'hétéroscédasticité
+bptest(residuals_armax2 ~ vars2)
+```
+
+## 3. Modèle ARMAX (st2_data utilise le diff_log_IPA)
+
+```{r}
+y3 <- ts(st2_data[,2], start = c(2000, 2), frequency = 12)
+vars3 <- as.matrix(stationnaire_data[, 3:10]) 
+# Estimation du modèle ARMAX
+armax_model3 <- auto.arima(y3, xreg = vars3, stationary=TRUE)
+# Résumé du modèle ARMAX
+summary(armax_model3)
+
+coeftest(armax_model3)
+
+# Test hypotheses 
+# Résidus du modèle ARMAX
+residuals_armax3 <- residuals(armax_model3)
+# Test de Ljung-Box pour l'autocorrélation des résidus
+checkresiduals(residuals_armax3)
+# Test de normalité des résidus
+ks.test(residuals_armax3, "pnorm", mean = mean(residuals_armax3), sd = sd(residuals_armax3))
+# Test de Breusch-Pagan pour l'hétéroscédasticité
+bptest(residuals_armax3 ~ vars3)
+
+```
+
+## 4. Modèle ARMAX2 - Variables sélectionnés (st2_data utilise le diff_log_IPA)
+
+```{r}
+y4 <- ts(st2_data[,2], start = c(2000, 2), frequency = 12)
+vars4 <- as.matrix(stationnaire_data[, c("exportations", "petrole", "precipitation", "taux_change")])
+
+# Estimation du modèle ARMAX
+armax_model4 <- auto.arima(y4, xreg = vars4, stationary=TRUE, seasonal = FALSE, stepwise=FALSE, approximation=FALSE)
+# Résumé du modèle ARMAX
+summary(armax_model4)
+coeftest(armax_model4)
+
+# Test hypotheses 
+# Résidus du modèle ARMAX
+residuals_armax <- residuals(armax_model4)
+# Test de normalité des résidus
+ks.test(residuals_armax, "pnorm", mean = mean(residuals_armax), sd = sd(residuals_armax))
+# Test de Ljung-Box pour l'autocorrélation des résidus
+
+checkresiduals(armax_model4)
+# Test de Breusch-Pagan pour l'hétéroscédasticité
+bptest(residuals_armax ~ vars4)
+
+```
+
+-   Test de Kolmogorov-Smirnov Une p-value de 0.4388 indique qu'il n'y a pas de preuve statistique pour rejeter l'hypothèse nulle selon laquelle les résidus suivent une distribution normale. Cela signifie que les résidus peuvent être considérés comme normalement distribués
+
+-   Test de Ljung-Box (Box-Ljung Test) Une p-value de 0.593 indique que on ne rejete pas l'hypothèse nulle d'indépendance des résidus et donc pas d'autocorrélation significative dans les résidus du modèle
+
+-   Test de Breusch-Pagan Hypothèse nulle: les variances des résidus sont homogènes, c'est-à-dire qu'il n'y a pas d'hétéroscédasticité dans les résidus de votre modèle. Avec une p-value de 0.3751, on ne rejet pas l'hypothèse nulle car il n'y a pas de preuves statistiquement significatives d'hétéroscédasticité dans les résidus du modèle ARMAX
+
+```{r}
+# écart pour la bande de prédiction à 80%
+ec80 <- sqrt(armax_model4$sigma2) * qnorm(0.90)
+
+# Valeurs ajustées (prédictions)
+vajust <- fitted(armax_model4)
+
+# Matrice avec les valeurs observées, les valeurs ajustées, et les bandes de prédiction
+matri <- as.ts(cbind(y4, vajust - ec80, vajust + ec80), start = start(y4), frequency = frequency(y4))
+
+# Graphique
+plot(matri, plot.type = 'single', lty = c(1, 2, 2), xlab = "Temps", ylab = 'Valeur', main = "", cex.main = 0.8)
+legend("topright", legend = c("Valeur observée", "Bande de prédiction 80%"), lwd = 1, lty = c(1, 2), cex = 0.8)
+
+
+# Proportion 
+indi <- (y4-(vajust-ec80))>0&(vajust+ec80-y4)>0
+prop <- 100*sum(indi)/length(indi)
+
+prop
+
+```
+
+Montre les valeurs observées de notre série temporelle, ainsi que les valeurs ajustées par le modèle ARMAX avec une bande de prédiction à 80%.
+
+La proportion observée vaut 81%, elle est un peu supérieure à la valeur théorique de 80%. On considérera que l'ajustement est satisfaisant.
+
+# Comparaison lm et armax
+
+```{r}
+a <-arima(y4, order = c(0,0,0), xreg = vars4)
+coeftest(a)
+
+
+lm_model2
+summary(lm_model2)
+```
+
+On trouve effectivement les mêmes estimations que par lm() dans lm_model2; cependant on note des différences dans les écarts types des estimateurs. Ceci peut s’expliquer par le fait que Arima() fournit une estimation de la matrice des covariances des estimateurs à partir du Hessien de la log-vraisemblance, estimation peu précise.
+
+## ACF - PACF
+
+On reprend le modèle avec diff log, les variables sélectionnés et
+
+```{r}
+acf(residuals(lm_model2),lag.max=30,numer=FALSE)
+pacf(residuals(lm_model2),lag.max=30,numer=FALSE)
+```
+
+# Modèle mix - MCG - AR
+
+on rajoute un terme AR 1
+
+```{r}
+
+gls_model1 <- gls(IPA ~ taux_change + petrole + precipitation + exportations, 
+                 data = st2_data,  corAR1(form = ~ 1))
+summary(gls_model1)
+
+# Vérification des résidus
+residuals_gls_model <- residuals(gls_model1)
+par(mfrow = c(1, 2))
+acf(residuals_gls_model, main = "ACF des résidus du modèle AR(1)")
+pacf(residuals_gls_model, main = "PACF des résidus du modèle AR(1)")
+
+checkresiduals(gls_model1)
+
+```
+
+gls : La fonction gls permet de spécifier des modèles de régression avec des structures de corrélation spécifiques pour les erreurs. corARMA(p = 1, form = \~ 1) : Cet argument spécifie que les résidus du modèle doivent suivre un processus AR(1).
+
+## Modèle MCO avec les résidus ajustés avec un modèle AR(1)
+
+```{r}
+# On ajuste le modèle avec base st2 (qui utilise diff_log_IPA) pour obtenir les résidus
+lm_base <- lm(IPA ~ taux_change + petrole + precipitation + exportations, data = st2_data)
+residuals_base <- residuals(lm_base)
+
+#  modèle AR(1) sur les résidus
+ar1_residuals <- arima(residuals_base, order = c(1, 0, 0))
+ar1_fitted <- fitted(ar1_residuals)
+
+#  les valeurs ajustées de l'AR(1) comme une nouvelle variable
+st2_data$ar1_fitted <- ar1_fitted
+
+# On reajuste le modèle linéaire en incluant la nouvelle variable
+lm_corrected <- lm(IPA ~ taux_change + petrole + precipitation + exportations + ar1_fitted, data = st2_data)
+
+# Résumé du nouveau modèle
+summary(lm_corrected)
+
+# Vérification des résidus du modèle corrigé
+residuals_corrected <- residuals(lm_corrected)
+par(mfrow = c(1, 2))
+acf(residuals_corrected, main = "ACF des résidus du modèle corrigé")
+pacf(residuals_corrected, main = "PACF des résidus du modèle corrigé")
+
+checkresiduals(residuals_corrected)
+
+
+# Tests
+ks.test(residuals_corrected, "pnorm", mean = mean(residuals_corrected), sd = sd(residuals_corrected))
+bptest(lm_corrected)
+reset(lm_corrected)
+vif(lm_corrected)
+
+
+```
