@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-03-01">
+
+<title>Variables latentes – Menu principal</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Menu principal</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/isabel6198"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/isabel-palacio-9470a291/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text">LinkedIn</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#apprentissage-supervise-par-une-approche-pls" id="toc-apprentissage-supervise-par-une-approche-pls" class="nav-link active" data-scroll-target="#apprentissage-supervise-par-une-approche-pls">Apprentissage supervisé par une approche PLS</a></li>
+  <li><a href="#préparation-du-jeu-de-données" id="toc-préparation-du-jeu-de-données" class="nav-link" data-scroll-target="#préparation-du-jeu-de-données">Préparation du jeu de données</a>
+  <ul class="collapse">
+  <li><a href="#convertir-la-colonne-pays-en-factor" id="toc-convertir-la-colonne-pays-en-factor" class="nav-link" data-scroll-target="#convertir-la-colonne-pays-en-factor">Convertir la colonne pays en factor</a></li>
+  <li><a href="#configurer-preprocess-pour-la-normalisation-min-max" id="toc-configurer-preprocess-pour-la-normalisation-min-max" class="nav-link" data-scroll-target="#configurer-preprocess-pour-la-normalisation-min-max">Configurer preProcess pour la normalisation min-max</a></li>
+  <li><a href="#vérification-de-valeurs-manquantes" id="toc-vérification-de-valeurs-manquantes" class="nav-link" data-scroll-target="#vérification-de-valeurs-manquantes">Vérification de valeurs manquantes</a></li>
+  </ul></li>
+  <li><a href="#analyse-descriptif" id="toc-analyse-descriptif" class="nav-link" data-scroll-target="#analyse-descriptif">Analyse descriptif</a>
+  <ul class="collapse">
+  <li><a href="#matrice-de-corrélation" id="toc-matrice-de-corrélation" class="nav-link" data-scroll-target="#matrice-de-corrélation">Matrice de corrélation</a></li>
+  <li><a href="#transformation-des-données-en-format-long" id="toc-transformation-des-données-en-format-long" class="nav-link" data-scroll-target="#transformation-des-données-en-format-long">Transformation des données en format long</a></li>
+  <li><a href="#acp-factominer" id="toc-acp-factominer" class="nav-link" data-scroll-target="#acp-factominer">ACP FactoMineR</a></li>
+  <li><a href="#acp-mixomics" id="toc-acp-mixomics" class="nav-link" data-scroll-target="#acp-mixomics">ACP mixOmics</a></li>
+  <li><a href="#séparation-du-jeu-de-données-en-jeu-dentraînement-et-jeu-test" id="toc-séparation-du-jeu-de-données-en-jeu-dentraînement-et-jeu-test" class="nav-link" data-scroll-target="#séparation-du-jeu-de-données-en-jeu-dentraînement-et-jeu-test">Séparation du jeu de données en jeu d’entraînement et jeu test</a></li>
+  </ul></li>
+  <li><a href="#analyse-discriminante-par-les-moindres-carrés-partiels-pls-da" id="toc-analyse-discriminante-par-les-moindres-carrés-partiels-pls-da" class="nav-link" data-scroll-target="#analyse-discriminante-par-les-moindres-carrés-partiels-pls-da">Analyse Discriminante par les Moindres Carrés Partiels (PLS-DA)</a></li>
+  <li><a href="#choix-de-composantes" id="toc-choix-de-composantes" class="nav-link" data-scroll-target="#choix-de-composantes">Choix de composantes</a></li>
+  <li><a href="#taux-derreur-sur-la-base-test" id="toc-taux-derreur-sur-la-base-test" class="nav-link" data-scroll-target="#taux-derreur-sur-la-base-test">Taux d’erreur sur la base test</a></li>
+  <li><a href="#matrice-de-confusion" id="toc-matrice-de-confusion" class="nav-link" data-scroll-target="#matrice-de-confusion">Matrice de confusion</a></li>
+  <li><a href="#métrique-recall-et-precision" id="toc-métrique-recall-et-precision" class="nav-link" data-scroll-target="#métrique-recall-et-precision">Métrique recall et precision</a></li>
+  <li><a href="#calcul-du-score-f1-pour-chaque-classe" id="toc-calcul-du-score-f1-pour-chaque-classe" class="nav-link" data-scroll-target="#calcul-du-score-f1-pour-chaque-classe">Calcul du score F1 pour chaque classe</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Variables latentes</h1>
+<p class="subtitle lead">Discrimination des saumons suivant leur provenance</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Classifaction</div>
+    <div class="quarto-category">ACP</div>
+    <div class="quarto-category">PLS-DA</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 1, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="apprentissage-supervise-par-une-approche-pls" class="level1">
+<h1>Apprentissage supervisé par une approche PLS</h1>
+<p>Discrimination des saumons suivant leur provenance et leur mode de production sur la base de données de caractérisation chimique.</p>
+<div style="text-align: center;">
+<iframe src="../../../pdf/projet_saumon.pdf" width="80%" height="500px">
+</iframe>
+</div>
+<p>Vous avez la possibilité de télécharger le document ici :) <a href="../../../pdf/projet_saumon.pdf">📥 Télécharger le fichier PDF</a></p>
+<p><strong>Présentation du code</strong></p>
+<p>Je vous présente ci-dessous, le code utilisé pour mener à bien ce projet, avec les étapes et explications correspondantes.</p>
+<p><strong>Librairies</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mixOmics)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>})  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>saumon <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"ICPMS_raw_data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="préparation-du-jeu-de-données" class="level1">
+<h1>Préparation du jeu de données</h1>
+<p>Les 20 éléments restants ont été sélectionnés à partir des données brutes de ICP-MS; Li, B, Al, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, As, Se, Rb, Sr, Nb, Mo, Cd, Cs, Ta’</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(saumon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   521 obs. of  38 variables:
+ $ Class             : chr  "Alaskan" "Alaskan" "Alaskan" "Alaskan" ...
+ $ X7..Li....No.Gas..: num  41.7 26.2 29.1 27.4 48.3 ...
+ $ X9..Be....No.Gas..: num  0.36 0.13 0.18 0.26 0.2 0.13 0.09 0.14 0.14 0.13 ...
+ $ X11..B....No.Gas..: num  895 714 630 637 1135 ...
+ $ X23..Na....He..   : num  3515111 1972504 2215578 2146019 2613561 ...
+ $ X24..Mg....He..   : num  1367207 1043805 1038513 1059030 1236369 ...
+ $ X27..Al....He..   : num  942 953 1548 897 988 ...
+ $ X28..Si....He..   : num  15274 13080 12523 12792 13179 ...
+ $ X31..P....He..    : num  8489171 6068584 6473927 6611607 7205997 ...
+ $ X39..K....He..    : num  6669882 4515977 5007307 4953765 5337876 ...
+ $ X44..Ca....He..   : num  60213 34519 45423 43136 63616 ...
+ $ X47..Ti....He..   : num  145 254 179 184 177 ...
+ $ X51..V....He..    : num  14.34 3.33 9.47 11.57 8.88 ...
+ $ X52..Cr....He..   : num  17.9 10.4 30.5 28.6 37.9 ...
+ $ X55..Mn....He..   : num  299 302 236 164 249 ...
+ $ X56..Fe....He..   : num  11212 8978 8687 9740 14683 ...
+ $ X59..Co....He..   : num  8.16 5.04 5.56 4.49 5.49 4.6 3.51 4.63 4.86 3.5 ...
+ $ X60..Ni....He..   : num  38.2 79.3 90.5 39.3 95.8 ...
+ $ X63..Cu....He..   : num  1506 1192 1377 1049 1435 ...
+ $ X66..Zn....He..   : num  22574 12049 13794 11922 16469 ...
+ $ X71..Ga....He..   : num  0 0.74 0 0.75 0.76 0.36 0 0 0.37 0.35 ...
+ $ X72..Ge....He..   : num  0 0.43 0.43 0 0 0.44 0 0.48 0.46 0 ...
+ $ X75..As....He..   : num  1235 1129 1047 1224 1435 ...
+ $ X78..Se....He..   : num  1741 1673 1332 1503 1686 ...
+ $ X85..Rb....He..   : num  3757 2723 2900 2746 3071 ...
+ $ X88..Sr....He..   : num  1604 747 999 1095 1935 ...
+ $ X93..Nb....He..   : num  10.75 7.05 6.93 5.56 10.56 ...
+ $ X95..Mo....He..   : num  14.75 7.11 7.78 8.93 10.21 ...
+ $ X107..Ag....He..  : num  0.73 0.29 1.64 0.46 0.83 0.57 1.24 0.39 0.86 1.22 ...
+ $ X111..Cd....He..  : num  5.55 4.4 9 9.19 6.6 ...
+ $ X133..Cs....He..  : num  93.4 66.5 69.4 61 68.2 ...
+ $ X135..Ba....He..  : num  11.7 243.4 25.6 21.9 20 ...
+ $ X181..Ta....He..  : num  18.3 10.5 13.3 59.3 15.9 ...
+ $ X182..W....He..   : num  1.07 0.67 0.96 1.38 1.02 0.72 0.73 0.49 0.54 0.82 ...
+ $ X205..Tl....He..  : num  3.21 2.21 2.32 1.15 2.18 2.13 1.56 3.82 1.44 2.15 ...
+ $ X206...Pb.....He..: num  2.56 5.78 3.33 1.45 3.33 1.65 6.22 1.62 3.8 3.97 ...
+ $ X207...Pb.....He..: num  1.95 6.34 3.47 1.82 3.64 2.03 5.51 1.13 4.01 4.99 ...
+ $ X208..Pb....He..  : num  2.19 6.11 3.25 1.77 3.33 1.83 5.69 1.38 3.85 4.49 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>saumon <span class="ot">&lt;-</span> saumon[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">33</span>)]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(saumon) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"pays"</span>, <span class="st">"Li"</span>, <span class="st">"B"</span>, <span class="st">"Al"</span>, <span class="st">"V"</span>, <span class="st">"Cr"</span>, <span class="st">"Mn"</span>, <span class="st">"Fe"</span>, <span class="st">"Co"</span>, <span class="st">"Ni"</span>, <span class="st">"Cu"</span>, <span class="st">"Zn"</span>, <span class="st">"As"</span>, <span class="st">"Se"</span>, <span class="st">"Rb"</span>, <span class="st">"Sr"</span>, <span class="st">"Nb"</span>, <span class="st">"Mo"</span>, <span class="st">"Cd"</span>, <span class="st">"Cs"</span>, <span class="st">"Ta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="convertir-la-colonne-pays-en-factor" class="level2">
+<h2 class="anchored" data-anchor-id="convertir-la-colonne-pays-en-factor">Convertir la colonne pays en factor</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>saumon<span class="sc">$</span>pays <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(saumon<span class="sc">$</span>pays)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(saumon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        pays           Li              B                Al         
+ Alaskan  : 99   Min.   : 0.00   Min.   :   0.0   Min.   :   35.7  
+ Iceland-F: 55   1st Qu.: 9.95   1st Qu.:  92.1   1st Qu.:  943.5  
+ Iceland-W: 90   Median :17.79   Median : 359.7   Median : 1447.5  
+ Norway   :100   Mean   :20.61   Mean   : 382.7   Mean   : 2408.3  
+ Scotland :177   3rd Qu.:28.96   3rd Qu.: 585.3   3rd Qu.: 2736.1  
+                 Max.   :87.00   Max.   :1346.1   Max.   :45092.6  
+       V               Cr               Mn              Fe       
+ Min.   : 0.00   Min.   :  5.72   Min.   :104.7   Min.   : 2921  
+ 1st Qu.: 6.30   1st Qu.: 18.52   1st Qu.:191.4   1st Qu.: 5423  
+ Median :10.20   Median : 30.30   Median :228.3   Median : 7012  
+ Mean   :11.56   Mean   : 42.62   Mean   :245.1   Mean   : 8231  
+ 3rd Qu.:15.30   3rd Qu.: 51.60   3rd Qu.:289.2   3rd Qu.:10301  
+ Max.   :95.70   Max.   :396.75   Max.   :774.9   Max.   :40184  
+       Co              Ni                Cu               Zn       
+ Min.   : 3.50   Min.   :   3.90   Min.   : 458.4   Min.   : 5765  
+ 1st Qu.: 7.50   1st Qu.:  15.30   1st Qu.: 873.3   1st Qu.:10471  
+ Median :10.80   Median :  23.68   Median :1159.3   Median :13916  
+ Mean   :10.92   Mean   :  58.92   Mean   :1252.4   Mean   :13747  
+ 3rd Qu.:13.57   3rd Qu.:  50.70   3rd Qu.:1476.0   3rd Qu.:16421  
+ Max.   :29.90   Max.   :1596.60   Max.   :8928.6   Max.   :26602  
+       As               Se               Rb             Sr        
+ Min.   : 788.1   Min.   : 453.3   Min.   :1838   Min.   : 281.1  
+ 1st Qu.:1343.4   1st Qu.: 825.6   1st Qu.:2879   1st Qu.: 845.8  
+ Median :1799.1   Median :1296.8   Median :3438   Median :1200.0  
+ Mean   :2091.7   Mean   :1375.0   Mean   :3523   Mean   :1379.4  
+ 3rd Qu.:2530.9   3rd Qu.:1833.3   3rd Qu.:4127   3rd Qu.:1738.2  
+ Max.   :6746.5   Max.   :3154.4   Max.   :6320   Max.   :8613.3  
+       Nb               Mo              Cd               Cs        
+ Min.   :  0.00   Min.   : 3.00   Min.   : 0.000   Min.   : 47.10  
+ 1st Qu.:  2.70   1st Qu.: 9.00   1st Qu.: 0.300   1st Qu.: 68.39  
+ Median :  6.30   Median :11.70   Median : 0.990   Median : 82.20  
+ Mean   : 15.66   Mean   :12.26   Mean   : 4.723   Mean   : 89.19  
+ 3rd Qu.: 13.78   3rd Qu.:14.40   3rd Qu.: 7.800   3rd Qu.:107.40  
+ Max.   :296.92   Max.   :66.00   Max.   :51.900   Max.   :217.19  
+       Ta        
+ Min.   :  0.30  
+ 1st Qu.:  4.94  
+ Median : 10.52  
+ Mean   : 19.09  
+ 3rd Qu.: 20.15  
+ Max.   :268.14  </code></pre>
+</div>
+</div>
+</section>
+<section id="configurer-preprocess-pour-la-normalisation-min-max" class="level2">
+<h2 class="anchored" data-anchor-id="configurer-preprocess-pour-la-normalisation-min-max">Configurer preProcess pour la normalisation min-max</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>preproc <span class="ot">&lt;-</span> <span class="fu">preProcess</span>(saumon,  <span class="at">method =</span> <span class="st">"range"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>saumon_norm <span class="ot">&lt;-</span> <span class="fu">predict</span>(preproc, saumon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="vérification-de-valeurs-manquantes" class="level2">
+<h2 class="anchored" data-anchor-id="vérification-de-valeurs-manquantes">Vérification de valeurs manquantes</h2>
+<p><code>{sum(is.null(saumon))} str(saumon_norm)</code></p>
+</section>
+</section>
+<section id="analyse-descriptif" class="level1">
+<h1>Analyse descriptif</h1>
+<section id="matrice-de-corrélation" class="level2">
+<h2 class="anchored" data-anchor-id="matrice-de-corrélation">Matrice de corrélation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(saumon_norm[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Li            B          Al            V         Cr          Mn
+Li  1.00000000  0.724641027  0.04008869  0.024334770 0.08005162  0.12836481
+B   0.72464103  1.000000000 -0.11376094  0.070988674 0.04267486 -0.16201305
+Al  0.04008869 -0.113760939  1.00000000 -0.122583713 0.07338391  0.30331472
+V   0.02433477  0.070988674 -0.12258371  1.000000000 0.09779409 -0.01296994
+Cr  0.08005162  0.042674861  0.07338391  0.097794089 1.00000000  0.14218022
+Mn  0.12836481 -0.162013053  0.30331472 -0.012969938 0.14218022  1.00000000
+Fe  0.25317831  0.008776603  0.27505466  0.159549917 0.28942941  0.46487195
+Co -0.26034878 -0.425520211  0.17365018 -0.038118096 0.05600151  0.50677703
+Ni  0.15426275  0.174676930 -0.04150267  0.094758157 0.23774355 -0.03411629
+Cu  0.25409546  0.022376096  0.09103141  0.111587130 0.30627305  0.33886807
+Zn  0.26209502 -0.091873578  0.21303529  0.039069060 0.12705212  0.62871674
+As  0.07282843 -0.231511136  0.24805751 -0.127048528 0.04332965  0.45817103
+Se  0.19054180 -0.161683420  0.18229134 -0.008138077 0.16589213  0.51642643
+Rb  0.04282060 -0.217158345  0.21644267 -0.074508843 0.18615152  0.64335441
+Sr  0.36064173  0.275550424  0.13837845  0.114383963 0.06042190  0.34308817
+Nb -0.05934258 -0.021515850 -0.01853557 -0.019491929 0.03429055  0.10774112
+Mo  0.10421444  0.140319783  0.01026243  0.088107541 0.42042750  0.20471256
+Cd  0.09084172 -0.135760711  0.15647636  0.093146759 0.14878504  0.29846500
+Cs  0.02233589 -0.273479302  0.28315336 -0.111128301 0.16923000  0.60488525
+Ta -0.09605333 -0.128510184  0.01275089 -0.049036467 0.06082321  0.20172671
+            Fe          Co            Ni         Cu            Zn          As
+Li 0.253178306 -0.26034878  0.1542627477 0.25409546  0.2620950186  0.07282843
+B  0.008776603 -0.42552021  0.1746769304 0.02237610 -0.0918735782 -0.23151114
+Al 0.275054656  0.17365018 -0.0415026707 0.09103141  0.2130352910  0.24805751
+V  0.159549917 -0.03811810  0.0947581574 0.11158713  0.0390690600 -0.12704853
+Cr 0.289429410  0.05600151  0.2377435505 0.30627305  0.1270521172  0.04332965
+Mn 0.464871950  0.50677703 -0.0341162865 0.33886807  0.6287167425  0.45817103
+Fe 1.000000000  0.23142264  0.1519759449 0.60107970  0.6699140899  0.17341713
+Co 0.231422638  1.00000000 -0.2197332620 0.16829169  0.4893560155  0.37495967
+Ni 0.151975945 -0.21973326  1.0000000000 0.59157403  0.0009223212 -0.16137993
+Cu 0.601079703  0.16829169  0.5915740256 1.00000000  0.5935674243  0.13872561
+Zn 0.669914090  0.48935602  0.0009223212 0.59356742  1.0000000000  0.52222525
+As 0.173417127  0.37495967 -0.1613799282 0.13872561  0.5222252491  1.00000000
+Se 0.769207606  0.30519477  0.0590346669 0.62420299  0.8192668000  0.34391452
+Rb 0.465893237  0.62962681 -0.0820321103 0.41919822  0.6855785324  0.46802316
+Sr 0.145974273 -0.01132413 -0.0046252187 0.06733761  0.1647603608  0.03433229
+Nb 0.083513250  0.17287801 -0.0011868805 0.07977229  0.1744046862  0.09849027
+Mo 0.101636738  0.31989378  0.2582018447 0.37676314  0.2552816609  0.09634495
+Cd 0.667687354  0.10537444  0.0858341537 0.44220436  0.5185553926  0.05601936
+Cs 0.380361544  0.53676923 -0.1205520641 0.29233323  0.5767797766  0.61844455
+Ta 0.158705002  0.27069289  0.0063345396 0.15556021  0.2734057750  0.15783964
+             Se          Rb           Sr          Nb          Mo          Cd
+Li  0.190541801  0.04282060  0.360641733 -0.05934258  0.10421444  0.09084172
+B  -0.161683420 -0.21715834  0.275550424 -0.02151585  0.14031978 -0.13576071
+Al  0.182291343  0.21644267  0.138378448 -0.01853557  0.01026243  0.15647636
+V  -0.008138077 -0.07450884  0.114383963 -0.01949193  0.08810754  0.09314676
+Cr  0.165892135  0.18615152  0.060421901  0.03429055  0.42042750  0.14878504
+Mn  0.516426429  0.64335441  0.343088165  0.10774112  0.20471256  0.29846500
+Fe  0.769207606  0.46589324  0.145974273  0.08351325  0.10163674  0.66768735
+Co  0.305194769  0.62962681 -0.011324131  0.17287801  0.31989378  0.10537444
+Ni  0.059034667 -0.08203211 -0.004625219 -0.00118688  0.25820184  0.08583415
+Cu  0.624202989  0.41919822  0.067337612  0.07977229  0.37676314  0.44220436
+Zn  0.819266800  0.68557853  0.164760361  0.17440469  0.25528166  0.51855539
+As  0.343914522  0.46802316  0.034332287  0.09849027  0.09634495  0.05601936
+Se  1.000000000  0.67263481  0.064750989  0.20787315  0.10240250  0.71970435
+Rb  0.672634807  1.00000000  0.042192750  0.23350173  0.23237317  0.36564902
+Sr  0.064750989  0.04219275  1.000000000 -0.18928860 -0.05813792  0.11870994
+Nb  0.207873151  0.23350173 -0.189288598  1.00000000  0.24765213  0.12228641
+Mo  0.102402501  0.23237317 -0.058137918  0.24765213  1.00000000 -0.05689127
+Cd  0.719704345  0.36564902  0.118709942  0.12228641 -0.05689127  1.00000000
+Cs  0.542852861  0.86687886  0.115683237  0.15873294  0.09295079  0.27459355
+Ta  0.332121329  0.36836121 -0.208432236  0.94275429  0.28107000  0.19763015
+            Cs          Ta
+Li  0.02233589 -0.09605333
+B  -0.27347930 -0.12851018
+Al  0.28315336  0.01275089
+V  -0.11112830 -0.04903647
+Cr  0.16923000  0.06082321
+Mn  0.60488525  0.20172671
+Fe  0.38036154  0.15870500
+Co  0.53676923  0.27069289
+Ni -0.12055206  0.00633454
+Cu  0.29233323  0.15556021
+Zn  0.57677978  0.27340577
+As  0.61844455  0.15783964
+Se  0.54285286  0.33212133
+Rb  0.86687886  0.36836121
+Sr  0.11568324 -0.20843224
+Nb  0.15873294  0.94275429
+Mo  0.09295079  0.28107000
+Cd  0.27459355  0.19763015
+Cs  1.00000000  0.28032163
+Ta  0.28032163  1.00000000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="fu">cor</span>(saumon_norm[, <span class="sc">-</span><span class="dv">1</span>]), <span class="at">method =</span> <span class="st">"color"</span>, <span class="at">type =</span> <span class="st">"upper"</span>, <span class="at">order=</span><span class="st">"FPC"</span>, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">tl.cex =</span> <span class="fl">0.6</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">number.cex =</span> <span class="fl">0.5</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">addCoef.col =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Distribution des valeurs observés pour les différents variables</p>
+</section>
+<section id="transformation-des-données-en-format-long" class="level2">
+<h2 class="anchored" data-anchor-id="transformation-des-données-en-format-long">Transformation des données en format long</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>saumon_norm_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(saumon_norm, <span class="at">cols =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Histogrammes avec courbes de densité pour chaque variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(saumon_norm_long, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>variable, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Densité"</span>, <span class="at">title =</span> <span class="st">"Distribution des Variables avec Courbe de Densité"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Tableau de contingence des pays</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(saumon_norm<span class="sc">$</span>pays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  Alaskan Iceland-F Iceland-W    Norway  Scotland 
+       99        55        90       100       177 </code></pre>
+</div>
+</div>
+</section>
+<section id="acp-factominer" class="level2">
+<h2 class="anchored" data-anchor-id="acp-factominer">ACP FactoMineR</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pca_res <span class="ot">&lt;-</span> <span class="fu">PCA</span>(saumon_norm[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">scale.unit =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: ggrepel: 18 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_screeplot</span>(pca_res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca_res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-10-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca_res, <span class="at">axes =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-10-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pca_res<span class="sc">$</span>var<span class="sc">$</span>cos2,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Dim.1 Dim.2 Dim.3 Dim.4 Dim.5
+Li  0.00  0.79  0.03  0.02  0.00
+B   0.11  0.80  0.04  0.02  0.00
+Al  0.08  0.00  0.01  0.03  0.01
+V   0.00  0.01  0.03  0.00  0.03
+Cr  0.04  0.02  0.00  0.03  0.08
+Mn  0.51  0.00  0.05  0.00  0.05
+Fe  0.46  0.11  0.14  0.00  0.02
+Co  0.38  0.14  0.09  0.06  0.10
+Ni  0.00  0.06  0.05  0.01  0.00
+Cu  0.31  0.10  0.08  0.00  0.01
+Zn  0.78  0.06  0.00  0.01  0.00
+As  0.35  0.01  0.28  0.12  0.17
+Se  0.77  0.05  0.14  0.00  0.01
+Rb  0.77  0.00  0.05  0.04  0.03
+Sr  0.01  0.14  0.02  0.08  0.13
+Nb  0.06  0.00  0.00  0.54  0.28
+Mo  0.04  0.02  0.04  0.22  0.02
+Cd  0.33  0.03  0.36  0.01  0.00
+Cs  0.65  0.01  0.14  0.00  0.00
+Ta  0.15  0.01  0.00  0.51  0.24</code></pre>
+</div>
+</div>
+</section>
+<section id="acp-mixomics" class="level2">
+<h2 class="anchored" data-anchor-id="acp-mixomics">ACP mixOmics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pca.saumon <span class="ot">=</span> <span class="fu">pca</span>(saumon_norm[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">scale =</span> <span class="cn">FALSE</span>, <span class="at">ncomp =</span> <span class="dv">10</span>, <span class="at">center =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotIndiv</span>(pca.saumon, <span class="at">group =</span> saumon_norm<span class="sc">$</span>pays, <span class="at">ind.names =</span> <span class="cn">FALSE</span>,  <span class="at">legend =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">'Saumons par Pays - ACP'</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">size.title =</span> <span class="fu">rel</span>(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="séparation-du-jeu-de-données-en-jeu-dentraînement-et-jeu-test" class="level2">
+<h2 class="anchored" data-anchor-id="séparation-du-jeu-de-données-en-jeu-dentraînement-et-jeu-test">Séparation du jeu de données en jeu d’entraînement et jeu test</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>intrain <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(saumon_norm<span class="sc">$</span>pays, <span class="at">p=</span><span class="fl">0.8</span>, <span class="at">list=</span><span class="cn">FALSE</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#save(intrain,file="intrain.Rdata") # enregistrer intrain pour la reprod </span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"intrain.Rdata"</span>))<span class="co"># télecharger le fichier</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>X.app <span class="ot">&lt;-</span> saumon_norm[intrain, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>Y.app <span class="ot">&lt;-</span> saumon_norm[intrain, <span class="dv">1</span>]</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>X.test <span class="ot">&lt;-</span> saumon_norm[<span class="sc">-</span>intrain, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>Y.test <span class="ot">&lt;-</span> saumon_norm[<span class="sc">-</span>intrain, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="analyse-discriminante-par-les-moindres-carrés-partiels-pls-da" class="level1">
+<h1>Analyse Discriminante par les Moindres Carrés Partiels (PLS-DA)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>plsda.saumon <span class="ot">&lt;-</span> mixOmics<span class="sc">::</span><span class="fu">plsda</span>(X.app, Y.app, <span class="at">ncomp=</span><span class="dv">10</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>) <span class="co">#scale FALSE par defaut true</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotVar</span>(plsda.saumon, <span class="at">comp =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="co"># permet de voir les variables sur un graphique</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotIndiv</span>(plsda.saumon, <span class="at">comp =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">centroid =</span> <span class="cn">TRUE</span>, <span class="at">ellipse =</span> <span class="cn">TRUE</span>, <span class="at">legend =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Projection d'échantillons PLSDA "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plsda.saumon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+ mixOmics::plsda(X = X.app, Y = Y.app, ncomp = 10, scale = FALSE) 
+
+ PLS-DA (regression mode) with 10 PLS-DA components. 
+ You entered data X of dimensions: 418 20 
+ You entered data Y with 5 classes. 
+
+ No variable selection. 
+
+ Main numerical outputs: 
+ -------------------- 
+ loading vectors: see object$loadings 
+ variates: see object$variates 
+ variable names: see object$names 
+
+ Functions to visualise samples: 
+ -------------------- 
+ plotIndiv, plotArrow, cim 
+
+ Functions to visualise variables: 
+ -------------------- 
+ plotVar, plotLoadings, network, cim 
+
+ Other functions: 
+ -------------------- 
+ auc </code></pre>
+</div>
+</div>
+</section>
+<section id="choix-de-composantes" class="level1">
+<h1>Choix de composantes</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>) <span class="co"># pour la reproductibité </span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>perf.saumon <span class="ot">&lt;-</span> <span class="fu">perf</span>(plsda.saumon, <span class="at">validation =</span> <span class="st">"Mfold"</span>, <span class="at">folds =</span> <span class="dv">10</span>,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">progressBar =</span> <span class="cn">FALSE</span>, <span class="at">auc =</span> <span class="cn">TRUE</span>, <span class="at">nrepeat =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Montre le nombre de composantes pour predire, avec plusieur options (max.dist, centroids) et la mahalanobis</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(perf.saumon, <span class="at">col =</span> <span class="fu">color.mixo</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">7</span>), <span class="at">sd =</span> <span class="cn">TRUE</span>, <span class="at">legend.position =</span> <span class="st">"horizontal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>perf.saumon<span class="sc">$</span>choice.ncomp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        max.dist centroids.dist mahalanobis.dist
+overall        8              7                8
+BER            8              7                8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>perf.saumon<span class="sc">$</span>error.rate <span class="co"># montre le nombre d'erreur pour chaque regle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$overall
+         max.dist centroids.dist mahalanobis.dist
+comp1  0.51674641      0.5315789       0.53157895
+comp2  0.25526316      0.2122010       0.23229665
+comp3  0.17559809      0.2011962       0.16411483
+comp4  0.08995215      0.1528708       0.10119617
+comp5  0.06626794      0.1339713       0.07200957
+comp6  0.05813397      0.1236842       0.05071770
+comp7  0.05622010      0.1188995       0.04354067
+comp8  0.05430622      0.1191388       0.04545455
+comp9  0.05311005      0.1177033       0.04473684
+comp10 0.05191388      0.1167464       0.04114833
+
+$BER
+         max.dist centroids.dist mahalanobis.dist
+comp1  0.61827074     0.46266901       0.46266901
+comp2  0.33672496     0.18519078       0.20225882
+comp3  0.25827874     0.15505755       0.12294782
+comp4  0.09944416     0.11729272       0.08943790
+comp5  0.08380595     0.10433444       0.06480790
+comp6  0.07491183     0.09952109       0.05101839
+comp7  0.07218904     0.09592463       0.04769309
+comp8  0.06792527     0.09740361       0.04642086
+comp9  0.06587086     0.09610791       0.04531562
+comp10 0.06588942     0.09584617       0.04467631</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>nb_compo <span class="ot">=</span> <span class="dv">4</span> <span class="co"># nombre de composontes définit</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>vip.saumon <span class="ot">&lt;-</span> <span class="fu">vip</span>(plsda.saumon)[, nb_compo] </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(vip.saumon, <span class="at">xlab =</span> <span class="fu">colnames</span>(X.app), <span class="at">las=</span><span class="dv">2</span>, <span class="at">main =</span> <span class="st">"Variable Importance in the Projection"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(vip.saumon, </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">las =</span> <span class="dv">2</span>,   <span class="co"># Orientations verticales des noms de variables</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Variable Importance in the Projection"</span>,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">ifelse</span>(vip.saumon <span class="sc">&gt;</span> <span class="dv">1</span>, <span class="st">"red"</span>, <span class="st">"grey"</span>), <span class="co"># Variables importantes en rouge</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(vip.saumon) <span class="sc">*</span> <span class="fl">1.1</span>)) </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajout d'une ligne de référence</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">"blue"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>auc.saumon <span class="ot">=</span> <span class="fu">auroc</span>(plsda.saumon, <span class="at">roc.comp =</span> nb_compo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Comp1
+                         AUC   p-value
+Alaskan vs Other(s)   0.5670 6.221e-02
+Iceland-F vs Other(s) 0.7249 1.048e-06
+Iceland-W vs Other(s) 0.9898 0.000e+00
+Norway vs Other(s)    0.7784 9.326e-15
+Scotland vs Other(s)  0.7599 0.000e+00
+
+$Comp2
+                         AUC   p-value
+Alaskan vs Other(s)   0.9832 0.000e+00
+Iceland-F vs Other(s) 0.7267 8.563e-07
+Iceland-W vs Other(s) 0.9971 0.000e+00
+Norway vs Other(s)    0.9724 0.000e+00
+Scotland vs Other(s)  0.7599 0.000e+00
+
+$Comp3
+                         AUC p-value
+Alaskan vs Other(s)   0.9998       0
+Iceland-F vs Other(s) 0.9376       0
+Iceland-W vs Other(s) 0.9995       0
+Norway vs Other(s)    0.9651       0
+Scotland vs Other(s)  0.8876       0
+
+$Comp4
+                         AUC p-value
+Alaskan vs Other(s)   0.9998       0
+Iceland-F vs Other(s) 0.9624       0
+Iceland-W vs Other(s) 0.9995       0
+Norway vs Other(s)    0.9746       0
+Scotland vs Other(s)  0.9529       0
+
+$Comp5
+                         AUC p-value
+Alaskan vs Other(s)   0.9999       0
+Iceland-F vs Other(s) 0.9650       0
+Iceland-W vs Other(s) 0.9994       0
+Norway vs Other(s)    0.9848       0
+Scotland vs Other(s)  0.9766       0
+
+$Comp6
+                         AUC p-value
+Alaskan vs Other(s)   0.9998       0
+Iceland-F vs Other(s) 0.9564       0
+Iceland-W vs Other(s) 0.9996       0
+Norway vs Other(s)    0.9893       0
+Scotland vs Other(s)  0.9791       0
+
+$Comp7
+                         AUC p-value
+Alaskan vs Other(s)   0.9999       0
+Iceland-F vs Other(s) 0.9606       0
+Iceland-W vs Other(s) 0.9998       0
+Norway vs Other(s)    0.9893       0
+Scotland vs Other(s)  0.9771       0
+
+$Comp8
+                         AUC p-value
+Alaskan vs Other(s)   1.0000       0
+Iceland-F vs Other(s) 0.9710       0
+Iceland-W vs Other(s) 0.9997       0
+Norway vs Other(s)    0.9896       0
+Scotland vs Other(s)  0.9769       0
+
+$Comp9
+                         AUC p-value
+Alaskan vs Other(s)   0.9999       0
+Iceland-F vs Other(s) 0.9710       0
+Iceland-W vs Other(s) 0.9998       0
+Norway vs Other(s)    0.9915       0
+Scotland vs Other(s)  0.9799       0
+
+$Comp10
+                         AUC p-value
+Alaskan vs Other(s)   0.9999       0
+Iceland-F vs Other(s) 0.9693       0
+Iceland-W vs Other(s) 0.9998       0
+Norway vs Other(s)    0.9921       0
+Scotland vs Other(s)  0.9834       0</code></pre>
+</div>
+</div>
+</section>
+<section id="taux-derreur-sur-la-base-test" class="level1">
+<h1>Taux d’erreur sur la base test</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>plsda.fin.saumon <span class="ot">&lt;-</span> <span class="fu">plsda</span>(X.app, Y.app, <span class="at">ncomp =</span> nb_compo, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>plsda.test <span class="ot">&lt;-</span> <span class="fu">predict</span>(plsda.fin.saumon, <span class="at">dist=</span><span class="st">"mahalanobis.dist"</span>, <span class="at">newdata=</span> X.test)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plsda.test.fin <span class="ot">&lt;-</span> plsda.test<span class="sc">$</span>class<span class="sc">$</span>mahalanobis.dist[,nb_compo]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="matrice-de-confusion" class="level1">
+<h1>Matrice de confusion</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mat.confusion <span class="ot">&lt;-</span> <span class="fu">table</span>(Y.test, plsda.test.fin)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>mat.confusion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           plsda.test.fin
+Y.test      Alaskan Iceland-F Iceland-W Norway Scotland
+  Alaskan        19         0         0      0        0
+  Iceland-F       0        10         0      1        0
+  Iceland-W       0         0        18      0        0
+  Norway          1         3         0     15        1
+  Scotland        0         1         0      2       32</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(mat.confusion))<span class="sc">/</span><span class="fu">sum</span>(mat.confusion) <span class="co"># calcul de l'exactitude du modéle </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9126214</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">sum</span>(<span class="fu">diag</span>(mat.confusion))<span class="sc">/</span><span class="fu">sum</span>(mat.confusion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08737864</code></pre>
+</div>
+</div>
+</section>
+<section id="métrique-recall-et-precision" class="level1">
+<h1>Métrique recall et precision</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span> <span class="fu">diag</span>(mat.confusion) <span class="sc">/</span> <span class="fu">colSums</span>(mat.confusion)  <span class="co">#  pour la précision</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>recall <span class="ot">&lt;-</span> <span class="fu">diag</span>(mat.confusion) <span class="sc">/</span> <span class="fu">rowSums</span>(mat.confusion)  <span class="co">#  pour le rappel</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Alaskan Iceland-F Iceland-W    Norway  Scotland 
+0.9500000 0.7142857 1.0000000 0.8333333 0.9696970 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(recall)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Alaskan Iceland-F Iceland-W    Norway  Scotland 
+1.0000000 0.9090909 1.0000000 0.7500000 0.9142857 </code></pre>
+</div>
+</div>
+</section>
+<section id="calcul-du-score-f1-pour-chaque-classe" class="level1">
+<h1>Calcul du score F1 pour chaque classe</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>f1_score <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (precision <span class="sc">*</span> recall) <span class="sc">/</span> (precision <span class="sc">+</span> recall)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(f1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Alaskan Iceland-F Iceland-W    Norway  Scotland 
+0.9743590 0.8000000 1.0000000 0.7894737 0.9411765 </code></pre>
+</div>
+</div>
+<p>Pour connaitre les éléments importants pour chaque composant</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>chargements <span class="ot">&lt;-</span> <span class="fu">loadings</span>(plsda.fin.saumon)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>chargements</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$X
+          comp1         comp2        comp3       comp4
+Li  0.008964501 -0.4588862072  0.150378615 -0.33668167
+B  -0.256269451 -0.6818269920  0.441188848  0.23963969
+Al  0.080764726  0.0299523940  0.042070663 -0.02750608
+V  -0.034764210 -0.0009046813 -0.130204390  0.02008908
+Cr  0.071070471 -0.0377640641  0.007907627  0.05022188
+Mn  0.173648921  0.0211225704  0.203676706 -0.16191590
+Fe  0.210951974 -0.1552414077 -0.149491265  0.10381226
+Co  0.135816558  0.3166949106  0.421057444  0.31905502
+Ni  0.001320836 -0.0894152396 -0.050928120  0.03594458
+Cu  0.102988297 -0.1106426865 -0.041157067  0.07681745
+Zn  0.370964836 -0.1965595383  0.068665442 -0.07755414
+As  0.169533209  0.0785343194  0.269274690 -0.53190235
+Se  0.579540293 -0.2826197067 -0.289639291  0.12929686
+Rb  0.358413233  0.0784967995  0.388969234  0.19916232
+Sr  0.032219788 -0.0537203639 -0.034722406 -0.33146513
+Nb  0.045883129  0.0406332068  0.062762789  0.25249882
+Mo -0.010332293 -0.0264612505  0.192279840  0.16275678
+Cd  0.268539116 -0.1202022379 -0.309500802  0.13914753
+Cs  0.321533399  0.1526348143  0.254711082 -0.21502098
+Ta  0.091232764  0.0575383770  0.057858566  0.26177170
+
+$Y
+                comp1        comp2      comp3      comp4
+Alaskan    0.02247218 -0.806396974 -0.5151578 -0.1617632
+Iceland-F  0.12867531  0.001277555  0.4809542 -0.5222550
+Iceland-W  0.74984154  0.274862117 -0.3076689  0.2892834
+Norway    -0.36451565  0.523572748 -0.2475114 -0.3220023
+Scotland  -0.53647337  0.006684554  0.5893840  0.7167371</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># Configure l'affichage en grille 2x2</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">barplot</span>(chargements<span class="sc">$</span>X[, <span class="fu">paste</span>(<span class="st">"comp"</span>, i, <span class="at">sep=</span><span class="st">""</span>)], </span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Composant"</span>, i), </span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">las =</span> <span class="dv">2</span>, <span class="at">cex.names =</span> <span class="fl">0.5</span>, </span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">4</span>)[i])</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="variables_latentes_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

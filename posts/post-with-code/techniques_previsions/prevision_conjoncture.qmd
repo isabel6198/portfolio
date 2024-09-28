@@ -1,0 +1,1009 @@
+---
+title: "Techniques de prévision et conjoncture"
+date: "2024-04"
+editor: visual
+categories: [Séries temporelles,ARIMA, ADAM, ARMAX, CES, LED]
+---
+
+**Évolution de l'indice des prix d'achat des moyens de production agricole en France**
+
+**Janvier 2005 – Décembre 2023**
+
+### Résumé
+
+L’indice des Prix d'Achat des Moyens de Production Agricole (IPAMPA) joue un rôle très important dans l'économie agricole en offrant un aperçu des coûts auxquels les agriculteurs sont confrontés. En 2023, les agriculteurs européens en Pologne, Roumanie, Slovaquie, Hongrie, Bulgarie, ainsi qu'en France, ont été confrontés à des défis marqués par des conditions climatiques extrêmes et une forte concurrence due aux importations à bas prix en provenance de l'Ukraine, considérées comme une « concurrence déloyale ». Ces tensions surviennent après une année 2022 difficile, marquée par des réserves en eau basses et des perturbations climatiques qui ont fortement impacté les rendements agricoles.
+
+Dans ce contexte, comprendre l'évolution de l'IPAMPA ne concerne pas uniquement les acteurs du secteur agricole. En effet, les variations de cet indice ont également des répercussions sur les prix à la consommation. Tout changement dans les coûts de production se répercute, après un certain délai, sur les prix finaux, influençant ainsi le coût de la vie générale. Face à cette complexité, notre projet s'est concentré sur la prévision de l'IPAMPA à l'aide de plusieurs modèles de prévision statistique. Nous avons exploré diverses approches pour identifier le modèle le plus performant en fonction des spécificités de nos données.
+
+L'objectif principal de notre étude a été de confronter ces modèles aux données réelles afin d'évaluer leur capacité à prédire précisément les fluctuations de l'IPAMPA. Ce processus nous permet non seulement de comprendre les défis associés à la prévision de cet indice, mais aussi d'appréhender les difficultés à développer un outil prédictif fiable.
+
+::: {style="text-align: center;"}
+<iframe src="/pdf/prevision.pdf" width="80%" height="500px">
+
+</iframe>
+:::
+
+Vous avez la possibilité de télécharger le document ici :) [📥 Télécharger le fichier PDF](/pdf/prevision.pdf)
+
+**Présentation du code**
+
+Je vous présente ci-dessous, le code utilisé pour mener à bien ce projet, avec les étapes et explications correspondantes.
+
+# Analyse exploratoire 
+
+### Librairies
+
+```{r}
+suppressPackageStartupMessages({
+library(readxl)
+library(tsoutliers)
+library(TSA)
+library(seastests)
+library(forecast)
+library(seasonal)
+library(RJDemetra)
+library(ggplot2)
+library(EnvStats)
+library(tseries)
+library(smooth)
+library(timeSeries)
+library(plotly)
+library(dplyr)
+library(tidyr)
+library(Kendall) 
+library(here)
+})
+```
+
+### Récupération des données
+
+```{r}
+ipampa1 <- read_excel(here("data", "serie_ipampa.xlsx"), sheet = 'complete')
+
+ipampa <- read_excel(here("data", "serie_ipampa.xlsx"))
+str(ipampa)
+ipampa <- ipampa[nrow(ipampa):1,]
+ipampa <- ipampa[, 2]
+ipampa
+
+```
+
+## Création de la série temporelle
+
+```{r}
+ipampa <- ts(data = ipampa, start = c(2005, 01), frequency=12) 
+```
+
+## Visualisation
+
+```{r}
+show(ipampa)
+plot(ipampa, xlab = "Années", ylab ="indice 'IPAMPA'", main= "Série brute")
+
+```
+
+Graphique avec ggplot
+
+```{r}
+
+ts_df <- data.frame(Date = time(ipampa), Value = as.numeric(ipampa))
+
+# graphique ggplot
+ggplot(data = ts_df, aes(x = Date, y = Value)) + 
+  geom_line(aes(color = Value)) +  
+  scale_color_gradient(low = "darkgreen", high = "red") +  
+  labs(title = "
+Indice mensuel des prix d'achat 
+des moyens de production agricole (IPAMPA)",
+       x = "Période\n(01/2005 - 12/2022)", y = "Indice") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        plot.title = element_text(size = 8),
+        axis.title.x = element_text(size = 8),
+        axis.title.y = element_text(size = 8),
+        legend.title = element_text(size = 7))  
+
+
+```
+
+## Détection outliers
+
+```{r}
+# Automatic Procedure for Detection of Outliers
+tso(ipampa)
+fit <- tso(ipampa)
+plot(fit)
+show(fit)
+
+```
+
+## Série corrigée
+
+```{r}
+par(mfrow=c(1,1))
+
+# outlier-adjusted series
+ipampa <- fit$yadj
+plot(ipampa, main= "Série adjustée", xlab= "Années", ylab ="indice 'IPAMPA")
+```
+
+Existence de 4 outliers 3 type LS et un type TC
+
+## Tests de saisonnalité
+
+```{r}
+# Friedman test
+ft <- fried(ipampa)
+show(ft)
+
+# Testing the seasonality of series
+#  a boolean value is returned : TRUE or FALSE
+is <- isSeasonal(ipampa, test="wo")
+show(is)
+
+# Kruskal-Wallis test
+kwt <- kw(ipampa)
+show(kwt)
+
+# Seasonal dummies
+# impotant 
+sd <- seasdum(ipampa)
+show(sd)
+
+
+# Webel-Ollech test
+# Webel-Ollech test - new version of seastests (2021-09)
+# impotant 
+
+wot <- combined_test(ipampa)
+show(wot)
+```
+
+Les tests confirment la non saisonnalité de la série IPAMPA
+
+### Graphique
+
+```{r}
+# Trace une série chronologique avec son acf et soit son pacf, son nuage de points décalé ou son spectre
+ggtsdisplay(ipampa, plot.type="histogram")
+
+# Trace un graphique saisonnier où les données sont comparées aux saisons d'années distinctes
+# ggseasonplot(ipampa_ts, col=rainbow(12), year.labels=TRUE)
+```
+
+## Vérification de la stationnarité
+
+### stationnarité de ipampa
+
+```{r}
+adf.test(ipampa)
+```
+
+La série n'est pas stationnaire car le test ADF \> 0.05
+
+Vu que notre série ne presente pas de saisonalité, nous allons faire un analyse sur la tendance
+
+```{r}
+decomp <- decompose(ipampa)
+plot(decomp)
+```
+
+## Tendance
+
+```{r}
+# test de tendence serie niveau
+MannKendall(ipampa)
+
+```
+
+Dans notre cas, τ = 0.568 suggère une tendance croissante modérément forte dans la série temporelle à niveau, avec un p_value inférieur à 0,05 on peut dire que la série initial presente bien une tendance
+
+### differentiation de la série
+
+```{r}
+d_ipampa <- diff(ipampa, differences = 1)
+```
+
+```{r}
+# graphique ggplot
+df <- data.frame(Date = time(d_ipampa), Value = as.numeric(d_ipampa))
+
+# graphique ggplot
+ggplot(data = df, aes(x = Date, y = Value)) + 
+  geom_line(aes(color = Value)) +  
+  scale_color_gradient(low = "darkgreen", high = "red") +  
+  labs(title = "Série differenciée",
+       x = "Dates", y = "Indice") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        plot.title = element_text(size = 8),
+        axis.title.x = element_text(size = 8),
+        axis.title.y = element_text(size = 8),
+        legend.title = element_text(size = 7))  
+
+
+```
+
+### Correlogramme série brute et série differencié
+
+```{r}
+par(mfrow=c(1,2))
+acf(ipampa, main="Correlogramme sur la série en niveau")
+acf(d_ipampa, main="Correlogramme sur la série en différence première")
+```
+
+### Periodogramme
+
+```{r}
+# Periodogramme
+par(mfrow=c(1,2))
+periodogram(ipampa, main="Periodogramme sur la série en niveau")
+periodogram(d_ipampa, main="Periodogramme sur la série en différence première")
+```
+
+## Test de stationnarité de la série différencié ipampa
+
+```{r}
+adf.test(d_ipampa)
+```
+
+Apres la différentiation la série devient bien stationnaire
+
+```{r}
+decomp <- decompose(ipampa)
+decomp_d <- decompose(d_ipampa)
+
+graph1 <- plot(decomp)
+graph2 <- plot(decomp_d)
+
+
+```
+
+## Statistiques descriptives
+
+```{r}
+summary(d_ipampa)
+
+#histogramme
+hist(d_ipampa, main= "Histogramme série corrigé", ylab=" Fréquence", xlab="indice")
+
+#skewness 
+PerformanceAnalytics::skewness(d_ipampa)
+
+#kurtosis 
+PerformanceAnalytics::kurtosis(d_ipampa)
+e1071::kurtosis(d_ipampa)
+
+#normalité
+stats::shapiro.test(d_ipampa)
+
+#boxplot
+boxplot(d_ipampa, main="Boxplot")
+#test outliers
+rosnerTest(d_ipampa, k=10)
+
+```
+
+Le test de shapiro, indique que notre série ne suit pas une loi normal
+
+Le box plot nous indique des possibles outliers. La vérification avec le test de rosner nous indique que finalement il n'y pas
+
+# Estimation des modèles linéaires
+
+Modèles AR(1), AR(p) et ARIMA(p,d,q) et de la méthode LED Holt-Winters, ADAM ETS, ADAM ETS SARIMA, SSARIMA et CES
+
+### Modèle AR(1)
+
+```{r}
+# Parametres modele AR(1)
+ar1 <- auto.arima(d_ipampa, max.p=1, max.q=0, d=0, stationary = TRUE, seasonal = FALSE, ic = "aic", stepwise = TRUE,  trace = TRUE)
+# Estimation
+summary(ar1)
+
+
+checkresiduals(ar1)
+
+```
+
+Nombre de retards pour le test Ljung-BOx: 24, ce test permet de vérifier si les résidus de notre modèle sont effectivement du bruit blanc (c'est-à-dire non corrélés et avec une moyenne constante et une variance constante). Ici la P_value est de 0,354 donc \> 0,05 ; Il n'y a pas suffisamment de preuves pour rejeter l'hypothèse selon laquelle les résidus du modèle ARIMA(1,0,0) sont indépendants. Les résidus du modèle ne présentent pas d'autocorrélation significative à aucun des décalages testés.
+
+### Modèle AR(p)
+
+```{r}
+# Parametres modele AR(p)
+arp <- auto.arima(d_ipampa, max.q=0, d=0, stationary = TRUE, seasonal = FALSE, ic = "aic", stepwise = TRUE,  trace = TRUE)
+# Estimation
+summary(arp)
+
+
+checkresiduals(arp)
+```
+
+### Modèle ARIMA(p,d,q)
+
+```{r}
+# Parametres modele AR(p,d,q)
+arima <- auto.arima(d_ipampa, stationary = TRUE, seasonal = FALSE, ic = "aic", stepwise = TRUE,  trace = TRUE)
+# Estimation
+summary(arima)
+
+
+```
+
+### Modèle Holt-Winter
+
+```{r}
+# un lissage exponentiel double (Holt-Winters sans composante saisonnière)
+# premier modele
+holtw_model <- HoltWinters(d_ipampa,gamma=FALSE) 
+holtw_model
+summary(holtw_model)
+
+ # modèle Holt-Winters package forecaste - deuxieme modele 
+hw_f <- hw(d_ipampa, seasonal = NULL)
+summary(hw_f)
+
+hw_ff <- forecast(hw_f, h=12)
+plot(hw_f$mean)
+
+checkresiduals(hw_ff)
+
+
+```
+
+Modèle Holt - nous testons un troisième modele, avec la fonction Holt de forecast
+
+```{r}
+# Ajustement du modèle de Holt
+#holtW <- holt(d_ipampa, h=12)
+#summary(holtW)
+
+#  résidus
+#checkresiduals(holtW)
+
+
+```
+
+### Modèle ADAM ETS
+
+```{r}
+
+# 1er ADAM ETS
+adam_ets <- auto.adam(d_ipampa, model="ZZN", lags=c(1,12), 
+                      select=TRUE, ic = "AIC")
+
+# Message d'avertissement 
+"Warning messages:
+1: The data is not strictly positive, so not all the distributions make sense. Dropping dlnorm, dinvgauss, dgamma. 
+2: Only additive models are allowed for your data. Changing the selection mechanism"
+
+# estimation
+summary(adam_ets)
+
+# deuxieme adam_ets pour eviter le message d'avertissement 
+adam_ets <- auto.adam(d_ipampa, model="AAN",  select=TRUE, ic = "AIC", distribution = c("dnorm"), bootstrap=TRUE, control=list(maxit=1000, trace=TRUE),orders=list(ar=c(0), i = c(0), ma = c(0)))
+
+summary(adam_ets)
+
+"Warning message:
+Observed Fisher Information is not positive semi-definite, which means that the likelihood was not maximised properly. Consider reestimating the model, tuning the optimiser or using bootstrap via bootstrap=TRUE."
+
+# troicieme adam_ets  modèle ADAM sans saisonnalité
+# adam_ets <-auto.adam(d_ipampa, model="ANN", select=TRUE, ic="AIC", bootstrap=TRUE, distribution = c("dnorm", "dlaplace"), control=list(maxit=1000, trace=TRUE))
+
+#summary(adam_ets)
+
+
+```
+
+### Modèle ADAM ETS ARIMA
+
+```{r}
+# premier test model ADAM ETS SARIMA
+adam_ets_sa <- auto.adam(d_ipampa, model="ZZN", lags=c(1,1,12), orders=list(ar=c(3,3), i=c(0), ma=c(3,3), select=TRUE))
+summary(adam_ets_sa)
+
+"Warning messages:
+1: The data is not strictly positive, so not all the distributions make sense. Dropping dlnorm, dinvgauss, dgamma. 
+2: Only additive models are allowed for your data. Changing the selection mechanism.  "
+# apres modification pour éviter les message d'avertisment 
+adam_ets_sa <- auto.adam(d_ipampa, model="AAN", lags=c(1,1,12), orders=list(ar=c(3,3), i=c(0), ma=c(3,3), select=TRUE), distribution = c("dnorm", "dlaplace"))
+summary(adam_ets_sa)
+
+"Warning message:
+Observed Fisher Information is not positive semi-definite, which means that the likelihood was not maximised properly. Consider reestimating the model, tuning the optimiser or using bootstrap via bootstrap=TRUE. "
+
+# Modele choisi
+adam_ets_sa <- auto.adam(d_ipampa, model="ANN", lags=c(1,1,12), orders=list(ar=c(3,3), i=c(0), ma=c(3,3), select=TRUE), distribution=c("dnorm", "dlaplace"), bootstrap=TRUE,control=list(maxit=3000))
+summary(adam_ets_sa)
+
+
+summary(adam_ets_sa)
+forecast(adam_ets_sa, h=12)
+
+# meme apres avoir reduit la complexité du modele cela donne l'avertissement 
+#adam_ets_sa_Test <- auto.adam(d_ipampa, model="ANN", lags=c(1,12), orders=list(ar=c(1,1), i=c(0), ma=c(1,1),select=TRUE), distribution=c("dnorm", "dlaplace"), bootstrap=TRUE, bootstrap=TRUE, control=list(maxit=3000))
+
+#forecast(adam_ets_sa_Test, h=12)
+
+#?auto.adam()
+```
+
+si l'on veut éviter l'avertissement il faut mettre model = 'ANN', mais cela implique que les prévision sont toutes égales. sur le graphique cela donne une ligne droite
+
+forecast(adam_ets_sa_Test, h=12) Jan Feb Mar Apr May 2023 -0.588298 -0.588298 -0.588298 -0.588298 -0.588298 Jun Jul Aug Sep Oct 2023 -0.588298 -0.588298 -0.588298 -0.588298 -0.588298 Nov Dec 2023 -0.588298 -0.588298
+
+On continue avec l'avertissement ...
+
+### Modèle SSARIMA
+
+```{r}
+# SSARIMA
+ssarima <- auto.ssarima(d_ipampa, lags=c(1,12), orders=list(ar=c(3,3), i=(0), ma=c(3,3), select=TRUE), ic="AICc")
+ssarima 
+summary(ssarima)
+?auto.ssarima()
+```
+
+### Modèle CES
+
+```{r}
+# auto 
+ces <- auto.ces(d_ipampa, models=c("n", "s", "p", "f"), ic="AICc") #  tester plusieurs types de modèles 
+summary(ces)
+ces
+
+checkresiduals(ces)
+
+#?auto.ces()
+```
+
+### Modèle Naïf
+
+```{r}
+naive <- naive(d_ipampa, h=12)
+summary(naive)
+```
+
+# Prévisions
+
+```{r}
+
+# Prévision et tracé pour le modèle AR(1)
+ar1_forecast <- forecast(ar1, h=12)
+plot(ar1_forecast, main="Prévision pour le modèle AR(1)", xlab="Mois", ylab="Valeurs", col="blue")
+
+# Prévision et tracé pour le modèle AR(p)
+arp_forecast <- forecast(arp, h=12)
+plot(arp_forecast, main="Prévision pour le modèle AR(p)", xlab="Mois", ylab="Valeurs", col="blue")
+
+# Prévision et tracé pour le modèle ARIMA
+arima_forecast <- forecast(arima, h=12)
+plot(arima_forecast, main="Prévision pour le modèle ARIMA", xlab="Mois", ylab="Valeurs", col="blue")
+
+# Prévision et tracé pour le modèle Holt (LED Holt sans saisonnalité)
+#holt_forecast <- forecast(holtw_model, h=12, interval="confidence", level = 0.90)
+#plot(holt_forecast, main="Prévision pour le modèle Holt", xlab="Mois", ylab="Valeurs", col="purple")
+
+
+hw_forecast <- forecast(hw_f, h=12)
+plot(hw_forecast, main="Prévision pour le modèle Holt Winter", xlab="Mois", ylab="Valeurs", col="blue")
+
+
+# Prévision et tracé pour le modèle ADAM ETS
+adam_ets_forecast <- forecast(adam_ets, h=12, interval="confidence", level = 0.90)
+plot(adam_ets_forecast, main="Prévision pour le modèle ADAM ETS", xlab="Mois", ylab="Valeurs", col="blue")
+
+# Prévision et tracé pour le modèle ADAM ES 
+adamES_forecast <- forecast(adam_ets_sa, h=12, level = 0.90)
+plot(adamES_forecast, main="Prévision pour le modèle ADAM ETS SARIMA", xlab="Mois", ylab="Valeurs", col="blue")
+
+
+# Prévision et tracé pour le modèle SSARIMA - State Space ARIMA
+ssarima_forecast <- forecast(ssarima, h=12,  level = 0.90)
+plot(ssarima_forecast, main="Prévision pour le modèle SSARIMA", xlab="Mois", ylab="Valeurs", col="blue")
+
+# Prévision et tracé pour le modèle CES
+ces_forecast <- forecast(ces, h=12,  level = 0.90)
+plot(ces_forecast, main="Prévision pour le modèle CES", xlab="Mois", ylab="Valeurs", col="blue")
+
+# Graphique prévsion modele naive
+
+plot(naive, main=" Méthode de Prévision Naïve", xlab="Temps", ylab="Valeurs")
+
+
+
+```
+
+## Récupération des "points forecastes" dans un seul dataframe
+
+```{r}
+start_date <- as.Date("2023-01-01") # La date de début des prévisions
+forecast_horizon <- 12 # Le nombre de mois à prévoir
+
+# séquence de dates pour les prévisions
+forecast_dates <- seq(start_date, by = "month", length.out = forecast_horizon)
+
+#  data frames avec les dates et les previsions
+df <- data.frame(
+  Date = forecast_dates,
+  AR1 = as.numeric(ar1_forecast$mean),
+  ARP = as.numeric(arp_forecast$mean),
+  ARIMA =as.numeric(arima_forecast$mean),
+  HOLT = as.numeric(hw_forecast$mean),
+  ADAM_ETS = as.numeric(adam_ets_forecast$mean),
+  ADAM_ETS_SARIMA = as.numeric(adamES_forecast$mean),
+  SSARIMA =  as.numeric(ssarima_forecast$mean),
+  CES = as.numeric(ces_forecast$mean),
+  NAIVE = as.numeric(naive$mean)
+)
+
+df
+```
+
+## Recuperation des données 2023
+
+Lors du Téléchargement de notre jeu de données nous nous sommes arrêtés au mois de décembre 2022 et mis de coté les données pour l'année 2023, on récupère les données pour les comparer aux modèles
+
+```{r}
+real <- read_excel(here("data", "serie_ipampa.xlsx"), sheet = 'complete')
+real <- real[nrow(real):1,]
+real <- real[, 2]
+real <- ts(data = real, start = c(2005, 01), frequency=12) 
+
+
+real_2023 <- window(real, start = c(2023, 1), end = c(2023, 12))
+real_2023
+real_d <- diff(real, differences = 1)
+
+real_d <- window(real_d, start = c(2023, 1), end = c(2023, 12))
+plot(real_d)
+
+real_d <- as.numeric(real_d)
+df$Real = real_d
+df
+names (df) # on verifie que real fait bien partie du data frame 
+```
+
+Graphique de comparaison
+
+```{r}
+
+# Transformer les données en format long
+df_long <- pivot_longer(df, cols = -Date, names_to = "Model", values_to = "Value")
+
+# graphique plotly
+p <- ggplot(df_long, aes(x = Date, y = Value, color = Model)) +
+  geom_line() +
+  theme_minimal() +
+  labs(title = "Comparaison des prévisions des modèles avec les données réelles
+       Jan 2023 à Déc 2023 - série differencié",
+       x = "Date",
+       y = "Valeur",
+       color = "Modèle") +
+  theme(legend.position = "bottom") 
+
+
+ggplotly(p)
+
+```
+
+### Réintégration
+
+Nous pouvons reintegrer les prévisions aux données pour avoir le graphique au niveau
+
+```{r}
+dec_2022 <- 139.6
+
+df_real <- data.frame(
+    Date = forecast_dates,
+    AR1 = dec_2022 + cumsum(df$AR1),
+    ARP = dec_2022 + cumsum(df$ARP),
+    ARIMA = dec_2022 + cumsum(df$ARIMA),
+    HOLT = dec_2022 + cumsum(df$HOLT),
+    ADAM_ETS = dec_2022 + cumsum(df$ADAM_ETS),
+    ADAM_ETS_SARIMA = dec_2022 + cumsum(df$ADAM_ETS_SARIMA),
+    SSARIMA = dec_2022 + cumsum(df$SSARIMA),
+    CES = dec_2022 + cumsum(df$CES)
+    )
+
+real_2023 <- as.numeric(real_2023)
+df_real$Real = real_2023
+df_real
+
+
+
+# Transformer les données en format long
+df_real_long <- pivot_longer(df_real, cols = -Date, names_to = "Model", values_to = "Value")
+
+# graphique plotly
+r <- ggplot(df_real_long, aes(x = Date, y = Value, color = Model)) +
+  geom_line() +
+  theme_minimal() +
+  labs(title = "Comparaison des prévisions des modèles avec les données réelles
+       Jan 2023 à Déc 2023",
+       x = "Date",
+       y = "Valeur",
+       color = "Modèle") +
+  theme(legend.position = "bottom") 
+
+
+ggplotly(r)
+
+```
+
+# Qualité de prévision
+
+```{r}
+# Erreur de prévision , comparatif entre la valeur predicte de chaque modele et la valeur real 
+models <- names(df)[-which(names(df) == "Date" | names(df) == "Real")]
+# Calculer l'erreur pour chaque modèle
+errors_df <- data.frame(Date = df$Date)  # nouveau dataframe pour stocker les erreurs
+for (model in models) {
+  errors_df[[model]] <- df[[model]] - df$Real
+}
+
+errors_df
+```
+
+### CSPE somme cumulative des erreurs pour chaque modèle et graphique
+
+```{r}
+
+# errors_df contienne déjà les erreurs pour chaque modèle calculées comme précédemment
+cspe_df <- data.frame(Date = df$Date)  #  nouveau dataframe pour stocker le CSPE
+
+for (model in models) {
+  cspe_df[[model]] <- cumsum(errors_df[[model]])  # Calcul du CSPE 
+}
+
+cspe_df
+
+#  on pivot cspe_df pour l'utiliser avec ggplot2
+cspe_long <- tidyr::pivot_longer(cspe_df, cols = -Date, names_to = "Model", values_to = "CSPE")
+
+
+ggplot(cspe_long, aes(x = Date, y = CSPE, color = Model)) +
+  geom_line() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  labs(title = "Cumulative Sum of Prediction Errors (CSPE) pour chaque modèle",
+       x = "Date",
+       y = "CSPE") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+
+```
+
+### Calcul du R2OOS pour chaque modèle
+
+```{r}
+calculate_r2oos <- function(actual, predicted, naive_predictions) {
+  ss_res <- sum((actual - predicted)^2)  # Somme des carrés des erreurs de prédiction
+  ss_tot <- sum((actual - naive_predictions)^2)  # Somme des carrés des erreurs du modèle naïf
+  r2_oos <- 1 - ss_res / ss_tot
+  return(r2_oos)
+}
+
+# DataFrame pour stocker le R^2 OOS de chaque modèle
+r2oos_df <- data.frame(Model = character(), R2OOS = numeric())
+
+# R^2 OOS pour chaque modèle, avec modèle naïf comme référence
+models <- setdiff(names(df), c("Date", "Real", "NAIVE"))  # Exclure Date, Real, et NAIVE de la liste des modèles
+
+for (model in models) {
+  r2oos_value <- calculate_r2oos(df$Real, df[[model]], df$NAIVE)
+  r2oos_df <- rbind(r2oos_df, data.frame(Model = model, R2OOS = r2oos_value))
+}
+
+r2oos_df
+
+```
+
+### Calcul du MSE pour chaque modèle
+
+```{r}
+# dataFrame pour stocker le MSE de chaque modèle
+mse_df <- data.frame(Model = character(), MSE = numeric())
+
+for (model in models) {
+  mse_value <- mean((errors_df[[model]])^2)  # Calcul du MSE
+  mse_df <- rbind(mse_df, data.frame(Model = model, MSE = mse_value))
+}
+
+mse_df
+```
+
+### DM test
+
+```{r}
+
+# DataFrame pour stocker les résultats du 
+dm_results <- data.frame(Model = character(), DM_Statistic = numeric(), P_Value = numeric(), stringsAsFactors = FALSE)
+
+# DM test pour chaque modèle comparé au modèle naïf
+for (model in setdiff(models, "NAIVE")) {
+  dm_test_result <- dm.test(errors_df$NAIVE, errors_df[[model]], alternative = "less")
+  
+#  résultats
+dm_results <- rbind(dm_results, data.frame(Model = model, DM_Statistic = dm_test_result$statistic, P_Value = dm_test_result$p.value))}
+
+dm_results
+
+?dm.test()
+```
+
+### Accuracy
+
+```{r}
+# dataframe pour stocker les résultats d'accuracy
+accuracy_results <- data.frame(Model = character(), 
+                               ME = numeric(), 
+                               RMSE = numeric(), 
+                               MAE = numeric(), 
+                               MPE = numeric(),
+                               MAPE = numeric())
+
+models <- setdiff(names(df), c("Real", "Date"))  
+# Calcul de l'accuracy pour chaque modèle
+for (model in models) { acc <- accuracy(df[[model]], df$Real)
+#  résultats au dataframe des résultats
+accuracy_results <- rbind(accuracy_results, data.frame(Model = model,ME = acc[1, "ME"], RMSE = acc[1, "RMSE"],MAE = acc[1, "MAE"], MPE = acc[1, "MPE"], APE = acc[1, "MAPE"]))
+}
+
+accuracy_results
+
+```
+
+## Estimation de modeles série corrigé (non stationnaire)
+
+```{r}
+
+#lissage exponentiel double (Holt-Winters sans composante saisonnière)
+hw2 <- HoltWinters(ipampa, gamma = FALSE)
+forecast_hw2 <- forecast(hw2, h=12)
+
+
+# ADAM ETS
+ae2 <- auto.adam(ipampa, model="ZZN", lags=c(1,12), select=TRUE)
+forecast_ae2 <- forecast(ae2, h=12)
+forecast_ae2
+
+
+# ADAM ETS+ARIMA 
+aea2 <- auto.adam(ipampa, model="ZZN", lags=c(1,12), orders=list(ar=c(3,3), i=(2), ma=c(3,3), select=TRUE))
+forecast_aea2 <- forecast(aea2 , h=12)
+forecast_aea2
+
+# SSARIMA
+ssarima2 <- auto.ssarima(ipampa, lags=c(1,12), orders=list(ar=c(3,3), i=(2), ma=c(3,3), select=TRUE))
+forecast_ssarima2 <- forecast(ssarima2 , h=12)
+forecast_ssarima2
+#ces
+ces2 <- auto.ces(ipampa, models=c("n", "s", "p", "f"), ic="AICc")
+forecast_ces2 <- forecast(ces2 , h=12)
+forecast_ces2
+
+
+# Naive model
+forecast_naive2 <- naive(ipampa,h=12)
+forecast_naive2
+
+ipampa
+```
+
+### Récuperation des previsions
+
+```{r}
+## Récupération des "points forecastes" dans un seul dataframe
+start_date <- as.Date("2023-01-01") # La date de début des prévisions
+forecast_horizon <- 12 # Le nombre de mois à prévoir
+
+# séquence de dates pour les prévisions
+forecast_dates <- seq(start_date, by = "month", length.out = forecast_horizon)
+
+#  data frames avec les dates et les previsions
+df2 <- data.frame(
+  Date = forecast_dates,
+  AR1 = dec_2022 + cumsum(df$AR1),
+  ARP = dec_2022 + cumsum(df$ARP),
+  ARIMA = dec_2022 + cumsum(df$ARIMA),
+  HOLT_WINTER = as.numeric(forecast_hw2$mean),
+ ADAM_ETS = as.numeric(forecast_ae2$mean),
+ ADAM_ETS_SARIMA = as.numeric(forecast_aea2$mean),
+ SSARIMA =  as.numeric(forecast_ssarima2$mean),
+ CES = as.numeric(forecast_ces2$mean),
+ NAIVE = as.numeric(forecast_naive2$mean)
+)
+
+df2$Real = real_2023
+
+
+# Transformer les données en format long
+df_long2 <- pivot_longer(df2, cols = -Date, names_to = "Model", values_to = "Value")
+
+# graphique plotly
+p <- ggplot(df_long2, aes(x = Date, y = Value, color = Model)) +
+  geom_line() +
+  theme_minimal() +
+  labs(title = "Comparaison des prévisions des modèles avec les données réelles
+       Jan 2023 à Déc 2023 - série corrigée",
+       x = "Date",
+       y = "Valeur",
+       color = "Modèle") +
+  theme(legend.position = "bottom") 
+
+ggplotly(p)
+
+```
+
+Récupération des données completes de janvier 2005 à décembre 2023
+
+```{r}
+ip <- ipampa1[nrow(ipampa1):1,]
+ip <- ip[, 2]
+ip <- ts(data = ip, start = c(2005, 01), frequency=12) 
+ip
+```
+
+## Série complete corrigée
+
+```{r}
+# Automatic Procedure for Detection of Outliers
+tso(ip)
+fit_ip <- tso(ip)
+
+# outlier-adjusted series
+ip_corrige <- fit_ip$yadj
+ip_corrige
+
+ip_20023 <-  window(ip_corrige, start = c(2023, 1), end = c(2023, 12))
+ip_20023 # recuperation des donnes pour 2023 de la série corrigé 
+```
+
+## Graphique Prévisions de modeles comparés au données corrigés
+
+```{r}
+
+dec_2022 <- 128.9857 # derniere valeur observé, pour la reintegration
+
+#  data frames avec les dates et les prévisions
+df2 <- data.frame(
+  Date = forecast_dates,
+  AR1 = dec_2022 + cumsum(df$AR1),
+  ARP = dec_2022 + cumsum(df$ARP),
+  ARIMA = dec_2022 + cumsum(df$ARIMA),
+  HOLT_WINTER = as.numeric(forecast_hw2$mean),
+ ADAM_ETS = as.numeric(forecast_ae2$mean),
+ ADAM_ETS_SARIMA = as.numeric(forecast_aea2$mean),
+ SSARIMA =  as.numeric(forecast_ssarima2$mean),
+ CES = as.numeric(forecast_ces2$mean),
+ NAIVE = as.numeric(forecast_naive2$mean),
+ corrige = as.numeric(ip_20023) # on integre les données corrigés
+)
+
+df2
+
+# Transformer les données en format long
+df_long2 <- pivot_longer(df2, cols = -Date, names_to = "Model", values_to = "Value")
+
+# graphique plotly
+p <- ggplot(df_long2, aes(x = Date, y = Value, color = Model)) +
+  geom_line() +
+  theme_minimal() +
+  labs(title = "Comparaison des prévisions  avec les données corrigées
+       Jan 2023 à Déc 2023 - série corrigée",
+       x = "Date",
+       y = "Valeur",
+       color = "Modèle") +
+  theme(legend.position = "bottom") 
+
+ggplotly(p)
+
+```
+
+# Qualité de prévision 2
+
+```{r}
+
+# Erreur de prévision , comparatif entre la valeur predicte de chaque modele et la valeur real corrigé
+models2 <- names(df2)[-which(names(df2) == "Date" | names(df2) == "corrige")]
+# erreur pour chaque modèle
+errors_df2 <- data.frame(Date = df2$Date)  #  dataframe pour stocker les erreurs
+for (m in models2) {
+  errors_df2[[m]] <- df2[[m]] - df2$corrige
+}
+errors_df2
+
+df2$corrige
+
+```
+
+### CSPE 2
+
+```{r}
+
+# errors_df contienne déjà les erreurs pour chaque modèle calculées comme précédemment
+cspe_df2 <- data.frame(Date = df2$Date)  #  nouveau dataframe pour stocker le CSPE
+
+for (m in models2) {
+  cspe_df2[[m]] <- cumsum(errors_df2[[m]])  # Calcul du CSPE 
+}
+
+cspe_df2
+
+#  on pivot cspe_df2 pour l'utiliser avec ggplot2
+cspe_long2 <- tidyr::pivot_longer(cspe_df2, cols = -Date,  names_to = "Model", values_to = "CSPE")
+
+
+a<- ggplot(cspe_long2, aes(x = Date, y = CSPE, color = Model)) +
+  geom_line() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  labs(title = "Cumulative Sum of Prediction Errors (CSPE) ",
+       x = "Date",
+       y = "CSPE") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+ ggplotly(a)
+```
+
+### Calcul du R2OOS 2
+
+```{r}
+
+# DataFrame pour stocker le R^2 OOS de chaque modèle
+r2oos_df2 <- data.frame(Model = character(), R2OOS = numeric())
+
+# R^2 OOS pour chaque modèle, avec modèle naïf comme référence
+models2 <- setdiff(names(df2), c("Date", "corrige", "NAIVE"))  # Exclure Date, corrige, et NAIVE de la liste des modèles
+
+for (model in models2) {
+  r2oos_value2 <- calculate_r2oos(df2$corrige, df2[[model]], df2$NAIVE) #on reutilise la fonction crée avant
+  r2oos_df2 <- rbind(r2oos_df2, data.frame(Model = model, R2OOS = r2oos_value2))
+}
+
+r2oos_df2
+
+```
+
+### Calcul du MSE 2
+
+```{r}
+# dataFrame pour stocker le MSE de chaque modèle
+mse_df2 <- data.frame(Model = character(), MSE = numeric())
+
+for (model in models2) {
+  mse_value2 <- mean((errors_df2[[model]])^2)  # Calcul du MSE
+  mse_df2 <- rbind(mse_df2, data.frame(Model = model, MSE = mse_value2))
+}
+
+mse_df2
+```
+
+### DM test 2
+
+```{r}
+# DataFrame pour stocker les résultats du 
+dm_results2 <- data.frame(Model = character(), DM_Statistic = numeric(), P_Value = numeric(), stringsAsFactors = FALSE)
+
+# DM test pour chaque modèle comparé au modèle naïf
+for (model in setdiff(models2, "NAIVE")) {
+  dm_test_result2 <- dm.test(errors_df2$NAIVE, errors_df2[[model]], alternative = "less")
+  
+#  résultats
+dm_results2 <- rbind(dm_results2, data.frame(Model = model, DM_Statistic = dm_test_result2$statistic, P_Value = dm_test_result2$p.value))}
+
+dm_results2
+
+```
+
+## Prévision modele Holt Winter
+
+```{r}
+checkresiduals(forecast_hw2)
+
+forecast_hw2$mean
+df2$corrige
+
+```
