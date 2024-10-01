@@ -1,5 +1,6 @@
 ---
-title: "Portfolio Isabel"
+title: "Portfolio Isabel "
+subtitle: "Projets en analyse de données et data science"
 listing:
   contents: posts
   sort: "date desc"
