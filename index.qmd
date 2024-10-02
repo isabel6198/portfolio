@@ -4,8 +4,8 @@ subtitle: "Projets en analyse de données et data science"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
-  categories: true
+  type: grid
+  categories: false
   sort-ui: false
   filter-ui: false
 page-layout: full

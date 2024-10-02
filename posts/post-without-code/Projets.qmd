@@ -1,6 +1,7 @@
 ---
 title: "ECAP Master1"
 date: "2023-01"
+image: "dossiers.jpg"
 format: 
   html:
     toc: true
@@ -9,11 +10,11 @@ format:
       smooth_scroll: true
 ---
 
-**Présentation des differents projets (sans code)**
+**Présentation des différents projets (sans code)**
 
 ## Séries temporelles univariées
 
-### Etude des séries temporelles de l’indice de prix à la consommation (IPC), le prix du pétrole et la variation des températures en France, à l’aide de la méthodologie ARIMA
+### Étude des séries temporelles de l’indice de prix à la consommation (IPC), le prix du pétrole et la variation des températures en France, à l’aide de la méthodologie ARIMA
 
 Une analyse des tendances et des fluctuations de 2010 jusqu’à 2022
 

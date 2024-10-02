@@ -3,6 +3,8 @@ title: "Variables latentes"
 subtitle: "Discrimination des saumons suivant leur provenance"
 date: "2024-03"
 categories: [Classifaction, ACP, PLS-DA]
+image: "saumon-sauvage.jpg"
+image_credit: "GETTY IMAGES/ISTOCKPHOTO / WILD & FREE"
 ---
 
 # Apprentissage supervisé par une approche PLS

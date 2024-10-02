@@ -9,6 +9,7 @@ format:
       smooth_scroll: true
       css: styles.css
 categories: [Séries temporelles, R, MCO, ARMAX]
+image: "soy.jpg" 
 ---
 
 **Sensibilité des prix agricoles face aux chocs climatiques**

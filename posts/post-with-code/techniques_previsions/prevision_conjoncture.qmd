@@ -1,8 +1,10 @@
 ---
 title: "Techniques de prévision et conjoncture"
+author: "Isabel PALACIO"
 date: "2024-04"
 editor: visual
 categories: [Séries temporelles,ARIMA, ADAM, ARMAX, CES, LED]
+image: "agricole.jpg"
 ---
 
 **Évolution de l'indice des prix d'achat des moyens de production agricole en France**
@@ -29,7 +31,7 @@ Vous avez la possibilité de télécharger le document ici :) [📥 Télécharge
 
 Je vous présente ci-dessous, le code utilisé pour mener à bien ce projet, avec les étapes et explications correspondantes.
 
-# Analyse exploratoire 
+# Analyse exploratoire
 
 ### Librairies
 
