@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -173,11 +173,11 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="ACP">ACP <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ADAM">ADAM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ARIMA">ARIMA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ARMAX">ARMAX <span class="quarto-category-count">(2)</span></div><div class="category" data-category="CES">CES <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Classifaction">Classifaction <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Imputation">Imputation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LED">LED <span class="quarto-category-count">(1)</span></div><div class="category" data-category="MCO">MCO <span class="quarto-category-count">(2)</span></div><div class="category" data-category="MICE">MICE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="PLS-DA">PLS-DA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Package">Package <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Questionnaire">Questionnaire <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Régression">Régression <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Séries temporelles">Séries temporelles <span class="quarto-category-count">(2)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -187,7 +187,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -203,285 +203,202 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1727787909001" data-listing-reading-time-sort="2" data-listing-word-count-sort="371">
-<div class="thumbnail">
-<p><a href="./posts/welcome/bienvenue.html" class="no-external"></a></p><a href="./posts/welcome/bienvenue.html" class="no-external">
-<p><img loading="lazy" src="./posts/welcome/image.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/welcome/bienvenue.html" class="no-external"></a></p>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1727880052337" data-listing-reading-time-sort="2" data-listing-word-count-sort="371">
+<a href="./posts/welcome/bienvenue.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/welcome/image.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bienvenue sur mon blog!
+</h5>
+<div class="card-text listing-description">
+Ce blog a été créé pour vous présenter quelques-uns des projets sur lesquels j’ai eu l’occasion de travailler au cours de mon Master en Économétrie et Statistiques, parcours…
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome/bienvenue.html" class="no-external">Bienvenue sur mon blog!</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/welcome/bienvenue.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/welcome/bienvenue.html" class="no-external">Ce blog a été créé pour vous présenter quelques-uns des projets sur lesquels j’ai eu l’occasion de travailler au cours de mon Master en Économétrie et Statistiques, parcours…</a>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/welcome/bienvenue.html" class="no-external"></a></p><a href="./posts/welcome/bienvenue.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="1" data-categories="Séries temporelles,R,MCO,ARMAX" data-listing-date-sort="1718150400000" data-listing-file-modified-sort="1727880052335" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5607">
+<a href="./posts/post-with-code/memoire/memoire_m1.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/post-with-code/memoire/soy.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Mémoire
+</h5>
+<div class="card-text listing-description">
+<strong>Sensibilité des prix agricoles face aux chocs climatiques</strong>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Séries temporelles,R,MCO,ARMAX" data-listing-date-sort="1718150400000" data-listing-file-modified-sort="1727787909000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5607">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/memoire/memoire_m1.html" class="no-external"></a></p><a href="./posts/post-with-code/memoire/memoire_m1.html" class="no-external">
-<p class="card-img-top"><img src="posts/post-with-code/memoire/memoire_y.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/post-with-code/memoire/memoire_m1.html" class="no-external"></a></p>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-with-code/memoire/memoire_m1.html" class="no-external">Mémoire</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/post-with-code/memoire/memoire_m1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Séries temporelles'); return false;">
-Séries temporelles
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('MCO'); return false;">
-MCO
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ARMAX'); return false;">
-ARMAX
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/post-with-code/memoire/memoire_m1.html" class="no-external"><strong>Sensibilité des prix agricoles face aux chocs climatiques</strong></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/memoire/memoire_m1.html" class="no-external">
 <div class="listing-date">
 Jun 12, 2024
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="2" data-categories="Package" data-listing-date-sort="1717200000000" data-listing-file-modified-sort="1727880052334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="414">
+<a href="./posts/post-with-code/creation_package/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts/post-with-code/creation_package/chat-leur.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Package olympicsWeather
+</h5>
+<div class="card-text listing-description">
+Le package <code>olympicsWeather</code> offre une solution simple et interactive pour accéder aux prévisions météorologiques des sites olympiques. Utilisant des graphiques interactifs…
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Package" data-listing-date-sort="1717200000000" data-listing-file-modified-sort="1727787909000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="414">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/creation_package/index.html" class="no-external"></a></p><a href="./posts/post-with-code/creation_package/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/post-with-code/creation_package/chat-leur.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/post-with-code/creation_package/index.html" class="no-external"></a></p>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-with-code/creation_package/index.html" class="no-external">Package olympicsWeather</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/post-with-code/creation_package/index.html" class="no-external">Prévisions météorologiques des sites olympiques</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Package'); return false;">
-Package
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/post-with-code/creation_package/index.html" class="no-external">Le package <code>olympicsWeather</code> offre une solution simple et interactive pour accéder aux prévisions météorologiques des sites olympiques. Utilisant des graphiques interactifs…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/creation_package/index.html" class="no-external">
 <div class="listing-date">
 Jun 1, 2024
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="3" data-categories="Séries temporelles,ARIMA,ADAM,ARMAX,CES,LED" data-listing-date-sort="1711929600000" data-listing-file-modified-sort="1727880052336" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3687">
+<a href="./posts/post-with-code/techniques_previsions/prevision_conjoncture.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/post-with-code/techniques_previsions/agricole.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Techniques de prévision et conjoncture
+</h5>
+<div class="card-text listing-description">
+<strong>Évolution de l’indice des prix d’achat des moyens de production agricole en France</strong>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Séries temporelles,ARIMA,ADAM,ARMAX,CES,LED" data-listing-date-sort="1711929600000" data-listing-file-modified-sort="1727787909001" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3688">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/techniques_previsions/prevision_conjoncture.html" class="no-external"></a></p><a href="./posts/post-with-code/techniques_previsions/prevision_conjoncture.html" class="no-external">
-<p class="card-img-top"><img src="posts/post-with-code/techniques_previsions/prevision_conjoncture_files/figure-html/unnamed-chunk-4-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/post-with-code/techniques_previsions/prevision_conjoncture.html" class="no-external"></a></p>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Isabel PALACIO
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-with-code/techniques_previsions/prevision_conjoncture.html" class="no-external">Techniques de prévision et conjoncture</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/post-with-code/techniques_previsions/prevision_conjoncture.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Séries temporelles'); return false;">
-Séries temporelles
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ARIMA'); return false;">
-ARIMA
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ADAM'); return false;">
-ADAM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ARMAX'); return false;">
-ARMAX
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('CES'); return false;">
-CES
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LED'); return false;">
-LED
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/post-with-code/techniques_previsions/prevision_conjoncture.html" class="no-external"><strong>Évolution de l’indice des prix d’achat des moyens de production agricole en France</strong></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/techniques_previsions/prevision_conjoncture.html" class="no-external">
 <div class="listing-date">
 Apr 1, 2024
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="4" data-categories="Classifaction,ACP,PLS-DA" data-listing-date-sort="1709251200000" data-listing-file-modified-sort="1727880052336" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="816">
+<a href="./posts/post-with-code/variables_latentes/variables_latentes.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/post-with-code/variables_latentes/saumon-sauvage.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Variables latentes
+</h5>
+<div class="card-text listing-description">
+Discrimination des saumons suivant leur provenance et leur mode de production sur la base de données de caractérisation chimique.
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Classifaction,ACP,PLS-DA" data-listing-date-sort="1709251200000" data-listing-file-modified-sort="1727787909001" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="816">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/variables_latentes/variables_latentes.html" class="no-external"></a></p><a href="./posts/post-with-code/variables_latentes/variables_latentes.html" class="no-external">
-<p class="card-img-top"><img src="posts/post-with-code/variables_latentes/variables_latentes_files/figure-html/unnamed-chunk-6-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/post-with-code/variables_latentes/variables_latentes.html" class="no-external"></a></p>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-with-code/variables_latentes/variables_latentes.html" class="no-external">Variables latentes</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/post-with-code/variables_latentes/variables_latentes.html" class="no-external">Discrimination des saumons suivant leur provenance</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Classifaction'); return false;">
-Classifaction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ACP'); return false;">
-ACP
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('PLS-DA'); return false;">
-PLS-DA
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/post-with-code/variables_latentes/variables_latentes.html" class="no-external">Discrimination des saumons suivant leur provenance et leur mode de production sur la base de données de caractérisation chimique.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/variables_latentes/variables_latentes.html" class="no-external">
 <div class="listing-date">
 Mar 1, 2024
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="5" data-categories="Imputation,MICE,Régression,ACP" data-listing-date-sort="1706745600000" data-listing-file-modified-sort="1727880052248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="28" data-listing-word-count-sort="5541">
+<a href="./posts/post-with-code/biostatistiques/Final_projet.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/post-with-code/biostatistiques/crabe.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Biostatistiques
+</h5>
+<div class="card-text listing-description">
+Notre projet explore diverses stratégies pour gérer les valeurs manquantes, en s’appuyant sur un dataset provenant de la plateforme https://www.kaggle.com/datasets. Au cœur…
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Imputation,MICE,Régression,ACP" data-listing-date-sort="1706745600000" data-listing-file-modified-sort="1727787908914" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="28" data-listing-word-count-sort="5541">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/biostatistiques/Final_projet.html" class="no-external"></a></p><a href="./posts/post-with-code/biostatistiques/Final_projet.html" class="no-external">
-<p><img loading="lazy" src="./posts/post-with-code/biostatistiques/crabe.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/post-with-code/biostatistiques/Final_projet.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-with-code/biostatistiques/Final_projet.html" class="no-external">Biostatistiques</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/post-with-code/biostatistiques/Final_projet.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Imputation'); return false;">
-Imputation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('MICE'); return false;">
-MICE
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Régression'); return false;">
-Régression
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ACP'); return false;">
-ACP
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/post-with-code/biostatistiques/Final_projet.html" class="no-external">Notre projet explore diverses stratégies pour gérer les valeurs manquantes, en s’appuyant sur un dataset provenant de la plateforme https://www.kaggle.com/datasets. Au cœur…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/biostatistiques/Final_projet.html" class="no-external">
-<div class="listing-date">
-Feb 1, 2024
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 C. ORHAN, Isabel PALACIO
 </div>
+<div class="listing-date">
+Feb 1, 2024
+</div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="6" data-categories="Régression,MCO,Questionnaire" data-listing-date-sort="1704067200000" data-listing-file-modified-sort="1727880052334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3469">
+<a href="./posts/post-with-code/econometrie_lineaire/econometrie.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/post-with-code/econometrie_lineaire/ecrans-français.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Économétrie linéaire avancée
+</h5>
+<div class="card-text listing-description">
+<strong>Analyse du temps d’écran chez les français de plus de 18 ans</strong>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="Régression,MCO,Questionnaire" data-listing-date-sort="1704067200000" data-listing-file-modified-sort="1727787909000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3469">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/econometrie_lineaire/econometrie.html" class="no-external"></a></p><a href="./posts/post-with-code/econometrie_lineaire/econometrie.html" class="no-external">
-<p class="card-img-top"><img src="posts/post-with-code/econometrie_lineaire/econometrie_files/figure-html/unnamed-chunk-16-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/post-with-code/econometrie_lineaire/econometrie.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-with-code/econometrie_lineaire/econometrie.html" class="no-external">Économétrie linéaire avancée</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/post-with-code/econometrie_lineaire/econometrie.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Régression'); return false;">
-Régression
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('MCO'); return false;">
-MCO
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Questionnaire'); return false;">
-Questionnaire
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/post-with-code/econometrie_lineaire/econometrie.html" class="no-external">(sur un échantillon de 98 personnes en 2023)</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/econometrie_lineaire/econometrie.html" class="no-external">
-<div class="listing-date">
-Jan 1, 2024
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 J. DUPAU, V. Trillaud, Isabel PALACIO
 </div>
+<div class="listing-date">
+Jan 1, 2024
+</div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="7" data-listing-date-sort="1672531200000" data-listing-file-modified-sort="1727880052336" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="115">
+<a href="./posts/post-without-code/Projets.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/post-without-code/dossiers.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+ECAP Master1
+</h5>
+<div class="card-text listing-description">
+<strong>Présentation des différents projets (sans code)</strong>
 </div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1672531200000" data-listing-file-modified-sort="1727787909001" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="115">
-<div class="thumbnail">
-<p><a href="./posts/post-without-code/Projets.html" class="no-external"></a></p><a href="./posts/post-without-code/Projets.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/post-without-code/Projets.html" class="no-external"></a></p>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-without-code/Projets.html" class="no-external">ECAP Master1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/post-without-code/Projets.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/post-without-code/Projets.html" class="no-external"><strong>Présentation des differents projets (sans code)</strong></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/post-without-code/Projets.html" class="no-external">
 <div class="listing-date">
 Jan 1, 2023
 </div>
-</a>
 </div>
+</div>
+</div>
+</a>
 </div>
 </div>
 <div class="listing-no-matching d-none">

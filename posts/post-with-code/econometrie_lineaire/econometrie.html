@@ -156,10 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#analyse-du-temps-decran-chez-les-francais-de-plus-de-18-ans" id="toc-analyse-du-temps-decran-chez-les-francais-de-plus-de-18-ans" class="nav-link active" data-scroll-target="#analyse-du-temps-decran-chez-les-francais-de-plus-de-18-ans">Analyse du temps d’écran chez les français de plus de 18 ans</a></li>
-  <li><a href="#présentation-du-code" id="toc-présentation-du-code" class="nav-link" data-scroll-target="#présentation-du-code">Présentation du code</a>
-  <ul class="collapse">
-  <li><a href="#préparation-des-données" id="toc-préparation-des-données" class="nav-link" data-scroll-target="#préparation-des-données">Préparation des données</a></li>
+  <li><a href="#préparation-des-données" id="toc-préparation-des-données" class="nav-link active" data-scroll-target="#préparation-des-données">Préparation des données</a></li>
   <li><a href="#préparation-et-visualisation-des-données" id="toc-préparation-et-visualisation-des-données" class="nav-link" data-scroll-target="#préparation-et-visualisation-des-données">Préparation et visualisation des données</a>
   <ul class="collapse">
   <li><a href="#renommer-les-colonnes" id="toc-renommer-les-colonnes" class="nav-link" data-scroll-target="#renommer-les-colonnes">Renommer les colonnes</a></li>
@@ -168,10 +165,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#valeurs-manquantes---visualisation" id="toc-valeurs-manquantes---visualisation" class="nav-link" data-scroll-target="#valeurs-manquantes---visualisation">Valeurs manquantes - visualisation</a></li>
   <li><a href="#imputation-des-valeurs-manquantes" id="toc-imputation-des-valeurs-manquantes" class="nav-link" data-scroll-target="#imputation-des-valeurs-manquantes">Imputation des valeurs manquantes</a></li>
   <li><a href="#exportation-de-la-base-de-données-sous-format-excel" id="toc-exportation-de-la-base-de-données-sous-format-excel" class="nav-link" data-scroll-target="#exportation-de-la-base-de-données-sous-format-excel">Exportation de la base de données sous format excel</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#utilisation-de-cette-nouvelle-base-pour-la-suite-du-travail" id="toc-utilisation-de-cette-nouvelle-base-pour-la-suite-du-travail" class="nav-link" data-scroll-target="#utilisation-de-cette-nouvelle-base-pour-la-suite-du-travail">Utilisation de cette nouvelle base pour la suite du travail</a>
-  <ul class="collapse">
   <li><a href="#mettre-en-facteurs-les-variables-1" id="toc-mettre-en-facteurs-les-variables-1" class="nav-link" data-scroll-target="#mettre-en-facteurs-les-variables-1">Mettre en facteurs les variables</a></li>
   </ul></li>
   <li><a href="#statistiques-descriptives" id="toc-statistiques-descriptives" class="nav-link" data-scroll-target="#statistiques-descriptives">Statistiques descriptives</a>
@@ -192,11 +185,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">Correlation</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#catégories" id="toc-catégories" class="nav-link" data-scroll-target="#catégories">Catégories</a></li>
+  <li><a href="#catégories" id="toc-catégories" class="nav-link" data-scroll-target="#catégories">Catégories</a>
+  <ul class="collapse">
   <li><a href="#regrouper-en-catégories-plus-larges-et-création-de-catégories-binaires" id="toc-regrouper-en-catégories-plus-larges-et-création-de-catégories-binaires" class="nav-link" data-scroll-target="#regrouper-en-catégories-plus-larges-et-création-de-catégories-binaires">Regrouper en catégories plus larges et création de catégories binaires</a>
   <ul class="collapse">
-  <li><a href="#variables-quali-en-binaire" id="toc-variables-quali-en-binaire" class="nav-link" data-scroll-target="#variables-quali-en-binaire">Variables quali en binaire</a></li>
+  <li><a href="#variables-quali-en-binaire" id="toc-variables-quali-en-binaire" class="nav-link" data-scroll-target="#variables-quali-en-binaire"><strong>Variables quali en binaire</strong></a></li>
   <li><a href="#variables-instruments" id="toc-variables-instruments" class="nav-link" data-scroll-target="#variables-instruments">Variables instruments</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#création-2-base-de-données" id="toc-création-2-base-de-données" class="nav-link" data-scroll-target="#création-2-base-de-données">Création 2 base de données</a></li>
   <li><a href="#analyse-économétrique" id="toc-analyse-économétrique" class="nav-link" data-scroll-target="#analyse-économétrique">Analyse économétrique</a>
@@ -205,9 +200,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#mco" id="toc-mco" class="nav-link" data-scroll-target="#mco">MCO</a>
   <ul class="collapse">
-  <li><a href="#hypothèses-sous-jacentes-à-la-méthode-des-moindres-carrés-ordinaires" id="toc-hypothèses-sous-jacentes-à-la-méthode-des-moindres-carrés-ordinaires" class="nav-link" data-scroll-target="#hypothèses-sous-jacentes-à-la-méthode-des-moindres-carrés-ordinaires">Hypothèses sous-jacentes à la méthode des Moindres Carrés Ordinaires</a>
+  <li><a href="#test-de-normalité-de-résidus" id="toc-test-de-normalité-de-résidus" class="nav-link" data-scroll-target="#test-de-normalité-de-résidus">Test de normalité de résidus</a></li>
+  <li><a href="#test-dhomoscedasticite-des-residus" id="toc-test-dhomoscedasticite-des-residus" class="nav-link" data-scroll-target="#test-dhomoscedasticite-des-residus"><strong>Test d’homoscédasticité des résidus</strong></a></li>
+  <li><a href="#test-de-la-linéarité-de-la-forme-fonctionnelle" id="toc-test-de-la-linéarité-de-la-forme-fonctionnelle" class="nav-link" data-scroll-target="#test-de-la-linéarité-de-la-forme-fonctionnelle">Test de la linéarité de la forme fonctionnelle</a></li>
+  <li><a href="#analyse-des-observations-influençant-lestimation" id="toc-analyse-des-observations-influençant-lestimation" class="nav-link" data-scroll-target="#analyse-des-observations-influençant-lestimation">Analyse des observations influençant l’estimation</a>
   <ul class="collapse">
-  <li><a href="#modèle-linéaire" id="toc-modèle-linéaire" class="nav-link" data-scroll-target="#modèle-linéaire">Modèle linéaire</a></li>
+  <li><a href="#vérification-de-la-multicolinéarité-après-estimation" id="toc-vérification-de-la-multicolinéarité-après-estimation" class="nav-link" data-scroll-target="#vérification-de-la-multicolinéarité-après-estimation">Vérification de la multicolinéarité après estimation</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#step-selection-des-variables-explicatives-significatives-modele-lineaire-modele1" id="toc-step-selection-des-variables-explicatives-significatives-modele-lineaire-modele1" class="nav-link" data-scroll-target="#step-selection-des-variables-explicatives-significatives-modele-lineaire-modele1">Step : Sélection des variables explicatives significatives (modèle linéaire = modele1 )</a>
@@ -229,7 +227,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Économétrie linéaire avancée</h1>
-<p class="subtitle lead">Analyse du temps d’écran chez les français de plus de 18 ans</p>
   <div class="quarto-categories">
     <div class="quarto-category">Régression</div>
     <div class="quarto-category">MCO</div>
@@ -265,8 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="analyse-du-temps-decran-chez-les-francais-de-plus-de-18-ans" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-du-temps-decran-chez-les-francais-de-plus-de-18-ans">Analyse du temps d’écran chez les français de plus de 18 ans</h2>
+<p><strong>Analyse du temps d’écran chez les français de plus de 18 ans</strong></p>
 <p>(sur un échantillon de 98 personnes en 2023)</p>
 <p><strong>Résumé</strong></p>
 <p>L’objectif de notre étude est d’identifier les facteurs influençant la consommation numérique hebdomadaire chez les adultes Français, à partir de 18 ans, à l’échelle nationale. Nous avons fait appel à la méthode des moindres carrés (MCO) qui nous a permis d’obtenir un modèle fiable validant toutes les conditions requises pour son application. Pour ce faire, nous avons opté pour l’utilisation d’un jeu de données se rapprochant le plus possible de la réalité. Par conséquent, nous avons directement interrogé la population à l’aide d’un questionnaire se basant sur la modélisation faite au préalable à partir de la littérature. Nous avons obtenu un échantillon non représentatif de 98 individus dû à un ratio femmes/hommes élevé.</p>
@@ -276,9 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </iframe>
 </div>
 <p>Vous avez la possibilité de télécharger le document ici :) <a href="../../../pdf/Tutorial.pdf">📥 Télécharger le fichier PDF</a></p>
-</section>
-<section id="présentation-du-code" class="level1">
-<h1>Présentation du code</h1>
+<p><strong>Présentation du code</strong></p>
 <p>Je vous présente ci-dessous, le code utilisé pour mener à bien ce projet, avec les étapes et explications correspondantes.</p>
 <section id="préparation-des-données" class="level2">
 <h2 class="anchored" data-anchor-id="préparation-des-données">Préparation des données</h2>
@@ -316,8 +310,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>couleurs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#9DBBA4"</span>, <span class="st">"#395948"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="préparation-et-visualisation-des-données" class="level2">
-<h2 class="anchored" data-anchor-id="préparation-et-visualisation-des-données">Préparation et visualisation des données</h2>
+<section id="préparation-et-visualisation-des-données" class="level1">
+<h1>Préparation et visualisation des données</h1>
 <ul>
 <li>Téléchargement et visualisation du fichier, à l’aide de la librairie “readxl”</li>
 <li>Supprimer la colonne “horodateur” qui est inutile</li>
@@ -670,17 +664,14 @@ integer(0)</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write_xlsx(x = ecran, path = "data/BDD_sans_NA.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-</section>
-</section>
-<section id="utilisation-de-cette-nouvelle-base-pour-la-suite-du-travail" class="level1">
-<h1>Utilisation de cette nouvelle base pour la suite du travail</h1>
+<p><strong>Utilisation de cette nouvelle base pour la suite du travail</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>ecran <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"BDD_sans_NA.xlsx"</span>), <span class="at">col_names =</span> T )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ecran) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"genre"</span>, <span class="st">"csp"</span>, <span class="st">"lieu_de_vie"</span>, <span class="st">"nb_personnes"</span>, <span class="st">"revenu"</span>, <span class="st">"temps_ecran"</span>, <span class="st">"nb_appareils"</span>, <span class="st">"internet"</span>, <span class="st">"fibre"</span>, <span class="st">"forfait_tel"</span>, <span class="st">"telephone_pro"</span>, <span class="st">"ecran_travail"</span>, <span class="st">"sommeil"</span>, <span class="st">"stress"</span>, <span class="st">"loisir"</span>, <span class="st">"vie_sociale"</span>, <span class="st">"ecran_jour"</span>, <span class="st">"reseaux_sociaux"</span>, <span class="st">"nb_abonnements"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="mettre-en-facteurs-les-variables-1" class="level2">
 <h2 class="anchored" data-anchor-id="mettre-en-facteurs-les-variables-1">Mettre en facteurs les variables</h2>
 <div class="cell">
@@ -1808,11 +1799,10 @@ vie_sociale    0.08655831 -0.07046714  0.4444951  1.00000000</code></pre>
  Le soir                        :55   (Other):18      (Other): 2    </code></pre>
 </div>
 </div>
-</section>
-<section id="regrouper-en-catégories-plus-larges-et-création-de-catégories-binaires" class="level1">
-<h1>Regrouper en catégories plus larges et création de catégories binaires</h1>
-<section id="variables-quali-en-binaire" class="level2">
-<h2 class="anchored" data-anchor-id="variables-quali-en-binaire">Variables quali en binaire</h2>
+<section id="regrouper-en-catégories-plus-larges-et-création-de-catégories-binaires" class="level2">
+<h2 class="anchored" data-anchor-id="regrouper-en-catégories-plus-larges-et-création-de-catégories-binaires">Regrouper en catégories plus larges et création de catégories binaires</h2>
+<section id="variables-quali-en-binaire" class="level3">
+<h3 class="anchored" data-anchor-id="variables-quali-en-binaire"><strong>Variables quali en binaire</strong></h3>
 <ul>
 <li>Réseaux sociaux</li>
 </ul>
@@ -2014,8 +2004,8 @@ Le matin, L’après midi, Le soir               Le matin, Le soir
 <span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">jour_1 =</span> <span class="fu">ifelse</span>(ecran_jour <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"L’après midi"</span>,<span class="st">"Le matin"</span>,<span class="st">"Le soir"</span>), <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="variables-instruments" class="level2">
-<h2 class="anchored" data-anchor-id="variables-instruments">Variables instruments</h2>
+<section id="variables-instruments" class="level3">
+<h3 class="anchored" data-anchor-id="variables-instruments">Variables instruments</h3>
 <ul>
 <li>Revenu</li>
 </ul>
@@ -2300,6 +2290,7 @@ Le matin, L’après midi, Le soir               Le matin, Le soir
 </div>
 </section>
 </section>
+</section>
 <section id="création-2-base-de-données" class="level1">
 <h1>Création 2 base de données</h1>
 <ul>
@@ -2444,10 +2435,8 @@ Le matin, L’après midi, Le soir               Le matin, Le soir
 </section>
 <section id="mco" class="level1">
 <h1>MCO</h1>
-<section id="hypothèses-sous-jacentes-à-la-méthode-des-moindres-carrés-ordinaires" class="level2">
-<h2 class="anchored" data-anchor-id="hypothèses-sous-jacentes-à-la-méthode-des-moindres-carrés-ordinaires">Hypothèses sous-jacentes à la méthode des Moindres Carrés Ordinaires</h2>
-<section id="modèle-linéaire" class="level3">
-<h3 class="anchored" data-anchor-id="modèle-linéaire">Modèle linéaire</h3>
+<p><strong>Hypothèses sous-jacentes à la méthode des Moindres Carrés Ordinaires</strong></p>
+<p><strong>Modèle linéaire</strong></p>
 <p>Modèle avec toutes les variables, ne sera pas utilisé dans notre analyse - voir méthode STEP</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a>modele1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(temps_ecran <span class="sc">~</span> loisir <span class="sc">+</span> vie_sociale <span class="sc">+</span> cat_reseau_0_2 <span class="sc">+</span> cat_reseau_6_sup6 <span class="sc">+</span> cat_25_49 <span class="sc">+</span> cat_plus_50 <span class="sc">+</span> tel_inf_15 <span class="sc">+</span> tel_sup_25 <span class="sc">+</span> appareils_1_2 <span class="sc">+</span> appareils_plus_4 <span class="sc">+</span> abo_0 <span class="sc">+</span> abo_2 <span class="sc">+</span> abo_3_sup <span class="sc">+</span> homme <span class="sc">+</span> pas_ville <span class="sc">+</span> cat_sans_activite <span class="sc">+</span> cat_cadres <span class="sc">+</span> cat_autres <span class="sc">+</span> ecran_travail_bcp <span class="sc">+</span> ecran_travail_peu <span class="sc">+</span> pas_internet <span class="sc">+</span> internet_autre <span class="sc">+</span> nuit_inf_7 <span class="sc">+</span> jour_3 <span class="sc">+</span> jour_2, <span class="at">data=</span>ecran)</span>
@@ -2545,8 +2534,8 @@ F-statistic:  1.72 on 25 and 69 DF,  p-value: 0.04026</code></pre>
 <li><p>Ne suivent pas a priori une loi normale</p></li>
 <li><p>Ne vérifie pas à priori l’hypothèse d’homoscédasticité car variance de la variable Mesure augmente à droite</p></li>
 </ul>
-<section id="test-de-normalité-de-résidus" class="level4">
-<h4 class="anchored" data-anchor-id="test-de-normalité-de-résidus">Test de normalité de résidus</h4>
+<section id="test-de-normalité-de-résidus" class="level2">
+<h2 class="anchored" data-anchor-id="test-de-normalité-de-résidus">Test de normalité de résidus</h2>
 <p>Hypothèse H0 : les erreurs suivent une loi normale au seuil de risque de 5 %</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(modele1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2587,8 +2576,8 @@ alternative hypothesis: two-sided</code></pre>
 </div>
 <p>p-value = 0,16 : hypothèse de normalité des résidus OK au seuil de risque de 5%</p>
 </section>
-<section id="test-dhomoscedasticite-des-residus" class="level4">
-<h4 class="anchored" data-anchor-id="test-dhomoscedasticite-des-residus"><strong>Test d’homoscédasticité des résidus</strong></h4>
+<section id="test-dhomoscedasticite-des-residus" class="level2">
+<h2 class="anchored" data-anchor-id="test-dhomoscedasticite-des-residus"><strong>Test d’homoscédasticité des résidus</strong></h2>
 <p>H0 = homoscedasticité</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb178"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bptest</span>(modele1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2602,8 +2591,8 @@ BP = 12.07, df = 25, p-value = 0.986</code></pre>
 </div>
 <p>p-value = 0.986 &gt; 0,05 On ne rejette pas l’hypothèse nulle (à savoir l’homoscédasticité des résidus)</p>
 </section>
-<section id="test-de-la-linéarité-de-la-forme-fonctionnelle" class="level4">
-<h4 class="anchored" data-anchor-id="test-de-la-linéarité-de-la-forme-fonctionnelle">Test de la linéarité de la forme fonctionnelle</h4>
+<section id="test-de-la-linéarité-de-la-forme-fonctionnelle" class="level2">
+<h2 class="anchored" data-anchor-id="test-de-la-linéarité-de-la-forme-fonctionnelle">Test de la linéarité de la forme fonctionnelle</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb180"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reset</span>(modele1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2617,8 +2606,8 @@ RESET = 1.168, df1 = 2, df2 = 67, p-value = 0.3172</code></pre>
 <p>p-value = 0.3172</p>
 <p>p_value&gt; 0,05 forme fonctionnelle linéaire du modèle spécifié est acceptée au seuil de 5%</p>
 </section>
-<section id="analyse-des-observations-influençant-lestimation" class="level4">
-<h4 class="anchored" data-anchor-id="analyse-des-observations-influençant-lestimation">Analyse des observations influençant l’estimation</h4>
+<section id="analyse-des-observations-influençant-lestimation" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-des-observations-influençant-lestimation">Analyse des observations influençant l’estimation</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb182"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cooks.distance</span>(modele1),<span class="at">type=</span><span class="st">"h"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2641,9 +2630,8 @@ RESET = 1.168, df1 = 2, df2 = 67, p-value = 0.3172</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="vérification-de-la-multicolinéarité-après-estimation" class="level4">
-<h4 class="anchored" data-anchor-id="vérification-de-la-multicolinéarité-après-estimation">Vérification de la multicolinéarité après estimation</h4>
+<section id="vérification-de-la-multicolinéarité-après-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="vérification-de-la-multicolinéarité-après-estimation">Vérification de la multicolinéarité après estimation</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(modele1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2664,7 +2652,6 @@ RESET = 1.168, df1 = 2, df2 = 67, p-value = 0.3172</code></pre>
 </div>
 </div>
 <p>Pas de problème de multicolinéarité entre les différentes variables explicatives du modèle</p>
-</section>
 </section>
 </section>
 </section>
