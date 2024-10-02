@@ -7,7 +7,7 @@ author:
 date: "2024-01"
 editor: visual
 categories: [Régression, MCO, Questionnaire]
-image: "ecrans-français.jpg"
+image: "ecrans.jpeg"
 ---
 
 **Analyse du temps d’écran chez les français de plus de 18 ans**
