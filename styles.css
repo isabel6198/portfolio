@@ -5,56 +5,51 @@ body {
   background-color: #f0f0f0; 
   color: #333333; 
   text-align: justify;
+  margin: 0;
+
 }
 
 /*  barre de navigation */
 .navbar {
   background-color: #040120;  
   color: white;  /* couleur du texte pour un meilleur contraste */
+  margin: 0;
 }
 
 /* couleur des liens dans la barre de navigation */
 .navbar a {
-  color: white !important;  /* Assure que les liens du menu restent visibles */
+  color: white ;  
 }
 
 .navbar a:hover {
-  color: #f0f0f0 !important;  /* Couleur lors du survol des liens */
+  color: #f0f0f0 ; 
 }
 
 
-
-/* Suppression de toute bordure potentielle dans le titre */
 .quarto-title-block {
-  background-image: url("uno.png");
-  padding: 80px;
+  background-image: url("bleu.jpg");
+  padding: 90px;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   color: white;
   text-align: center;
-  border: none;  /* Ajoute cette ligne pour retirer toute bordure */
-  box-shadow: none; /* Si une ombre est appliquée qui pourrait ressembler à une bordure */
 }
+
 
 /* Suppression des bordures dans le titre h1 */
 .quarto-title-block h1.title {
-  background-color: transparent !important;   font-size: 2.5em;
+  background-color: transparent;   font-size: 2.5em;
   color: white;
-  padding: 0;
-  margin: 0;
-  border: none;  /* Ajoute cette ligne pour retirer toute bordure */
 }
 
 /* Autres ajustements pour les éléments supplémentaires */
 .quarto-title-block h2.subtitle, 
 .quarto-title-block .date, 
 .quarto-title-block .categories {
-  border: none;  /* Assure qu'aucun de ces éléments n'a de bordure */
+  border: none;  
 }
 
 .quarto-title-block-banner {
-  border: none !important;  /* Supprimer toute bordure */
-  box-shadow: none !important;  /* Supprimer toute ombre qui pourrait ressembler à une bordure */
-  background-color: transparent !important;  /* S'assurer qu'il n'y a pas de fond de couleur */
+  border: none;  
+  box-shadow: none ;  
+  background-color: transparent;  
 }
