@@ -24,3 +24,5 @@ format:
       smooth_scroll: true
     css: styles.css  
 editor: visual
+metadata-files:
+  - posts/_metadata.yml 
