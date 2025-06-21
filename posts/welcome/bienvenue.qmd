@@ -5,8 +5,6 @@ image: "image.png"
 
 Ce blog a été créé pour vous présenter quelques-uns des projets sur lesquels j’ai eu l’occasion de travailler au cours de mon Master en Économétrie et Statistiques, parcours Économétrie Appliquée, à l'IAE de Nantes.
 
-Je suis actuellement **à la recherche d’un stage de fin d’études** pour mettre en pratique les compétences acquises durant ma formation, et concrétiser ce parcours.
-
 ### **À propos de moi**
 
 Mes études en Économétrie et Statistiques s’inscrivent dans ma démarche de reconversion professionnelle.
