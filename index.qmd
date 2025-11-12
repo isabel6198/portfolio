@@ -1,6 +1,5 @@
 ---
 title: "Portfolio Isabel "
-layout: layouts/layout-index.html
 subtitle: "Projets en analyse de données et data science"
 listing:
   contents: posts

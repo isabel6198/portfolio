@@ -1,0 +1,25 @@
+---
+title: "NLP - Etude des discours du trône au Royaume Uni"
+date: "2025-05"
+image: "ecap.jpeg"
+format: 
+  html:
+    toc: true
+    toc_float: 
+      collapsed: false
+      smooth_scroll: true
+---
+
+## Une analyse sur les thématiques, les partis politiques, et les sentiments des discours
+
+Date : Mai 2025
+
+::: {style="text-align: center;"}
+<iframe src="/pdf/projet_NLP.pdf" width="80%" height="600px">
+
+</iframe>
+:::
+
+code :
+
+<https://github.com/isabel6198/nlp_speech_throne/blob/main/notebook/01_speech_throne.ipynb>
