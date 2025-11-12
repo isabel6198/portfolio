@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../../">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-dda6bcf18c14475f7348b817eb15352b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-8fd1faf6fd93e4e6d207ae0f9db51d78.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -273,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="librairies" class="level2">
 <h2 class="anchored" data-anchor-id="librairies">Librairies</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -289,26 +290,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tinytex)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ranger)</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in check_dep_version(): ABI version mismatch: 
 lme4 was built with Matrix ABI version 1
 Current Matrix ABI version is 0
 Please re-install lme4 from source or restore original 'Matrix' package</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vecteur_couleur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"F"</span><span class="ot">=</span><span class="st">"darkred"</span>, <span class="st">"M"</span><span class="ot">=</span><span class="st">"darkgreen"</span>, <span class="st">"I"</span><span class="ot">=</span><span class="st">"darkblue"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vecteur_couleur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"F"</span><span class="ot">=</span><span class="st">"darkred"</span>, <span class="st">"M"</span><span class="ot">=</span><span class="st">"darkgreen"</span>, <span class="st">"I"</span><span class="ot">=</span><span class="st">"darkblue"</span> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="téléchargement-de-la-base-de-données" class="level2">
 <h2 class="anchored" data-anchor-id="téléchargement-de-la-base-de-données">Téléchargement de la base de données</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>crabe <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"CrabAgePrediction.csv"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>crabe <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"CrabAgePrediction.csv"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="présentation-de-la-base-de-données" class="level2">
 <h2 class="anchored" data-anchor-id="présentation-de-la-base-de-données">Présentation de la base de données</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crabe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crabe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 3,893
 Columns: 9
@@ -332,7 +333,7 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 <section id="traduction-des-noms-de-nos-variables-en-français" class="level3">
 <h3 class="anchored" data-anchor-id="traduction-des-noms-de-nos-variables-en-français">Traduction des noms de nos variables en français</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(crabe) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"sexe"</span>, <span class="st">"longueur"</span>, <span class="st">"diametre"</span>, <span class="st">"hauteur"</span>, <span class="st">"poids"</span>,<span class="st">"poids.chair"</span>, <span class="st">"poids.visceres"</span>, <span class="st">"poids.coquille"</span>, <span class="st">"age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(crabe) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"sexe"</span>, <span class="st">"longueur"</span>, <span class="st">"diametre"</span>, <span class="st">"hauteur"</span>, <span class="st">"poids"</span>,<span class="st">"poids.chair"</span>, <span class="st">"poids.visceres"</span>, <span class="st">"poids.coquille"</span>, <span class="st">"age"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Notre base de données est donc composée de 3894 crabes bleus et de 9 variables qui sont :</p>
 <p>Variables qualitatives :</p>
@@ -354,22 +355,22 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 <section id="conversion-des-variables-à-lorigine-en-pied-en-centimètre" class="level3">
 <h3 class="anchored" data-anchor-id="conversion-des-variables-à-lorigine-en-pied-en-centimètre">Conversion des variables à l’origine en pied en centimètre</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>longueur <span class="ot">&lt;-</span> crabe<span class="sc">$</span>longueur <span class="sc">*</span> <span class="fl">30.48</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>longueur <span class="ot">&lt;-</span> crabe<span class="sc">$</span>longueur <span class="sc">*</span> <span class="fl">30.48</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>diametre <span class="ot">&lt;-</span> crabe<span class="sc">$</span>diametre <span class="sc">*</span> <span class="fl">30.48</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>hauteur <span class="ot">&lt;-</span> crabe<span class="sc">$</span>hauteur <span class="sc">*</span> <span class="fl">30.48</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>hauteur <span class="ot">&lt;-</span> crabe<span class="sc">$</span>hauteur <span class="sc">*</span> <span class="fl">30.48</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
 <section id="conversion-des-variables-à-lorigine-en-onces-en-kilogramme" class="level2">
 <h2 class="anchored" data-anchor-id="conversion-des-variables-à-lorigine-en-onces-en-kilogramme">Conversion des variables à l’origine en onces en kilogramme</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>poids <span class="ot">&lt;-</span> crabe<span class="sc">$</span>poids <span class="sc">*</span> <span class="fl">0.0283495</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>poids <span class="ot">&lt;-</span> crabe<span class="sc">$</span>poids <span class="sc">*</span> <span class="fl">0.0283495</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>poids.chair <span class="ot">&lt;-</span> crabe<span class="sc">$</span>poids.chair <span class="sc">*</span> <span class="fl">0.0283495</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>poids.visceres <span class="ot">&lt;-</span> crabe<span class="sc">$</span>poids.visceres <span class="sc">*</span> <span class="fl">0.0283495</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>poids.coquille <span class="ot">&lt;-</span> crabe<span class="sc">$</span>poids.coquille <span class="sc">*</span> <span class="fl">0.0283495</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>poids.coquille <span class="ot">&lt;-</span> crabe<span class="sc">$</span>poids.coquille <span class="sc">*</span> <span class="fl">0.0283495</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   3893 obs. of  9 variables:
  $ sexe          : chr  "F" "M" "I" "F" ...
@@ -385,7 +386,7 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 </div>
 <p>Nos variables sont bien classées, nous n’avons pas à les modifier.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -407,7 +408,7 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 <section id="calcul-des-mesures-de-dispersion" class="level2">
 <h2 class="anchored" data-anchor-id="calcul-des-mesures-de-dispersion">Calcul des mesures de dispersion</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(crabe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(crabe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     sexe              longueur         diametre         hauteur      
  Length:3893        Min.   : 5.715   Min.   : 4.191   Min.   : 0.000  
@@ -447,9 +448,9 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 <h2 class="anchored" data-anchor-id="vérification-de-labsence-de-doublons">Vérification de l’absence de doublons</h2>
 <p>Notre jeu de données est composé de 3 893 entrées. Nous allons vérifier s’il contient des doublons.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>crabe <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>crabe <span class="sc">|&gt;</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nrow</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>[1] 3893</p>
 <p>Aucune ligne n’est répétée, nous pouvons donc conserver la totalité de nos données</p>
@@ -458,7 +459,7 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 <h2 class="anchored" data-anchor-id="diagramme-en-camembert">Diagramme en camembert</h2>
 <p><strong>Sexe</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>crabe <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>crabe <span class="sc">|&gt;</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sexe) <span class="sc">|&gt;</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pourcentage =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> n, <span class="at">fill =</span> sexe)) <span class="sc">+</span></span>
@@ -472,7 +473,7 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution des sexes dans le jeu de données "</span>,</span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Sexe"</span></span>
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -486,7 +487,7 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 <section id="représentation-des-valeurs-aberrantes-grâce-à-des-boxplots" class="level2">
 <h2 class="anchored" data-anchor-id="représentation-des-valeurs-aberrantes-grâce-à-des-boxplots">Représentation des valeurs aberrantes grâce à des boxplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>crabe  <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>crabe  <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">cols =</span> longueur<span class="sc">:</span>age,</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">names_to =</span> <span class="st">"mesure"</span>,</span>
@@ -499,7 +500,7 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> mesure, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span>vecteur_couleur)<span class="sc">+</span></span>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution des mesures par sexe"</span>)<span class="sc">+</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -510,7 +511,7 @@ $ Age            &lt;int&gt; 9, 6, 6, 10, 6, 8, 15, 10, 13, 7, 6, 10, 9, 10, 11,
 </div>
 <p>Nous pouvons donc observer la présence de valeurs aberrantes ou extrêmes dans nos variables. Pour les identifier, nous avons utilisé le test de Rosner.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>longueur, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>longueur, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Results of Outlier Test
@@ -556,7 +557,7 @@ Number of Outliers Detected:     0
 9  8 40.03109 9.061943 11.811     694 3.114132   4.357244   FALSE
 10 9 40.03835 9.051785 11.811    2766 3.118429   4.357187   FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>diametre, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>diametre, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Results of Outlier Test
@@ -602,7 +603,7 @@ Number of Outliers Detected:     0
 9  8 31.16609 7.495321 8.001    3634 3.090607   4.357244   FALSE
 10 9 31.17206 7.487061 8.382    1648 3.043926   4.357187   FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>hauteur, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>hauteur, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Results of Outlier Test
@@ -648,7 +649,7 @@ Number of Outliers Detected:     2
 9  8 10.63740 2.903599  1.905     694  3.007441   4.357244   FALSE
 10 9 10.63965 2.900588  1.905    1135  3.011338   4.357187   FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>poids, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>poids, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Results of Outlier Test
@@ -694,7 +695,7 @@ Number of Outliers Detected:     0
 9  8 0.6651610 0.3887470 2.016067    1327 3.475026   4.357244   FALSE
 10 9 0.6648132 0.3881920 2.013254    3186 3.473644   4.357187   FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>poids.chair, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>poids.chair, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Results of Outlier Test
@@ -740,7 +741,7 @@ Number of Outliers Detected:     3
 9  8 0.2878270 0.1747563 0.9600127     539 3.846418   4.357244   FALSE
 10 9 0.2876539 0.1744455 0.9407240     854 3.743692   4.357187   FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>poids.visceres, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>poids.visceres, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Results of Outlier Test
@@ -786,7 +787,7 @@ Number of Outliers Detected:     1
 9  8 0.1449262 0.08672250 0.4347985    2531 3.342527   4.357244   FALSE
 10 9 0.1448516 0.08660879 0.4231450    1828 3.213223   4.357187   FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>poids.coquille, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>poids.coquille, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Results of Outlier Test
@@ -832,7 +833,7 @@ Number of Outliers Detected:     4
 9  8 0.1916437 0.1096100 0.5834820    1556 3.574841   4.357244   FALSE
 10 9 0.1915428 0.1094435 0.5826783    1847 3.573856   4.357187   FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>age, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rosnerTest</span>(crabe<span class="sc">$</span>age, <span class="at">k=</span><span class="dv">10</span>, <span class="at">alpha=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Results of Outlier Test
@@ -892,17 +893,17 @@ Number of Outliers Detected:     7
 <p>Pour la suite, nous allons donc traiter les deux valeurs de la variable “hauteur”.</p>
 <p><strong>Observation n°2257</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">2257</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">2257</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     sexe longueur diametre hauteur     poids poids.chair poids.visceres
 2257    F   34.671   27.051  86.106 0.4773943   0.2668265     0.09322852
      poids.coquille age
 2257      0.1072932   8</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> crabe <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> crabe <span class="sc">%&gt;%</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sexe <span class="sc">==</span> <span class="st">"F"</span>, age <span class="sc">==</span> <span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_hauteur =</span> <span class="fu">mean</span>(hauteur))</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean_hauteur
 1     11.39628</code></pre>
@@ -910,7 +911,7 @@ Number of Outliers Detected:     7
 </div>
 <p>Nous constatons que la moyenne des hauteurs pour les crabes âgés de 8 mois et de sexe féminin est de 11,39. Nous pouvons donc supposer que notre valeur de 86,106 est une valeur aberrante, probablement due à une erreur de saisie de virgule, que nous pouvons corriger.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">2257</span>,<span class="st">"hauteur"</span>]<span class="ot">&lt;-</span><span class="fl">8.6106</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">2257</span>,<span class="st">"hauteur"</span>]<span class="ot">&lt;-</span><span class="fl">8.6106</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -918,17 +919,17 @@ Number of Outliers Detected:     7
 <h1>Première méthode de remplacement : Regression linéaire</h1>
 <p><strong>Observation n°749</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">749</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">749</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    sexe longueur diametre hauteur    poids poids.chair poids.visceres
 749    M   53.721   43.053  39.243 1.776164   0.8900913      0.3909972
     poids.coquille age
 749      0.4114914  10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> crabe <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> crabe <span class="sc">%&gt;%</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sexe <span class="sc">==</span> <span class="st">"M"</span>, age <span class="sc">==</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min_hauteur =</span> <span class="fu">min</span>(hauteur))</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  min_hauteur
 1       4.953</code></pre>
@@ -937,15 +938,15 @@ Number of Outliers Detected:     7
 <p>Par conséquent, cette valeur observée de 39,243 cm, n’est pas une valeur aberrante, mais semble être une valeur extrême compte tenu de la valeur minimum de 4,953 cm.</p>
 <p>Nous avons choisi comme première méthode de remplacement pour cette valeur, une régression linéaire.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">749</span>,<span class="st">"hauteur"</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">749</span>,<span class="st">"hauteur"</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Pour commencer, nous avons remplacé la valeur extrême identifiée par une valeur manquante “NA” afin de procéder à son remplacement.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>regression_linéaire <span class="ot">&lt;-</span> <span class="fu">lm</span> (</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>regression_linéaire <span class="ot">&lt;-</span> <span class="fu">lm</span> (</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  hauteur <span class="sc">~</span> sexe <span class="sc">+</span> diametre <span class="sc">+</span> longueur <span class="sc">+</span> poids <span class="sc">+</span> poids.chair <span class="sc">+</span> poids.visceres <span class="sc">+</span> poids.coquille <span class="sc">+</span> age,</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data=</span>crabe</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regression_linéaire)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regression_linéaire)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -979,12 +980,12 @@ F-statistic:  2555 on 9 and 3882 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>À travers cette régression linéaire, nous avons identifié les variables qui montrent des corrélations significatives avec la variable « hauteur ». Il apparaît que la variable significative liée au sexe est « sexeI », représentant le sexe indéterminé, tandis que « sexeF », qui sert de modalité de référence par défaut, et « sexeM », qui n’est pas significative, ne seront pas pris en compte dans notre analyse. Par conséquent, nous allons filtrer notre ensemble de données en se concentrant uniquement sur le sexe indéterminé.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>sexeI <span class="ot">&lt;-</span> crabe <span class="sc">|&gt;</span> <span class="fu">filter</span>(sexe<span class="sc">==</span><span class="st">"I"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>sexeI <span class="ot">&lt;-</span> crabe <span class="sc">|&gt;</span> <span class="fu">filter</span>(sexe<span class="sc">==</span><span class="st">"I"</span>)</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> regression_linéaire2 <span class="ot">&lt;-</span><span class="fu">lm</span>(</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  hauteur<span class="sc">~</span>diametre<span class="sc">+</span>poids.visceres<span class="sc">+</span>poids.coquille<span class="sc">+</span>age,</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data=</span>sexeI</span>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regression_linéaire2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regression_linéaire2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1012,15 +1013,15 @@ F-statistic:  1863 on 4 and 1228 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>Nous allons à présent utiliser les résultats de cette régression afin de générer des prédictions pour remplacer la valeur manquante.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>hauteur[<span class="fu">is.na</span>(crabe<span class="sc">$</span>hauteur)] <span class="ot">&lt;-</span> <span class="fu">predict</span>(modele, <span class="at">newdata =</span> crabe[<span class="fu">is.na</span>(crabe<span class="sc">$</span>hauteur), ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>crabe<span class="sc">$</span>hauteur[<span class="fu">is.na</span>(crabe<span class="sc">$</span>hauteur)] <span class="ot">&lt;-</span> <span class="fu">predict</span>(modele, <span class="at">newdata =</span> crabe[<span class="fu">is.na</span>(crabe<span class="sc">$</span>hauteur), ])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Cette prédiction nous a permis d’utiliser les relations linéaires identifiées dans le modèle pour estimer et remplacer de manière précise la valeur manquante de l’observation n°749.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">749</span>,<span class="st">"hauteur"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>crabe[<span class="dv">749</span>,<span class="st">"hauteur"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16.09228</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>crabe_complet<span class="ot">&lt;-</span>crabe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>crabe_complet<span class="ot">&lt;-</span>crabe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La nouvelle valeur est donc 16,09 cm.</p>
 </section>
@@ -1030,7 +1031,7 @@ F-statistic:  1863 on 4 and 1228 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Pour garantir une reproductibilité fiable de ce processus aléatoire, nous employons la fonction set.seed, qui fixe la graine du générateur de nombres aléatoires. Cette étape est essentielle pour s’assurer que les résultats puissent être régénérés de manière identique lors de chaque exécution.</p>
 <p>Afin d’intégrer les valeurs manquantes (N/A) dans notre jeu de données, nous procédons de la manière suivante :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  </span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(crabe)  </span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ncol</span>(crabe)  </span>
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">50</span></span>
@@ -1038,7 +1039,7 @@ F-statistic:  1863 on 4 and 1228 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"poids"</span>, <span class="st">"diametre"</span>, <span class="st">"age"</span>)</span>
 <span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>row_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, m)  </span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>col_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(cols, m, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>col_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(cols, m, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Explication détaillée du script :</p>
 <p><strong>n &lt;- nrow(crabe)</strong> : cette commande calcule le nombre total d’observations dans le jeu de données crabe et stocke ce nombre dans la variable n.</p>
@@ -1049,16 +1050,16 @@ F-statistic:  1863 on 4 and 1228 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><strong>col_indices</strong> &lt;- sample(cols, m, replace = TRUE) : cette instruction crée un vecteur col_indices de m éléments, sélectionnant aléatoirement et avec remplacement parmi les noms de colonnes spécifiés dans cols.</p>
 <p>Pour injecter les valeurs manquantes dans le jeu de données, nous parcourons les indices générés et assignons NA à la position correspondante à chaque itération de la boucle :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>m) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>m) {</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  crabe[row_indices[i], col_indices[i]] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>crabe_mice <span class="ot">&lt;-</span> crabe</span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>crabe_missMDA <span class="ot">&lt;-</span> crabe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>crabe_missMDA <span class="ot">&lt;-</span> crabe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="visualisation-des-valeurs-manquantes" class="level2">
 <h2 class="anchored" data-anchor-id="visualisation-des-valeurs-manquantes">Visualisation des valeurs manquantes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_upset</span>(crabe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_upset</span>(crabe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_line()`: Each group consists of only one observation.
 ℹ Do you need to adjust the group aesthetic?</code></pre>
@@ -1079,8 +1080,8 @@ F-statistic:  1863 on 4 and 1228 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h2 class="anchored" data-anchor-id="test-de-normalité">Test de normalité</h2>
 <p><strong>QQ plot Age</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(crabe<span class="sc">$</span>age, <span class="at">main =</span> <span class="st">"Q-Q plot - Age"</span>)</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(crabe<span class="sc">$</span>age, <span class="at">col =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(crabe<span class="sc">$</span>age, <span class="at">main =</span> <span class="st">"Q-Q plot - Age"</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(crabe<span class="sc">$</span>age, <span class="at">col =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1091,9 +1092,9 @@ F-statistic:  1863 on 4 and 1228 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p><strong>QQ plot Poids</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(crabe<span class="sc">$</span>poids, <span class="at">main =</span> <span class="st">"Q-Q Plot - Poids"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(crabe<span class="sc">$</span>poids, <span class="at">main =</span> <span class="st">"Q-Q Plot - Poids"</span>)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(crabe<span class="sc">$</span>poids, <span class="at">col =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(crabe<span class="sc">$</span>poids, <span class="at">col =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1104,9 +1105,9 @@ F-statistic:  1863 on 4 and 1228 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p><strong>QQ plot Diametre</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(crabe<span class="sc">$</span>diametre, <span class="at">main =</span> <span class="st">"Q-Q Plot - Diamètre"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(crabe<span class="sc">$</span>diametre, <span class="at">main =</span> <span class="st">"Q-Q Plot - Diamètre"</span>)</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(crabe<span class="sc">$</span>diametre, <span class="at">col =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(crabe<span class="sc">$</span>diametre, <span class="at">col =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1119,23 +1120,23 @@ F-statistic:  1863 on 4 and 1228 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Dans notre cas, les Q-Q plots ne suivent pas la droite de la loi normale, nous pouvons donc supposer qu’ils ne suivent pas une distribution normale.</p>
 <p><strong>Calculer la moyenne et l’écart-type de nos données</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>moyenne_age <span class="ot">&lt;-</span> <span class="fu">mean</span>(crabe<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>moyenne_age <span class="ot">&lt;-</span> <span class="fu">mean</span>(crabe<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>ecart_type_age <span class="ot">&lt;-</span> <span class="fu">sd</span>(crabe<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>moyenne_poids <span class="ot">&lt;-</span> <span class="fu">mean</span>(crabe<span class="sc">$</span>poids, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>ecart_type_poids <span class="ot">&lt;-</span> <span class="fu">sd</span>(crabe<span class="sc">$</span>poids, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>moyenne_diametre <span class="ot">&lt;-</span> <span class="fu">mean</span>(crabe<span class="sc">$</span>diametre, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>ecart_type_diametre <span class="ot">&lt;-</span> <span class="fu">sd</span>(crabe<span class="sc">$</span>diametre, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>ecart_type_diametre <span class="ot">&lt;-</span> <span class="fu">sd</span>(crabe<span class="sc">$</span>diametre, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Test KS pour comparer nos données à une distribution normale</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>age.ks<span class="ot">&lt;-</span><span class="fu">ks.test</span>(crabe<span class="sc">$</span>age, <span class="st">"pnorm"</span>, <span class="at">mean =</span> moyenne_age, <span class="at">sd =</span> ecart_type_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>age.ks<span class="ot">&lt;-</span><span class="fu">ks.test</span>(crabe<span class="sc">$</span>age, <span class="st">"pnorm"</span>, <span class="at">mean =</span> moyenne_age, <span class="at">sd =</span> ecart_type_age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in ks.test.default(crabe$age, "pnorm", mean = moyenne_age, sd =
 ecart_type_age): ties should not be present for the Kolmogorov-Smirnov test</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>age.ks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>age.ks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Asymptotic one-sample Kolmogorov-Smirnov test
@@ -1144,12 +1145,12 @@ data:  crabe$age
 D = 0.14369, p-value &lt; 2.2e-16
 alternative hypothesis: two-sided</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>poids.ks<span class="ot">&lt;-</span><span class="fu">ks.test</span>(crabe<span class="sc">$</span>poids, <span class="st">"pnorm"</span>, <span class="at">mean =</span> moyenne_poids, <span class="at">sd =</span> ecart_type_poids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>poids.ks<span class="ot">&lt;-</span><span class="fu">ks.test</span>(crabe<span class="sc">$</span>poids, <span class="st">"pnorm"</span>, <span class="at">mean =</span> moyenne_poids, <span class="at">sd =</span> ecart_type_poids)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in ks.test.default(crabe$poids, "pnorm", mean = moyenne_poids, sd =
 ecart_type_poids): ties should not be present for the Kolmogorov-Smirnov test</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>poids.ks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>poids.ks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Asymptotic one-sample Kolmogorov-Smirnov test
@@ -1158,12 +1159,12 @@ data:  crabe$poids
 D = 0.046722, p-value = 9.026e-08
 alternative hypothesis: two-sided</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>diametre.ks<span class="ot">&lt;-</span><span class="fu">ks.test</span>(crabe<span class="sc">$</span>diametre, <span class="st">"pnorm"</span>, <span class="at">mean =</span> moyenne_diametre, <span class="at">sd =</span> ecart_type_diametre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>diametre.ks<span class="ot">&lt;-</span><span class="fu">ks.test</span>(crabe<span class="sc">$</span>diametre, <span class="st">"pnorm"</span>, <span class="at">mean =</span> moyenne_diametre, <span class="at">sd =</span> ecart_type_diametre)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in ks.test.default(crabe$diametre, "pnorm", mean = moyenne_diametre, :
 ties should not be present for the Kolmogorov-Smirnov test</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>diametre.ks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>diametre.ks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Asymptotic one-sample Kolmogorov-Smirnov test
@@ -1178,11 +1179,11 @@ alternative hypothesis: two-sided</code></pre>
 <section id="matrice-de-corrélation" class="level2">
 <h2 class="anchored" data-anchor-id="matrice-de-corrélation">Matrice de corrélation</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>crabe <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>crabe <span class="sc">|&gt;</span></span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(longueur<span class="sc">:</span>age) <span class="sc">|&gt;</span></span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
 <span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">|&gt;</span></span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot.mixed</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot.mixed</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1198,7 +1199,7 @@ alternative hypothesis: two-sided</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Risque de multicolinarité
+<span class="screen-reader-only">Warning</span>Risque de multicolinarité
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1211,7 +1212,7 @@ Risque de multicolinarité
 <section id="deuxième-méthode-de-remplacement-limputation-mice-des-valeurs-manquantes-pour-lage-le-poids-diamètre" class="level1">
 <h1>Deuxième méthode de remplacement : l’imputation MICE des valeurs manquantes pour l’age, le poids, diamètre</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md.pattern</span>(crabe_mice, <span class="at">rotate.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md.pattern</span>(crabe_mice, <span class="at">rotate.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1243,7 +1244,7 @@ Risque de multicolinarité
 <section id="aléatoire" class="level2">
 <h2 class="anchored" data-anchor-id="aléatoire">Aléatoire</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>crabe_mice_aleatoire <span class="ot">&lt;-</span> <span class="fu">mice</span>(crabe_mice, <span class="at">m =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>crabe_mice_aleatoire <span class="ot">&lt;-</span> <span class="fu">mice</span>(crabe_mice, <span class="at">m =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  iter imp variable
@@ -1276,7 +1277,7 @@ Risque de multicolinarité
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Number of logged events: 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>crabe_mice_aleatoire<span class="sc">$</span>imp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>crabe_mice_aleatoire<span class="sc">$</span>imp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$sexe
 [1] 1 2 3 4 5
@@ -1361,14 +1362,14 @@ $age
 2892  8  8 10 11  9
 2985 10  8 11 15 12</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>crabe_mice_aleatoire<span class="sc">$</span>method</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>crabe_mice_aleatoire<span class="sc">$</span>method</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          sexe       longueur       diametre        hauteur          poids 
             ""             ""          "pmm"             ""          "pmm" 
    poids.chair poids.visceres poids.coquille            age 
             ""             ""             ""          "pmm" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe_mice_aleatoire)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe_mice_aleatoire)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1382,9 +1383,9 @@ $age
 <section id="imputation-par-la-pmm" class="level2">
 <h2 class="anchored" data-anchor-id="imputation-par-la-pmm">Imputation par la PMM</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>meth_pmm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">""</span>, <span class="st">"pmm"</span>, <span class="st">""</span>, <span class="st">"pmm"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">"pmm"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>meth_pmm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">""</span>, <span class="st">"pmm"</span>, <span class="st">""</span>, <span class="st">"pmm"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">"pmm"</span>)</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>crabe_pmm <span class="ot">&lt;-</span> <span class="fu">mice</span>(crabe_mice, <span class="at">method =</span> meth_pmm, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">maxit =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>crabe_pmm <span class="ot">&lt;-</span> <span class="fu">mice</span>(crabe_mice, <span class="at">method =</span> meth_pmm, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">maxit =</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  iter imp variable
@@ -1428,7 +1429,7 @@ $age
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Number of logged events: 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>crabe_pmm<span class="sc">$</span>imp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>crabe_pmm<span class="sc">$</span>imp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$sexe
 [1] 1 2 3 4 5 6
@@ -1513,7 +1514,7 @@ $age
 2892  8 12  9 12 11  7
 2985  9 10 11 11 10 15</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe_pmm, <span class="at">main=</span><span class="st">"Plot selon la méthode pmm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe_pmm, <span class="at">main=</span><span class="st">"Plot selon la méthode pmm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1526,9 +1527,9 @@ $age
 <section id="imputation-par-la-rf" class="level2">
 <h2 class="anchored" data-anchor-id="imputation-par-la-rf">Imputation par la RF</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>meth_rf <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">""</span>, <span class="st">"rf"</span>, <span class="st">""</span>, <span class="st">"rf"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">"rf"</span>)</span>
-<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>crabe_rf <span class="ot">&lt;-</span> <span class="fu">mice</span>(crabe_mice, <span class="at">method =</span> meth_rf, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">maxit =</span> <span class="dv">6</span>, )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>crabe_rf <span class="ot">&lt;-</span> <span class="fu">mice</span>(crabe_mice, <span class="at">method =</span> meth_rf, <span class="at">m =</span> <span class="dv">6</span>, <span class="at">maxit =</span> <span class="dv">6</span>, )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  iter imp variable
@@ -1572,7 +1573,7 @@ $age
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Number of logged events: 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>crabe_rf<span class="sc">$</span>imp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>crabe_rf<span class="sc">$</span>imp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$sexe
 [1] 1 2 3 4 5 6
@@ -1657,7 +1658,7 @@ $age
 2892 11 10 10 15 10  8
 2985 19 12 10 15 11 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe_rf, <span class="at">main=</span><span class="st">"Plot selon la méthode rf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe_rf, <span class="at">main=</span><span class="st">"Plot selon la méthode rf"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1670,9 +1671,9 @@ $age
 <section id="imputation-mix-entre-pmm-et-rf" class="level2">
 <h2 class="anchored" data-anchor-id="imputation-mix-entre-pmm-et-rf">Imputation mix entre PMM et RF</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>meth_mix <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">""</span>, <span class="st">"pmm"</span>, <span class="st">""</span>, <span class="st">"pmm"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">"rf"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>meth_mix <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">""</span>, <span class="st">"pmm"</span>, <span class="st">""</span>, <span class="st">"pmm"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">"rf"</span>)</span>
 <span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>crabe_mix <span class="ot">&lt;-</span> <span class="fu">mice</span>(crabe_mice, <span class="at">method =</span> meth_mix,<span class="at">m =</span> <span class="dv">6</span>, <span class="at">maxit =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>crabe_mix <span class="ot">&lt;-</span> <span class="fu">mice</span>(crabe_mice, <span class="at">method =</span> meth_mix,<span class="at">m =</span> <span class="dv">6</span>, <span class="at">maxit =</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  iter imp variable
@@ -1716,7 +1717,7 @@ $age
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Number of logged events: 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>crabe_mix<span class="sc">$</span>imp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>crabe_mix<span class="sc">$</span>imp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$sexe
 [1] 1 2 3 4 5 6
@@ -1801,13 +1802,13 @@ $age
 2892 11  9 18 10  9 11
 2985  9  8 18 12  8 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(crabe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(crabe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "sexe"           "longueur"       "diametre"       "hauteur"       
 [5] "poids"          "poids.chair"    "poids.visceres" "poids.coquille"
 [9] "age"           </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe_mix, <span class="at">main=</span><span class="st">"Plot avec la méthode mix"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(crabe_mix, <span class="at">main=</span><span class="st">"Plot avec la méthode mix"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1822,13 +1823,13 @@ $age
 <section id="imputation-des-valeurs-manquantes" class="level2">
 <h2 class="anchored" data-anchor-id="imputation-des-valeurs-manquantes">Imputation des valeurs manquantes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="ot">&lt;-</span> mice<span class="sc">::</span><span class="fu">complete</span>(crabe_rf, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="ot">&lt;-</span> mice<span class="sc">::</span><span class="fu">complete</span>(crabe_rf, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="vérification" class="level2">
 <h2 class="anchored" data-anchor-id="vérification">Vérification</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md.pattern</span>(crabe_complet_mice_rf2, <span class="at">rotate.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md.pattern</span>(crabe_complet_mice_rf2, <span class="at">rotate.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> /\     /\
 {  `---'  }
@@ -1863,17 +1864,17 @@ $age
 <p>La PCA elle-même ne fait pas d’hypothèses sur la distribution des données. Elle cherche à capturer la structure linéaire (corrélation) entre les variables.</p>
 <p>Dans le contexte de l’imputation, l’objectif est de remplacer les valeurs manquantes de manières à préserver la structure globale des données.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>crabe_acp <span class="ot">&lt;-</span> crabe_missMDA <span class="sc">|&gt;</span></span>
-<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>crabe_acp <span class="ot">&lt;-</span> crabe_missMDA <span class="sc">|&gt;</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Cette première étape à permis de trier notre jeux de données en ne gardant que les valeurs non-manquantes afin d’effectuer l’ACP.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>crabe_acp <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>crabe_acp <span class="sc">|&gt;</span></span>
 <span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(sexe) <span class="sc">|&gt;</span></span>
 <span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
 <span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">across</span>(<span class="fu">where</span>(is.numeric),</span>
 <span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a>             median) ) <span class="sc">|&gt;</span></span>
-<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 9
   sexe  longueur diametre hauteur poids poids.chair poids.visceres
@@ -1885,9 +1886,9 @@ $age
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>acp_simple <span class="ot">&lt;-</span> crabe_acp <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>acp_simple <span class="ot">&lt;-</span> crabe_acp <span class="sc">|&gt;</span></span>
 <span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span> sexe) <span class="sc">|&gt;</span></span>
-<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">PCA</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">PCA</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1913,7 +1914,7 @@ $age
 <li>On observe des clusters d’individus contribuant soit positivement soit négativement aux composantes principales.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>acp_simple<span class="sc">$</span>eig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>acp_simple<span class="sc">$</span>eig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        eigenvalue percentage of variance cumulative percentage of variance
 comp 1 6.826744442            85.33430552                          85.33431
@@ -1925,7 +1926,7 @@ comp 6 0.062872043             0.78590054                          99.75913
 comp 7 0.012671889             0.15839862                          99.91753
 comp 8 0.006597775             0.08247218                         100.00000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_screeplot</span>(acp_simple, <span class="at">addlabels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_screeplot</span>(acp_simple, <span class="at">addlabels =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1936,9 +1937,9 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>On peut donc confirmer que la dimension 1 explique à elle seule 85,3% de la variance.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>crabe_sans_sexe <span class="ot">&lt;-</span> crabe_acp <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>sexe)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>crabe_sans_sexe <span class="ot">&lt;-</span> crabe_acp <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>sexe)</span>
 <span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>res.pca<span class="ot">&lt;-</span><span class="fu">PCA</span>(crabe_sans_sexe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>res.pca<span class="ot">&lt;-</span><span class="fu">PCA</span>(crabe_sans_sexe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1953,10 +1954,10 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>contribution<span class="ot">&lt;-</span><span class="fu">round</span>(res.pca<span class="sc">$</span>var<span class="sc">$</span>contrib,<span class="dv">2</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>contribution<span class="ot">&lt;-</span><span class="fu">round</span>(res.pca<span class="sc">$</span>var<span class="sc">$</span>contrib,<span class="dv">2</span>)</span>
 <span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(contribution, <span class="at">is.corr=</span><span class="cn">FALSE</span>, <span class="at">method=</span><span class="st">"circle"</span>, <span class="at">tl.srt=</span><span class="dv">45</span>, <span class="at">tl.col=</span><span class="st">"#002200"</span>,</span>
-<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">9</span>, <span class="at">name=</span><span class="st">"OrRd"</span>), <span class="at">addCoef.col=</span><span class="st">"black"</span>, <span class="at">main=</span><span class="st">"Tableau des contributions"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">9</span>, <span class="at">name=</span><span class="st">"OrRd"</span>), <span class="at">addCoef.col=</span><span class="st">"black"</span>, <span class="at">main=</span><span class="st">"Tableau des contributions"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1967,9 +1968,9 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>Ce tableau des contributions permet de voir que toutes nos variables sont significatives pour la dimension 1 à l’exception de la variable âge qui est plus contributive pour la dimension 2.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>acp <span class="ot">&lt;-</span> <span class="fu">PCA</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>acp <span class="ot">&lt;-</span> <span class="fu">PCA</span>(</span>
 <span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">X =</span> crabe_acp,</span>
-<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">quali.sup =</span> <span class="fu">c</span>(<span class="st">"sexe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">quali.sup =</span> <span class="fu">c</span>(<span class="st">"sexe"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1986,7 +1987,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(acp, <span class="at">choix =</span> <span class="st">"ind"</span>, <span class="at">label =</span> <span class="st">"quali"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(acp, <span class="at">choix =</span> <span class="st">"ind"</span>, <span class="at">label =</span> <span class="st">"quali"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1994,7 +1995,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(acp, <span class="at">choix =</span> <span class="st">"ind"</span>, <span class="at">habillage =</span> <span class="st">"sexe"</span>, <span class="at">label =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(acp, <span class="at">choix =</span> <span class="st">"ind"</span>, <span class="at">habillage =</span> <span class="st">"sexe"</span>, <span class="at">label =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2005,7 +2006,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>Nous avons ensuite cherché à visualiser les individus dans l’ACP, en leur attribuant des couleurs ou des étiquettes en fonction de certaines variables qualitatives (comme le genre dans le deuxième cas), ce qui facilite la compréhension de la distribution des individus dans l’espace des composantes principales.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>acp<span class="sc">$</span>eig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>acp<span class="sc">$</span>eig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        eigenvalue percentage of variance cumulative percentage of variance
 comp 1 6.826744442            85.33430552                          85.33431
@@ -2020,11 +2021,11 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>Nous travaillerons avec les dimensions 1 et 2 qui explique à elles seules 92,5 % de la variance.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_acp <span class="ot">&lt;-</span>  <span class="fu">MIPCA</span>(crabe_missMDA <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>sexe), <span class="at">scale=</span><span class="cn">TRUE</span>, <span class="at">ncp=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_acp <span class="ot">&lt;-</span>  <span class="fu">MIPCA</span>(crabe_missMDA <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>sexe), <span class="at">scale=</span><span class="cn">TRUE</span>, <span class="at">ncp=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Nous procédons donc maintenant à l’analyse en composante principales multiple imputation en excluant la variable “sexe”, étant une variable qualitative, elle ne peut pas être utilisée dans l’acp qui est exclusivement quantitative. De plus, nous spécifions que nous travaillerons avec deux composantes principales avec le paramètre : ncp=2.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.MIPCA</span>(crabe_complet_acp, <span class="at">choice =</span> <span class="st">"dim"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.MIPCA</span>(crabe_complet_acp, <span class="at">choice =</span> <span class="st">"dim"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2046,7 +2047,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <p>Le premier graphique après imputation est la projection de nos variables selon les deux premières dimensions de l’ACP.</p>
 <p>Comme toutes les flèches sont proches soit de l’axes 1 soit de l’axe 2, cela signifie que les axes sont stables. Cette stabilité nous permet d’interpréter les résultats de notre ACP.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.MIPCA</span>(crabe_complet_acp, <span class="at">choice =</span> <span class="st">"var"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.MIPCA</span>(crabe_complet_acp, <span class="at">choice =</span> <span class="st">"var"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2067,14 +2068,14 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>Ce graphique spécifie que l’on souhaite visualiser les variables originales dans l’espace des deux premières dimensions de l’ACP. On observe dans notre cas que le graphique ne montre pas d’auréoles, les données ont donc bien été traitées et elles sont représentées de manière cohérente dans nos deux dimensions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_acp <span class="ot">&lt;-</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_acp <span class="ot">&lt;-</span></span>
 <span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(</span>
 <span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a>      crabe_missMDA <span class="sc">|&gt;</span> <span class="fu">select</span>(sexe),</span>
-<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a>      crabe_complet_acp[[<span class="st">"res.imputePCA"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a>      crabe_complet_acp[[<span class="st">"res.imputePCA"</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Ensuite, nous ajoutons notre variables “sexe” à notre base de données imputées des valeurs manquantes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md.pattern</span>(crabe_complet_acp, <span class="at">rotate.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md.pattern</span>(crabe_complet_acp, <span class="at">rotate.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> /\     /\
 {  `---'  }
@@ -2104,7 +2105,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <section id="comparaison-des-deux-analyses" class="level1">
 <h1>Comparaison des deux analyses</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(tableau1, tableau2, tableau3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(tableau1, tableau2, tableau3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Mice          ACP Approche_retenue
 1  0.0033393270 0.0022554586              Acp
@@ -2117,7 +2118,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <section id="analyse-descriptive-sans-na" class="level1">
 <h1>Analyse descriptive sans N/A</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">summary</span>(crabe_complet_mice_rf2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">summary</span>(crabe_complet_mice_rf2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     sexe              longueur         diametre         hauteur      
  Length:3893        Min.   : 5.715   Min.   : 4.191   Min.   : 0.000  
@@ -2157,7 +2158,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <h2 class="anchored" data-anchor-id="variable-qualitative">Variable Qualitative</h2>
 <p><strong>Tableau de contingence</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(crabe_complet_mice_rf2, sexe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(crabe_complet_mice_rf2, sexe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sexe    n
 1    F 1225
@@ -2172,7 +2173,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <section id="boite-à-moustache" class="level3">
 <h3 class="anchored" data-anchor-id="boite-à-moustache">Boite à moustache</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="sc">|&gt;</span></span>
 <span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(</span>
 <span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">where</span>(is.numeric)</span>
 <span id="cb136-4"><a href="#cb136-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
@@ -2180,7 +2181,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <span id="cb136-6"><a href="#cb136-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> value) <span class="sc">+</span></span>
 <span id="cb136-7"><a href="#cb136-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> name, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb136-8"><a href="#cb136-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb136-9"><a href="#cb136-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb136-9"><a href="#cb136-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_light</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2195,12 +2196,12 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <h3 class="anchored" data-anchor-id="histogrammes">Histogrammes</h3>
 <p>Pour enrichir l’analyse, nous visualisons la forme de la distribution à l’aide d’histogrammes et superposons une courbe de densité. Cela nous permet d’évaluer visuellement la normalité de la distribution et de souligner les modes ainsi que les asymétries.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
 <span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> longueur)) <span class="sc">+</span></span>
 <span id="cb137-3"><a href="#cb137-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
 <span id="cb137-4"><a href="#cb137-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  </span>
 <span id="cb137-5"><a href="#cb137-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution de la longueur "</span>, <span class="at">x =</span> <span class="st">"Longueur"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>) <span class="sc">+</span>  </span>
-<span id="cb137-6"><a href="#cb137-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb137-6"><a href="#cb137-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
@@ -2219,13 +2220,13 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>La distribution présente une légère asymétrie à droite. Cela signifie qu’il y a une proportion de crabes qui ont des longueurs plus grandes que la moyenne.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe, <span class="fu">aes</span>(<span class="at">x =</span> diametre)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe, <span class="fu">aes</span>(<span class="at">x =</span> diametre)) <span class="sc">+</span></span>
 <span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span>  </span>
 <span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  </span>
 <span id="cb140-4"><a href="#cb140-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution du diamètre  avec courbe de densité"</span>,</span>
 <span id="cb140-5"><a href="#cb140-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Diamètre"</span>,</span>
 <span id="cb140-6"><a href="#cb140-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb140-7"><a href="#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb140-7"><a href="#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2236,11 +2237,11 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>La distribution du diamètre n’est pas symétrique ; elle présente une forme qui semble multimodale et qui n’est pas normale en raison de ses multiples pics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> hauteur)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> hauteur)) <span class="sc">+</span></span>
 <span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"blue"</span>,<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb141-3"><a href="#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution de la hauteur "</span>, <span class="at">x =</span> <span class="st">"Hauteur"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb141-5"><a href="#cb141-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb141-5"><a href="#cb141-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2251,11 +2252,11 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>Le graphique nous montre une distribution de la hauteur des crabes qui semble être multimodale, car il y a plusieurs pics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> poids)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> poids)) <span class="sc">+</span></span>
 <span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb142-3"><a href="#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution du poids "</span>, <span class="at">x =</span> <span class="st">"Poids"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2265,11 +2266,11 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> poids.chair)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> poids.chair)) <span class="sc">+</span></span>
 <span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="fl">0.01</span>, <span class="at">fill =</span> <span class="st">"orange"</span>,  <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb143-3"><a href="#cb143-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution du poids de chair "</span>, <span class="at">x =</span> <span class="st">"Poids de chair"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2279,11 +2280,11 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> poids.visceres)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> poids.visceres)) <span class="sc">+</span></span>
 <span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="fl">0.01</span>, <span class="at">fill =</span> <span class="st">"orange"</span>,  <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb144-4"><a href="#cb144-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution du poids des viscères "</span>, <span class="at">x =</span> <span class="st">"Poids des viscères"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2293,11 +2294,11 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> poids.coquille)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> poids.coquille)) <span class="sc">+</span></span>
 <span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="fl">0.01</span>, <span class="at">fill =</span> <span class="st">"orange"</span>,  <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb145-3"><a href="#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb145-4"><a href="#cb145-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution du poids de la coquille "</span>, <span class="at">x =</span> <span class="st">"Poids de la coquille"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb145-5"><a href="#cb145-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb145-5"><a href="#cb145-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2308,11 +2309,11 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 </div>
 <p>Les poids de viscères, de la coquille et de la chair, pressentent des distribution asymétriques à droite, avec une concentration plus élevée de valeurs faibles et une queue qui s’étend vers des valeurs plus élevées.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
 <span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution de l'âge "</span>, <span class="at">x =</span> <span class="st">" ge"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb146-5"><a href="#cb146-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb146-5"><a href="#cb146-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2330,13 +2331,13 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <section id="quantitative---quantitative" class="level2">
 <h2 class="anchored" data-anchor-id="quantitative---quantitative">Quantitative - Quantitative</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>(crabe, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> diametre, <span class="at">color =</span> sexe)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>(crabe, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> diametre, <span class="at">color =</span> sexe)) <span class="sc">+</span></span>
 <span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> vecteur_couleur) <span class="sc">+</span>  </span>
 <span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>  </span>
 <span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relation entre l'âge et le diamètre "</span>,</span>
 <span id="cb147-6"><a href="#cb147-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">" ge"</span>,</span>
-<span id="cb147-7"><a href="#cb147-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Diamètre"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb147-7"><a href="#cb147-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Diamètre"</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2348,7 +2349,7 @@ comp 8 0.006597775             0.08247218                         100.00000</cod
 <p>Nous pouvons observer une tendance positive entre l’âge et le diamètre, ce qui signifie que, en général, le diamètre des crabes augmente avec l’âge. Et on peut aussi observer que les crabes de sexe indéfini sont très présents jusqu’à l’âge de 10 mois.</p>
 <p><strong>Corrélation (variables type poids)</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(crabe_complet_mice_rf2[<span class="fu">c</span>(<span class="st">"poids"</span>, <span class="st">"poids.chair"</span>, <span class="st">"poids.visceres"</span>, <span class="st">"poids.coquille"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(crabe_complet_mice_rf2[<span class="fu">c</span>(<span class="st">"poids"</span>, <span class="st">"poids.chair"</span>, <span class="st">"poids.visceres"</span>, <span class="st">"poids.coquille"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   poids poids.chair poids.visceres poids.coquille
 poids          1.0000000   0.9689417      0.9655096      0.9552759
@@ -2360,7 +2361,7 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <p>En ce qui concerne la relation entre le “poids”, “poids.chair”, “poids.visceres”, “poids.coquille” les fortes corrélations indiquent que les différentes mesures de poids sont interdépendantes, ce qui n’est pas surprenant compte tenu de leur nature biologique.</p>
 <p>Les lignes de régression sont bien ajustées à la distribution des points, bien que quelques points éloignés (valeurs extrêmes) en particulier dans la plage supérieure des valeurs.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>variables_quantitatives <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"longueur"</span>, <span class="st">"diametre"</span>, <span class="st">"hauteur"</span>, <span class="st">"poids"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>variables_quantitatives <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"longueur"</span>, <span class="st">"diametre"</span>, <span class="st">"hauteur"</span>, <span class="st">"poids"</span>)</span>
 <span id="cb150-2"><a href="#cb150-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb150-3"><a href="#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création de toutes les paires possibles sans répétition ni inversion</span></span>
 <span id="cb150-4"><a href="#cb150-4" aria-hidden="true" tabindex="-1"></a>paires <span class="ot">&lt;-</span> <span class="fu">combn</span>(variables_quantitatives, <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span>
@@ -2375,7 +2376,7 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <span id="cb150-13"><a href="#cb150-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb150-14"><a href="#cb150-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb150-15"><a href="#cb150-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-16"><a href="#cb150-16" aria-hidden="true" tabindex="-1"></a>graphiques</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb150-16"><a href="#cb150-16" aria-hidden="true" tabindex="-1"></a>graphiques</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]</code></pre>
 </div>
@@ -2450,9 +2451,9 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <h2 class="anchored" data-anchor-id="qualitative---quantitative">Qualitative - quantitative</h2>
 <p>Afin d’examiner les relations entre nos variables quantitatives et notre variable qualitative, nous procédons à une visualisations deux à deux :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> sexe, <span class="at">y =</span> longueur)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb157"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> sexe, <span class="at">y =</span> longueur)) <span class="sc">+</span></span>
 <span id="cb157-2"><a href="#cb157-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb157-3"><a href="#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparaison de la taille entre les sexes "</span>, <span class="at">x =</span> <span class="st">"Sexe"</span>, <span class="at">y =</span> <span class="st">"Longueur"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb157-3"><a href="#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparaison de la taille entre les sexes "</span>, <span class="at">x =</span> <span class="st">"Sexe"</span>, <span class="at">y =</span> <span class="st">"Longueur"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2463,9 +2464,9 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 </div>
 <p>Nous pouvons observer que la médiane semble être légèrement plus élevée pour les femelles que pour les mâles et aussi elles semblent avoir une étendue interquartile (entre le premier et le troisième quartile) plus étroite que celle des mâles. Cela indique que les longueurs des femelles sont moins dispersées autour de la médiane.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> sexe, <span class="at">y =</span> poids)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2, <span class="fu">aes</span>(<span class="at">x =</span> sexe, <span class="at">y =</span> poids)) <span class="sc">+</span></span>
 <span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparaison du poids entre les sexes "</span>, <span class="at">x =</span> <span class="st">"Sexe"</span>, <span class="at">y =</span> <span class="st">"Poids"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparaison du poids entre les sexes "</span>, <span class="at">x =</span> <span class="st">"Sexe"</span>, <span class="at">y =</span> <span class="st">"Poids"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2476,11 +2477,11 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 </div>
 <p>Les médianes semblent similaires entre les sexes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crabe_complet_mice_rf2) <span class="sc">+</span></span>
 <span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> poids, <span class="at">fill =</span> sexe) <span class="sc">+</span></span>
 <span id="cb159-3"><a href="#cb159-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
 <span id="cb159-4"><a href="#cb159-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> vecteur_couleur) <span class="sc">+</span></span>
-<span id="cb159-5"><a href="#cb159-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb159-5"><a href="#cb159-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2492,9 +2493,9 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <p>Les crabes féminins et masculins ont des distributions similaires, avec une gamme de poids étendue, tandis que les indéterminées ont une distribution plus concentrée vers les poids inférieurs.</p>
 <p><strong>Fréquences en fonction du sexe</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="sc">|&gt;</span></span>
 <span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sexe, diametre) <span class="sc">|&gt;</span></span>
-<span id="cb160-3"><a href="#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb160-3"><a href="#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 266 × 3
 # Groups:   sexe, diametre [266]
@@ -2514,9 +2515,9 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="sc">|&gt;</span></span>
 <span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sexe, poids) <span class="sc">|&gt;</span></span>
-<span id="cb162-3"><a href="#cb162-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb162-3"><a href="#cb162-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,093 × 3
 # Groups:   sexe, poids [3,093]
@@ -2536,9 +2537,9 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>crabe_complet_mice_rf2 <span class="sc">|&gt;</span></span>
 <span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sexe, age) <span class="sc">|&gt;</span></span>
-<span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 68 × 3
 # Groups:   sexe, age [68]
@@ -2569,13 +2570,13 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <section id="base-avec-crabe-jeune" class="level2">
 <h2 class="anchored" data-anchor-id="base-avec-crabe-jeune">Base avec crabe jeune</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>crabe_jeune<span class="ot">&lt;-</span>crabe <span class="sc">|&gt;</span> <span class="fu">filter</span> (age<span class="sc">&lt;=</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>crabe_jeune<span class="ot">&lt;-</span>crabe <span class="sc">|&gt;</span> <span class="fu">filter</span> (age<span class="sc">&lt;=</span><span class="dv">9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="boite-à-moustache-avec-crabe-jeune" class="level2">
 <h2 class="anchored" data-anchor-id="boite-à-moustache-avec-crabe-jeune">Boite à moustache avec crabe jeune</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a>crabe_jeune <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a>crabe_jeune <span class="sc">|&gt;</span></span>
 <span id="cb167-2"><a href="#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb167-3"><a href="#cb167-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">where</span>(is.numeric)</span>
 <span id="cb167-4"><a href="#cb167-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
@@ -2583,7 +2584,7 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <span id="cb167-6"><a href="#cb167-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> value) <span class="sc">+</span></span>
 <span id="cb167-7"><a href="#cb167-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> name, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb167-8"><a href="#cb167-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb167-9"><a href="#cb167-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb167-9"><a href="#cb167-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 22 rows containing non-finite outside the scale range
 (`stat_boxplot()`).</code></pre>
@@ -2597,7 +2598,7 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>crabe_jeune<span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>crabe_jeune<span class="sc">|&gt;</span></span>
 <span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> longueur<span class="sc">:</span>age,</span>
 <span id="cb169-4"><a href="#cb169-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"mesure"</span>,</span>
@@ -2609,7 +2610,7 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <span id="cb169-10"><a href="#cb169-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb169-11"><a href="#cb169-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> vecteur_couleur)<span class="sc">+</span></span>
 <span id="cb169-12"><a href="#cb169-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> mesure, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb169-13"><a href="#cb169-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb169-13"><a href="#cb169-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2622,20 +2623,20 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <section id="regresion" class="level2">
 <h2 class="anchored" data-anchor-id="regresion">Regresion</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a>crabes_reg <span class="ot">&lt;-</span> crabe_jeune <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a>crabes_reg <span class="ot">&lt;-</span> crabe_jeune <span class="sc">|&gt;</span></span>
 <span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexe =</span> <span class="fu">case_when</span>(</span>
 <span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a>    sexe <span class="sc">==</span> <span class="st">"M"</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
 <span id="cb170-4"><a href="#cb170-4" aria-hidden="true" tabindex="-1"></a>    sexe <span class="sc">==</span> <span class="st">"F"</span> <span class="sc">~</span> <span class="dv">1</span></span>
 <span id="cb170-5"><a href="#cb170-5" aria-hidden="true" tabindex="-1"></a>    ))</span>
 <span id="cb170-6"><a href="#cb170-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb170-7"><a href="#cb170-7" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(crabes_reg, sexe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb170-7"><a href="#cb170-7" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(crabes_reg, sexe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sexe    n
 1    0  533
 2    1  390
 3   NA 1000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>crabes_reg <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>crabes_reg <span class="sc">|&gt;</span></span>
 <span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb172-3"><a href="#cb172-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> longueur<span class="sc">:</span>age,</span>
 <span id="cb172-4"><a href="#cb172-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"mesure"</span>,</span>
@@ -2645,7 +2646,7 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 <span id="cb172-8"><a href="#cb172-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> valeur) <span class="sc">+</span></span>
 <span id="cb172-9"><a href="#cb172-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb172-10"><a href="#cb172-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> mesure, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb172-11"><a href="#cb172-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb172-11"><a href="#cb172-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 22 rows containing non-finite outside the scale range
 (`stat_boxplot()`).</code></pre>
@@ -2657,7 +2658,7 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabes_reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb174"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabes_reg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1923 obs. of  9 variables:
  $ sexe          : num  1 0 NA NA 1 NA 0 0 NA NA ...
@@ -2673,18 +2674,18 @@ poids.coquille 0.9552759   0.8824063      0.9061047      1.0000000</code></pre>
 </div>
 <p><strong>Séparation des données en ensembles d’entraînement et de test</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a>crabes_entrainement <span class="ot">&lt;-</span> crabes_reg <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb176"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a>crabes_entrainement <span class="ot">&lt;-</span> crabes_reg <span class="sc">|&gt;</span></span>
 <span id="cb176-2"><a href="#cb176-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sexe)) <span class="sc">|&gt;</span></span>
-<span id="cb176-3"><a href="#cb176-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb176-3"><a href="#cb176-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Vérification</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a>crabes_verification <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a>crabes_verification <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(</span>
 <span id="cb177-2"><a href="#cb177-2" aria-hidden="true" tabindex="-1"></a>  crabes_reg,</span>
 <span id="cb177-3"><a href="#cb177-3" aria-hidden="true" tabindex="-1"></a>  crabes_entrainement</span>
 <span id="cb177-4"><a href="#cb177-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb177-5"><a href="#cb177-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb177-6"><a href="#cb177-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sexe))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb177-6"><a href="#cb177-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sexe))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(sexe, longueur, diametre, hauteur, poids,
 poids.chair, poids.visceres, poids.coquille, age)`</code></pre>
@@ -2694,13 +2695,13 @@ poids.chair, poids.visceres, poids.coquille, age)`</code></pre>
 <section id="régression-logistique" class="level2">
 <h2 class="anchored" data-anchor-id="régression-logistique">Régression logistique</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a>regression_logistique <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a>regression_logistique <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
 <span id="cb179-2"><a href="#cb179-2" aria-hidden="true" tabindex="-1"></a>  sexe <span class="sc">~</span> longueur <span class="sc">+</span> diametre <span class="sc">+</span> hauteur <span class="sc">+</span> poids <span class="sc">+</span> poids.chair <span class="sc">+</span> poids.visceres <span class="sc">+</span> poids.coquille <span class="sc">+</span> age,</span>
 <span id="cb179-3"><a href="#cb179-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> crabes_entrainement,</span>
 <span id="cb179-4"><a href="#cb179-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> binomial</span>
 <span id="cb179-5"><a href="#cb179-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb179-6"><a href="#cb179-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-7"><a href="#cb179-7" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">Anova</span>(regression_logistique)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb179-7"><a href="#cb179-7" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">Anova</span>(regression_logistique)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Deviance Table (Type II tests)
 
@@ -2720,13 +2721,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>Selon les résultats, aucun des prédicteurs n’est significatif au seuil traditionnel de 0.05, bien que <strong><code>poids.chair</code></strong> soit proche avec une valeur de p de 0.06477. Cela suggère qu’il pourrait y avoir une association entre le poids de la chair et le sexe des crabes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a>regression_logistique2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a>regression_logistique2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
 <span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a>  sexe <span class="sc">~</span> poids.chair,</span>
 <span id="cb181-3"><a href="#cb181-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> crabes_entrainement,</span>
 <span id="cb181-4"><a href="#cb181-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> binomial</span>
 <span id="cb181-5"><a href="#cb181-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb181-6"><a href="#cb181-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-7"><a href="#cb181-7" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">Anova</span>(regression_logistique2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb181-7"><a href="#cb181-7" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">Anova</span>(regression_logistique2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Deviance Table (Type II tests)
 
@@ -2736,7 +2737,7 @@ poids.chair   11.391  1   0.000738 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(regression_logistique2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb183"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(regression_logistique2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2823,13 +2824,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,42 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://isabel6198.github.io/portfolio/about.html</loc>
-    <lastmod>2025-06-21T16:24:43.533Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/econometrie_lineaire/econometrie.html</loc>
-    <lastmod>2025-06-21T16:24:43.683Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/biostatistiques/Final_projet.html</loc>
-    <lastmod>2025-06-21T16:24:43.601Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/variables_latentes/variables_latentes.html</loc>
-    <lastmod>2025-06-21T16:24:43.685Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabel6198.github.io/portfolio/posts/welcome/bienvenue.html</loc>
-    <lastmod>2025-06-21T16:24:43.685Z</lastmod>
+    <lastmod>2025-11-12T14:37:51.484Z</lastmod>
   </url>
   <url>
     <loc>https://isabel6198.github.io/portfolio/posts/post-without-code/Projets.html</loc>
-    <lastmod>2025-06-21T16:24:43.685Z</lastmod>
+    <lastmod>2025-11-12T14:37:51.639Z</lastmod>
   </url>
   <url>
-    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/memoire/memoire_m1.html</loc>
-    <lastmod>2025-06-21T16:24:43.684Z</lastmod>
+    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/biostatistiques/Final_projet.html</loc>
+    <lastmod>2025-11-12T14:37:51.555Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/econometrie_lineaire/econometrie.html</loc>
+    <lastmod>2025-11-12T14:37:51.637Z</lastmod>
   </url>
   <url>
     <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/creation_package/index.html</loc>
-    <lastmod>2025-06-21T16:24:43.683Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/techniques_previsions/prevision_conjoncture.html</loc>
-    <lastmod>2025-06-21T16:24:43.685Z</lastmod>
+    <lastmod>2025-11-12T14:37:51.637Z</lastmod>
   </url>
   <url>
     <loc>https://isabel6198.github.io/portfolio/index.html</loc>
-    <lastmod>2025-06-21T16:24:43.536Z</lastmod>
+    <lastmod>2025-11-12T14:37:51.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/variables_latentes/variables_latentes.html</loc>
+    <lastmod>2025-11-12T14:37:51.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/memoire/memoire_m1.html</loc>
+    <lastmod>2025-11-12T14:37:51.638Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabel6198.github.io/portfolio/posts/post-with-code/techniques_previsions/prevision_conjoncture.html</loc>
+    <lastmod>2025-11-12T14:37:51.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabel6198.github.io/portfolio/posts/welcome/bienvenue.html</loc>
+    <lastmod>2025-11-12T14:37:51.640Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabel6198.github.io/portfolio/posts/post-without-code/NLP.html</loc>
+    <lastmod>2025-11-12T14:37:51.639Z</lastmod>
   </url>
 </urlset>
