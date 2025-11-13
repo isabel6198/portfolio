@@ -1,0 +1,29 @@
+---
+title: "Prédiction du statut tabagique par SVM"
+subtitle: "Données biomédicales coréennes (2002–2015) — comparaison de modèles et optimisation"
+date: "2025-02"
+image: "tabac.jpeg"
+categories: ["Python", "Machine Learning", "SVM", "Classification"]
+format:
+  html:
+    toc: true
+    smooth-scroll: true
+    css: post-svm.css
+---
+
+## Introduction
+
+Ce projet applique un SVM (Support Vector Machine) à des données biomédicales coréennes issues d’examens de santé (2002–2015) afin de prédire le statut tabagique (fumeur / non-fumeur). Le jeu de données (échantillon public « Body Signal of Smoking ») contient des indicateurs cliniques et biologiques (par ex. enzymes hépatiques, lipides sanguins, mesures anthropométriques). L’analyse inclut le prétraitement des variables, l’optimisation des hyperparamètres du SVM et une comparaison avec d’autres modèles de classification (régression logistique, KNN, forêts aléatoires, gradient boosting), pour évaluer robustement les performances et l’interprétabilité des résultats.
+
+---
+
+## Code et reproductibilité
+
+🔗 [Accéder au dépôt GitHub](https://github.com/isabel6198/svm_tabac/tree/main)
+
+
+------------------------------------------------------------------------
+
+## Rapport complet intégré
+
+{{< include ../_sources/Projet_SVM_PALACIO_LABRE-BLANC_M2ECAP.md >}}
