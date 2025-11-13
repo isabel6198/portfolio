@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-02-01">
+
+<title>Prédiction du statut tabagique par SVM – Menu principal</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8fd1faf6fd93e4e6d207ae0f9db51d78.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="post-svm.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Menu principal</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/isabel6198"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/isabel-palacio-9470a291/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text">LinkedIn</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#code-et-reproductibilité" id="toc-code-et-reproductibilité" class="nav-link" data-scroll-target="#code-et-reproductibilité">Code et reproductibilité</a></li>
+  <li><a href="#rapport-complet-intégré" id="toc-rapport-complet-intégré" class="nav-link" data-scroll-target="#rapport-complet-intégré">Rapport complet intégré</a></li>
+  <li><a href="#sommaire" id="toc-sommaire" class="nav-link" data-scroll-target="#sommaire">Sommaire</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#i.-analyse-exploratoire" id="toc-i.-analyse-exploratoire" class="nav-link" data-scroll-target="#i.-analyse-exploratoire">I. Analyse exploratoire</a>
+  <ul class="collapse">
+  <li><a href="#a.-présentation-des-données" id="toc-a.-présentation-des-données" class="nav-link" data-scroll-target="#a.-présentation-des-données">A. Présentation des données</a></li>
+  <li><a href="#b.-analyse-univariée" id="toc-b.-analyse-univariée" class="nav-link" data-scroll-target="#b.-analyse-univariée">B. Analyse univariée</a>
+  <ul class="collapse">
+  <li><a href="#variable-dintérêt" id="toc-variable-dintérêt" class="nav-link" data-scroll-target="#variable-dintérêt">1. Variable d’intérêt</a></li>
+  <li><a href="#prédicteurs-quantitatifs" id="toc-prédicteurs-quantitatifs" class="nav-link" data-scroll-target="#prédicteurs-quantitatifs">2. Prédicteurs quantitatifs</a></li>
+  <li><a href="#prédicteurs-qualitatifs" id="toc-prédicteurs-qualitatifs" class="nav-link" data-scroll-target="#prédicteurs-qualitatifs">3. Prédicteurs qualitatifs</a></li>
+  </ul></li>
+  <li><a href="#c.-analyse-bivariée" id="toc-c.-analyse-bivariée" class="nav-link" data-scroll-target="#c.-analyse-bivariée">C. Analyse bivariée</a>
+  <ul class="collapse">
+  <li><a href="#liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs-et-quantitatifs" id="toc-liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs-et-quantitatifs" class="nav-link" data-scroll-target="#liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs-et-quantitatifs">1. Liens entre la variable cible et les prédicteurs qualitatifs et quantitatifs</a></li>
+  <li><a href="#etude-des-corrélations" id="toc-etude-des-corrélations" class="nav-link" data-scroll-target="#etude-des-corrélations">2. Etude des corrélations</a></li>
+  <li><a href="#liens-entre-les-variables-qualitatives" id="toc-liens-entre-les-variables-qualitatives" class="nav-link" data-scroll-target="#liens-entre-les-variables-qualitatives">3. Liens entre les variables qualitatives</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#ii.-phase-préparatoire-et-modélisations" id="toc-ii.-phase-préparatoire-et-modélisations" class="nav-link" data-scroll-target="#ii.-phase-préparatoire-et-modélisations">II. Phase préparatoire et modélisations</a>
+  <ul class="collapse">
+  <li><a href="#a.-préparation-des-variables-pour-la-modélisation" id="toc-a.-préparation-des-variables-pour-la-modélisation" class="nav-link" data-scroll-target="#a.-préparation-des-variables-pour-la-modélisation">A. Préparation des variables pour la modélisation</a>
+  <ul class="collapse">
+  <li><a href="#séparation-du-jeu-de-données-en-jeux-train-et-test" id="toc-séparation-du-jeu-de-données-en-jeux-train-et-test" class="nav-link" data-scroll-target="#séparation-du-jeu-de-données-en-jeux-train-et-test">1) Séparation du jeu de données en jeux train et test</a></li>
+  <li><a href="#traitement-des-valeurs-atypiques---winsorization" id="toc-traitement-des-valeurs-atypiques---winsorization" class="nav-link" data-scroll-target="#traitement-des-valeurs-atypiques---winsorization">2) Traitement des valeurs atypiques - winsorization</a></li>
+  <li><a href="#standardisation-et-encodage" id="toc-standardisation-et-encodage" class="nav-link" data-scroll-target="#standardisation-et-encodage">3) Standardisation et encodage</a></li>
+  </ul></li>
+  <li><a href="#b.-modélisations" id="toc-b.-modélisations" class="nav-link" data-scroll-target="#b.-modélisations">B. Modélisations</a>
+  <ul class="collapse">
+  <li><a href="#présentation-des-modèles-et-métriques-pour-la-comparaison" id="toc-présentation-des-modèles-et-métriques-pour-la-comparaison" class="nav-link" data-scroll-target="#présentation-des-modèles-et-métriques-pour-la-comparaison">1) Présentation des modèles et métriques pour la comparaison</a></li>
+  <li><a href="#modélisations-avec-les-paramètres-par-défaut" id="toc-modélisations-avec-les-paramètres-par-défaut" class="nav-link" data-scroll-target="#modélisations-avec-les-paramètres-par-défaut">2) Modélisations avec les paramètres par défaut</a></li>
+  <li><a href="#modélisations-optimisées---présentation-des-stratégies-d-optimisation" id="toc-modélisations-optimisées---présentation-des-stratégies-d-optimisation" class="nav-link" data-scroll-target="#modélisations-optimisées---présentation-des-stratégies-d-optimisation">3) Modélisations optimisées - Présentation des stratégies d optimisation</a></li>
+  <li><a href="#choix-du-meilleur-modèle" id="toc-choix-du-meilleur-modèle" class="nav-link" data-scroll-target="#choix-du-meilleur-modèle">4) Choix du meilleur modèle</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#iii.-interprétation-du-meilleur-modèle" id="toc-iii.-interprétation-du-meilleur-modèle" class="nav-link" data-scroll-target="#iii.-interprétation-du-meilleur-modèle">III. Interprétation du meilleur modèle</a>
+  <ul class="collapse">
+  <li><a href="#a.-interprétation-globale" id="toc-a.-interprétation-globale" class="nav-link" data-scroll-target="#a.-interprétation-globale">A. Interprétation globale</a>
+  <ul class="collapse">
+  <li><a href="#importance-des-variables" id="toc-importance-des-variables" class="nav-link" data-scroll-target="#importance-des-variables">1) Importance des variables</a></li>
+  <li><a href="#partial-dependence-plots---pdp" id="toc-partial-dependence-plots---pdp" class="nav-link" data-scroll-target="#partial-dependence-plots---pdp">2) Partial Dependence Plots - PDP</a></li>
+  <li><a href="#permutation-features-importance" id="toc-permutation-features-importance" class="nav-link" data-scroll-target="#permutation-features-importance">3) Permutation features importance</a></li>
+  </ul></li>
+  <li><a href="#b.-interprétation-locale" id="toc-b.-interprétation-locale" class="nav-link" data-scroll-target="#b.-interprétation-locale">B. Interprétation locale</a>
+  <ul class="collapse">
+  <li><a href="#ice" id="toc-ice" class="nav-link" data-scroll-target="#ice">1) ICE</a></li>
+  <li><a href="#lime" id="toc-lime" class="nav-link" data-scroll-target="#lime">2) LIME</a></li>
+  <li><a href="#shap" id="toc-shap" class="nav-link" data-scroll-target="#shap">3) SHAP</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#glossaire" id="toc-glossaire" class="nav-link" data-scroll-target="#glossaire">Glossaire</a></li>
+  <li><a href="#table-des-matières" id="toc-table-des-matières" class="nav-link" data-scroll-target="#table-des-matières">Table des matières</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Prédiction du statut tabagique par SVM</h1>
+<p class="subtitle lead">Données biomédicales coréennes (2002–2015) — comparaison de modèles et optimisation</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">SVM</div>
+    <div class="quarto-category">Classification</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 1, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Ce projet applique un SVM (Support Vector Machine) à des données biomédicales coréennes issues d’examens de santé (2002–2015) afin de prédire le statut tabagique (fumeur / non-fumeur). Le jeu de données (échantillon public « Body Signal of Smoking ») contient des indicateurs cliniques et biologiques (par ex. enzymes hépatiques, lipides sanguins, mesures anthropométriques). L’analyse inclut le prétraitement des variables, l’optimisation des hyperparamètres du SVM et une comparaison avec d’autres modèles de classification (régression logistique, KNN, forêts aléatoires, gradient boosting), pour évaluer robustement les performances et l’interprétabilité des résultats.</p>
+<hr>
+</section>
+<section id="code-et-reproductibilité" class="level2">
+<h2 class="anchored" data-anchor-id="code-et-reproductibilité">Code et reproductibilité</h2>
+<p>🔗 <a href="https://github.com/isabel6198/svm_tabac/tree/main">Accéder au dépôt GitHub</a></p>
+<hr>
+</section>
+<section id="rapport-complet-intégré" class="level2">
+<h2 class="anchored" data-anchor-id="rapport-complet-intégré">Rapport complet intégré</h2>
+<h1 align="center">
+<p><b>Prédiction du statut tabagique à partir de données biologiques issues d’examens de santé en Corée du Sud (2002–2015)</b></p>
+</h1>
+<p align="center">
+</p><p>PALACIO Isabel</p>
+<p></p>
+<p align="center">
+</p><p>LABRE-BLANC Emma</p>
+<p></p>
+<p align="center">
+</p><p>Master 2 Econométrie et Statistiques Appliquées</p>
+<p></p>
+<p><br><br></p>
+</section>
+<section id="sommaire" class="level1">
+<h1>Sommaire</h1>
+<ul>
+<li><p><a href="#introduction">Introduction</a></p></li>
+<li><p><a href="#i-analyse-exploratoire">I. Analyse exploratoire</a></p>
+<ul>
+<li><a href="#a-Présentation-des-données">A. Présentation des données</a></li>
+<li><a href="#b-Analyse-univariée">B. Analyse univariée</a></li>
+<li><a href="#c-Analyse-bivariée">C. Analyse bivariée</a></li>
+</ul></li>
+<li><p><a href="#ii-Phase-préparatoire-et-modélisations">II. Phase préparatoire et modélisations</a></p>
+<ul>
+<li><a href="#a-Préparation-des-variables-pour-la-modélisation">A. Préparation des variables pour la modélisation</a></li>
+<li><a href="#b-Modélisations">B. Modélisations</a></li>
+</ul></li>
+<li><p><a href="#iii-interprétation-du-meilleur-modèle">III. Interprétation du meilleur modèle</a></p>
+<ul>
+<li><a href="#a-interprétation-globale">A. Interprétation globale</a></li>
+<li><a href="#b-interprétation-locale">B. Interprétation locale</a></li>
+</ul></li>
+<li><p><a href="#conclusion">Conclusion</a></p></li>
+<li><p><a href="#Glossaire">Glossaire</a></p></li>
+<li><p><a href="#Table-des-matières">Table des matières</a></p>
+<p></p></li>
+</ul>
+<p><br> <br></p>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p align="justify">
+</p><p>Le tabagisme est l’un des principaux facteurs de risque pour de nombreuses maladies chroniques, notamment les pathologies cardiovasculaires, les cancers et les maladies respiratoires. Identifier les individus fumeurs à partir de données médicales pourrait permettre de mieux cibler les efforts de prévention, en particulier lorsque les données déclaratives ne sont pas disponibles ou peu fiables.</p>
+<p></p>
+<p align="justify">
+</p><p>Ce projet a pour objectif de développer un modèle prédictif capable de déterminer si une personne fume ou non à partir de variables biologiques et cliniques issues d’examens de santé. Les données utilisées proviennent d’un échantillon de la base de données nationale coréenne d’assurance maladie, couvrant les années 2002 à 2015. Elles incluent des informations variées telles que le cholestérol, la glycémie, la pression artérielle, le taux de créatinine ou encore l’acuité visuelle.</p>
+<p></p>
+<p align="justify">
+</p><p>Nous commencerons par une analyse exploratoire des données pour en comprendre la structure, détecter les éventuelles anomalies et identifier les variables les plus discriminantes. Ensuite, nous testerons plusieurs modèles de classification (SVM, Random Forest…) afin de sélectionner le plus performant. Une phase d’optimisation des hyperparamètres permettra d’affiner les performances des modèles retenus. Enfin, nous analyserons les résultats à l’aide de techniques d’explicabilité telles que Permutation Feature Importance ou SHAP, dans le but de mieux comprendre l’influence de chaque variable biologique sur la prédiction du statut tabagique. L’objectif final est d’élaborer un modèle robuste, interprétable, et capable de prédire avec fiabilité si un individu est fumeur ou non, à partir de ses données médicales.</p>
+<p></p>
+</section>
+<section id="i.-analyse-exploratoire" class="level1">
+<h1>I. Analyse exploratoire</h1>
+<p align="justify">
+</p><p>La première étape de notre étude consiste à prendre connaissance des données disponibles. Cela nous permettra de comprendre la structure du jeu de données, d’identifier d’éventuelles anomalies ou valeurs manquantes, et de repérer les tendances générales ou les relations significatives entre les variables. Cette exploration est essentielle pour guider et optimiser les modélisations à venir.</p>
+<p></p>
+<p align="justify">
+</p><p>Cette section est structurée en trois sous-parties. Nous commencerons par une présentation générale du jeu de données, incluant le type et la description des variables, ainsi que les traitements préliminaires effectués. Ensuite, une analyse univariée permettra d’étudier individuellement chaque variable à travers des visualisations et des statistiques descriptives. Enfin, une analyse bivariée visera à examiner les relations entre les variables explicatives et la variable cible (le statut tabagique), à l’aide de tests statistiques et de graphiques croisés.</p>
+<p></p>
+<section id="a.-présentation-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="a.-présentation-des-données">A. Présentation des données</h2>
+<p align="justify">
+</p><p>Les données utilisées pour cette analyse proviennent du portail national coréen des données ouvertes : <a href="https://www.data.go.kr/data/15007122/fileData.do">data.go.kr </a>. Elles ont été publiées par le Service national d’assurance maladie (KHIC) et couvrent la période de 2002 a 2015. Ces données incluent des informations issues des examens de santé, des prescriptions médicales et de l’historique des soins pour un million d’assurés. Afin de garantir la confidentialité, les données personnelles sensibles ont été retirées ou anonymisées a l’aide de techniques telles que la discrétisation de l’âge ou le masquage des identifiants.</p>
+<p></p>
+<p align="justify">
+</p><p>Nous utilisons ici un echantillon publié sur Kaggle, accessible via ce lien : <a href="https://www.kaggle.com/datasets/kukuroo3/body-signal-of-smoking/data">Kaggle - Body Signal of Smoking</a>. Cet échantillon permet de poser un problème de classification binaire : prédire si une personne fume (1 = non fumeur, 2 = fumeur) à partir de données biologiques et cliniques.</p>
+<p></p>
+<p align="justify">
+</p><p>Le jeu de données contient 27 variables et 55 692 observations. Le tableau ci-dessous (<strong>Tableau 6</strong>) permet d’en avoir un aperçu :</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Tableau 1 : Présentation des variables </span></p>
+<p></p>
+<div data-align="center">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 53%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Type / Unité</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ID</code></td>
+<td>Identifiant unique attribué à chaque individu</td>
+<td>Identifiant (non informatif)</td>
+</tr>
+<tr class="even">
+<td><code>oral</code></td>
+<td>Indique si l’individu a accepté de passer un examen buccodentaire</td>
+<td>Catégorielle (N : non, Y : oui)</td>
+</tr>
+<tr class="odd">
+<td><code>gender</code></td>
+<td>Sexe biologique de l’individu</td>
+<td>Catégorielle (M : homme, F : femme)</td>
+</tr>
+<tr class="even">
+<td><code>age</code></td>
+<td>Tranche d’âge de l’individu, par intervalles de 5 ans ( si plus de 85 ans noté 85)</td>
+<td>Numérique (années)</td>
+</tr>
+<tr class="odd">
+<td><code>height</code></td>
+<td>Taille de l’individu par tranche de 5cm, exprimée en centimètres</td>
+<td>Numérique (cm)</td>
+</tr>
+<tr class="even">
+<td><code>weight</code></td>
+<td>Poids de l’individu par tranche de 5kg, exprimé en kilogrammes</td>
+<td>Numérique (kg)</td>
+</tr>
+<tr class="odd">
+<td><code>waist</code></td>
+<td>Tour de taille, mesuré en centimètres</td>
+<td>Numérique (cm)</td>
+</tr>
+<tr class="even">
+<td><code>systolic</code></td>
+<td>Pression artérielle systolique (pression maximale)</td>
+<td>Numérique (mmHg)</td>
+</tr>
+<tr class="odd">
+<td><code>relaxation</code></td>
+<td>Pression artérielle diastolique (pression minimale)</td>
+<td>Numérique (mmHg)</td>
+</tr>
+<tr class="even">
+<td><code>fasting blood sugar</code></td>
+<td>Glycémie à jeun, taux de sucre dans le sang</td>
+<td>Numérique (mg/dL)</td>
+</tr>
+<tr class="odd">
+<td><code>Cholesterol</code></td>
+<td>Taux de cholestérol total</td>
+<td>Numérique (mg/dL)</td>
+</tr>
+<tr class="even">
+<td><code>HDL</code></td>
+<td>Taux de cholestérol HDL (le « bon » cholestérol)</td>
+<td>Numérique (mg/dL)</td>
+</tr>
+<tr class="odd">
+<td><code>LDL</code></td>
+<td>Taux de cholestérol LDL (le « mauvais » cholestérol)</td>
+<td>Numérique (mg/dL)</td>
+</tr>
+<tr class="even">
+<td><code>triglyceride</code></td>
+<td>Taux de triglycérides dans le sang</td>
+<td>Numérique (mg/dL)</td>
+</tr>
+<tr class="odd">
+<td><code>hemoglobin</code></td>
+<td>Taux d’hémoglobine (pigments sanguins transportant l’oxygène)</td>
+<td>Numérique (g/dL)</td>
+</tr>
+<tr class="even">
+<td><code>Urine protein</code></td>
+<td>Niveau de protéines dans les urines (1 = normal, 6 = très élevé)</td>
+<td>Catégorielle ordonnée (1 à 6)</td>
+</tr>
+<tr class="odd">
+<td><code>serum creatinine</code></td>
+<td>Taux de créatinine, indicateur de la fonction rénale</td>
+<td>Numérique (mg/dL)</td>
+</tr>
+<tr class="even">
+<td><code>AST</code></td>
+<td>Enzyme hépatique (Aspartate Aminotransférase), indicateur de santé hépatique</td>
+<td>Numérique (UI/L)</td>
+</tr>
+<tr class="odd">
+<td><code>ALT</code></td>
+<td>Enzyme hépatique (Alanine Aminotransférase), indicateur de santé hépatique</td>
+<td>Numérique (UI/L)</td>
+</tr>
+<tr class="even">
+<td><code>GTP</code></td>
+<td>Gamma-GT, enzyme hépatique</td>
+<td>Numérique (UI/L)</td>
+</tr>
+<tr class="odd">
+<td><code>hearing(left)</code></td>
+<td>Résultat du test auditif pour l’oreille gauche (1 = normal, 2 = anormal)</td>
+<td>Catégorielle binaire</td>
+</tr>
+<tr class="even">
+<td><code>hearing(right)</code></td>
+<td>Résultat du test auditif pour l’oreille droite (1 = normal, 2 = anormal)</td>
+<td>Catégorielle binaire</td>
+</tr>
+<tr class="odd">
+<td><code>eyesight(left)</code></td>
+<td>Acuité visuelle de l’œil gauche (exprimée entre 0.1 et 2.5 ; 9.9 = cécité)</td>
+<td>Numérique</td>
+</tr>
+<tr class="even">
+<td><code>eyesight(right)</code></td>
+<td>Acuité visuelle de l’œil droit (exprimée entre 0.1 et 2.5 ; 9.9 = cécité)</td>
+<td>Numérique</td>
+</tr>
+<tr class="odd">
+<td><code>dental caries</code></td>
+<td>Présence de caries dentaires (0 = non, 1 = oui)</td>
+<td>Binaire</td>
+</tr>
+<tr class="even">
+<td><code>tartar</code></td>
+<td>Présence de tartre (0 = non, 1 = oui)</td>
+<td>Binaire</td>
+</tr>
+<tr class="odd">
+<td><code>smoking</code></td>
+<td>Variable cible : statut tabagique (1 = non-fumeur, 2 = fumeur)</td>
+<td>Binaire</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Afin de garantir la qualité et la cohérence des données avant toute analyse, plusieurs traitements préliminaires ont été effectués. Ces étapes ont permis de préparer le jeu de données pour l’analyse exploratoire et la modélisation.</p>
+<p></p>
+<p align="justify">
+</p><p>Tout d’abord, les noms des colonnes ont été uniformisés. Les espaces ont été remplacés par des underscores (<code>_</code>) afin de faciliter leur manipulation dans l’environnement Python, notamment avec la bibliothèque pandas.</p>
+<p></p>
+<p align="justify">
+</p><p>Ensuite, certaines variables ont été reclassées pour mieux refléter leur nature :</p>
+<p></p>
+<ul>
+<li align="justify">
+<p><strong>gender</strong> a été recodée en une variable binaire indiquant si l’individu est un homme, puis convertie en type booléen.</p>
+</li>
+<li align="justify">
+<p>Les colonnes <strong>hearing_left</strong> et <strong>hearing_right</strong> ont été transformées en deux variables indicatrices distinctes : <strong>pb_hearing_left</strong> et <strong>pb_hearing_right</strong>, elles aussi converties en booléen.</p>
+</li>
+<li align="justify">
+<p>Les variables <strong>tartar</strong>, <strong>dental_caries</strong> et <strong>smoking</strong> ont également été converties en type booléen.</p>
+</li>
+<li align="justify">
+<p>La variable <strong>Urine_protein</strong>, qui présente des valeurs ordinales de 1 à 6, a été explicitement définie comme une variable catégorielle ordonnée.</p>
+</li>
+<li align="justify">
+<p>À la suite de ces transformations, les colonnes devenues redondantes (comme <strong>gender</strong> ou <strong>hearing_left</strong>) ont été supprimées.</p>
+</li>
+</ul>
+<p align="justify">
+</p><p>Une re-détection propre des types de variables a ensuite été réalisée, permettant de classer clairement chaque colonne en type numérique, catégoriel ou booléen. Cette étape facilite les traitements à venir et garantit une interprétation correcte des analyses statistiques.</p>
+<p></p>
+<p align="justify">
+</p><p>Nous avons ensuite vérifié la présence de valeurs manquantes ou de doublons dans les données. Aucune valeur manquante n’a été détectée sur l’ensemble des colonnes, ce qui évite tout traitement d’imputation.</p>
+<p></p>
+<p align="justify">
+</p><p>Concernant les doublons, bien que l’exécution de la commande <code>df.duplicated().sum()</code> retourne zéro doublon, une vérification plus approfondie — en excluant la colonne <strong>ID</strong> — a mis en évidence 11 140 enregistrements strictement identiques sur toutes les autres variables, peut être en raison d’un échantillonage aléatoire avec remise. Ces doublons ont été supprimés afin d’éviter tout biais dans l’analyse.</p>
+<p></p>
+<p align="justify">
+</p><p>Enfin, deux colonnes ont été retirées du jeu de données : la colonne <strong>ID</strong>, qui ne constitue qu’un identifiant unique sans valeur informative pour l’analyse, et la colonne <strong>oral</strong>, qui ne contenait qu’une seule modalité partagée par tous les individus.</p>
+<p></p>
+</section>
+<section id="b.-analyse-univariée" class="level2">
+<h2 class="anchored" data-anchor-id="b.-analyse-univariée">B. Analyse univariée</h2>
+<p align="justify">
+</p><p>Après avoir effectué le prétraitement de nos données, nous avons procédé à une analyse univariée de l’ensemble des variables du jeu de données afin d’explorer les caractéristiques globales de la population étudiée, détecter d’éventuelles valeurs extrêmes, déséquilibres ou anomalies.</p>
+<section id="variable-dintérêt" class="level3">
+<h3 class="anchored" data-anchor-id="variable-dintérêt">1. Variable d’intérêt</h3>
+<p align="justify">
+</p><p>Nous débutons par l’analyse de la variable cible : le statut tabagique des individus. La distribution des classes est représentée par un histogramme (<strong>Figure 1</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 1 : Distribution de la variable cible</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/graph_smoking.png" alt="Graphique de la variable cible"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Ce graphique met en évidence un déséquilibre modéré : sur les 44 552 individus de l’échantillon, 16 352 sont fumeurs (soit 37 %), contre 28 200 non-fumeurs. Ainsi, environ un tiers des observations sont associées à la classe « fumeur ».</p>
+<p></p>
+<p align="justify">
+</p><p>Un taux de 37 % pour la classe minoritaire n’est pas considéré comme fortement déséquilibré en apprentissage automatique. Ainsi, dans un premier temps, nous procéderons à des modélisations sans rééchantillonnage. Cependant, nous envisagerons l’utilisation de méthodes de rééchantillonnage pour déterminer si cela peut améliorer les performances des modèles.</p>
+<p></p>
+</section>
+<section id="prédicteurs-quantitatifs" class="level3">
+<h3 class="anchored" data-anchor-id="prédicteurs-quantitatifs">2. Prédicteurs quantitatifs</h3>
+<p align="justify">
+</p><p>L’analyse des variables quantitatives est résumée dans le tableau des statistiques descriptives (<strong>Tableau 2</strong>) ainsi que dans les histogrammes présentés en <strong>Figures 2</strong>.</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Tableau 2 : Statistiques descriptives des variables quantitatives </span></p>
+<p></p>
+<div data-align="center">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Count</th>
+<th>Mean</th>
+<th>Std</th>
+<th>Min</th>
+<th>25%</th>
+<th>50%</th>
+<th>75%</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+<td>44552.0</td>
+<td>44.210698</td>
+<td>12.089196</td>
+<td>20.0</td>
+<td>40.0</td>
+<td>40.0</td>
+<td>55.0</td>
+<td>85.0</td>
+</tr>
+<tr class="even">
+<td>height(cm)</td>
+<td>44552.0</td>
+<td>164.657030</td>
+<td>9.198674</td>
+<td>130.0</td>
+<td>160.0</td>
+<td>165.0</td>
+<td>170.0</td>
+<td>190.0</td>
+</tr>
+<tr class="odd">
+<td>weight(kg)</td>
+<td>44552.0</td>
+<td>65.883462</td>
+<td>12.823819</td>
+<td>30.0</td>
+<td>55.0</td>
+<td>65.0</td>
+<td>75.0</td>
+<td>135.0</td>
+</tr>
+<tr class="even">
+<td>waist(cm)</td>
+<td>44552.0</td>
+<td>82.077186</td>
+<td>9.278384</td>
+<td>51.0</td>
+<td>76.0</td>
+<td>82.0</td>
+<td>88.0</td>
+<td>129.0</td>
+</tr>
+<tr class="odd">
+<td>eyesight(left)</td>
+<td>44552.0</td>
+<td>1.011730</td>
+<td>0.488136</td>
+<td>0.1</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>1.2</td>
+<td>9.9</td>
+</tr>
+<tr class="even">
+<td>eyesight(right)</td>
+<td>44552.0</td>
+<td>1.008130</td>
+<td>0.488767</td>
+<td>0.1</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>1.2</td>
+<td>9.9</td>
+</tr>
+<tr class="odd">
+<td>systolic</td>
+<td>44552.0</td>
+<td>121.529179</td>
+<td>13.688876</td>
+<td>71.0</td>
+<td>112.0</td>
+<td>120.0</td>
+<td>130.0</td>
+<td>240.0</td>
+</tr>
+<tr class="even">
+<td>relaxation</td>
+<td>44552.0</td>
+<td>76.043320</td>
+<td>9.695356</td>
+<td>40.0</td>
+<td>70.0</td>
+<td>76.0</td>
+<td>82.0</td>
+<td>146.0</td>
+</tr>
+<tr class="odd">
+<td>fasting_blood_sugar</td>
+<td>44552.0</td>
+<td>99.320210</td>
+<td>20.845547</td>
+<td>46.0</td>
+<td>89.0</td>
+<td>96.0</td>
+<td>104.0</td>
+<td>505.0</td>
+</tr>
+<tr class="even">
+<td>Cholesterol</td>
+<td>44552.0</td>
+<td>196.996005</td>
+<td>36.423237</td>
+<td>55.0</td>
+<td>172.0</td>
+<td>195.0</td>
+<td>220.0</td>
+<td>445.0</td>
+</tr>
+<tr class="odd">
+<td>triglyceride</td>
+<td>44552.0</td>
+<td>126.722257</td>
+<td>71.612721</td>
+<td>8.0</td>
+<td>74.0</td>
+<td>108.0</td>
+<td>160.0</td>
+<td>999.0</td>
+</tr>
+<tr class="even">
+<td>HDL</td>
+<td>44552.0</td>
+<td>57.288382</td>
+<td>14.795399</td>
+<td>4.0</td>
+<td>47.0</td>
+<td>55.0</td>
+<td>66.0</td>
+<td>618.0</td>
+</tr>
+<tr class="odd">
+<td>LDL</td>
+<td>44552.0</td>
+<td>115.037978</td>
+<td>40.938284</td>
+<td>1.0</td>
+<td>92.0</td>
+<td>113.0</td>
+<td>136.0</td>
+<td>1860.0</td>
+</tr>
+<tr class="even">
+<td>hemoglobin</td>
+<td>44552.0</td>
+<td>14.622235</td>
+<td>1.564866</td>
+<td>4.9</td>
+<td>13.6</td>
+<td>14.8</td>
+<td>15.7</td>
+<td>21.1</td>
+</tr>
+<tr class="odd">
+<td>serum_creatinine</td>
+<td>44552.0</td>
+<td>0.886104</td>
+<td>0.226090</td>
+<td>0.1</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>1.0</td>
+<td>11.6</td>
+</tr>
+<tr class="even">
+<td>AST</td>
+<td>44552.0</td>
+<td>26.213795</td>
+<td>19.087304</td>
+<td>6.0</td>
+<td>19.0</td>
+<td>23.0</td>
+<td>29.0</td>
+<td>1311.0</td>
+</tr>
+<tr class="odd">
+<td>ALT</td>
+<td>44552.0</td>
+<td>27.085002</td>
+<td>31.755110</td>
+<td>1.0</td>
+<td>15.0</td>
+<td>21.0</td>
+<td>31.0</td>
+<td>2914.0</td>
+</tr>
+<tr class="even">
+<td>Gtp</td>
+<td>44552.0</td>
+<td>40.066103</td>
+<td>50.723940</td>
+<td>1.0</td>
+<td>17.0</td>
+<td>26.0</td>
+<td>44.0</td>
+<td>999.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 2 : Distribution des variables quantitatives</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/image2.png" alt="Graphique des variables quantitatives"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Voici les principales observations :</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Caractéristiques anthropométriques</strong></p>
+<p></p>
+<p align="justify">
+</p><p>L’âge moyen des individus est de 44 ans, avec une population allant de 20 à plus de 85 ans, ce qui constitue un échantillon adulte assez large. La taille moyenne est d’environ 1m65, pour un poids moyen de 66 kg. Le tour de taille moyen s’élève à 82 cm.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Systèmes cardiovasculaire et visuel</strong></p>
+<p></p>
+<p align="justify">
+</p><p>La tension artérielle moyenne est de 121,5 mmHg en systolique et 76 mmHg en diastolique. Toutefois, quelques valeurs aberrantes ont été relevées, comme une systolique à 240 mmHg ou une diastolique à 146 mmHg, probablement issues d’erreurs de saisie. L’acuité visuelle moyenne est proche de 1.0 pour chaque œil, mais certaines valeurs très élevées (jusqu’à 9.9) indiquent une cécité.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Variables biologiques (métaboliques)</strong></p>
+<p></p>
+<p align="justify">
+</p><p>La glycémie à jeun est en moyenne de 99 mg/dL, suggérant une population globalement saine. Toutefois, certaines valeurs très élevées (jusqu’à 505 mg/dL) sont préoccupantes et pourraient signaler des cas sévères de diabète non contrôlé. Le cholestérol total est en moyenne de 197 mg/dL, tandis que les triglycérides atteignent une moyenne de 127 mg/dL, avec une distribution très asymétrique (jusqu’à 999 mg/dL).</p>
+<p></p>
+<p align="justify">
+</p><p>Le HDL (bon cholestérol) affiche une moyenne de 57 mg/dL, mais une valeur maximale incohérente à 618 mg/dL a été relevée. Le LDL (mauvais cholestérol), quant à lui, est en moyenne à 115 mg/dL, mais présente aussi une valeur extrême à 1860 mg/dL, vraisemblablement due à une erreur d’unité ou de saisie.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Marqueurs cliniques (sang, foie, reins)</strong></p>
+<p></p>
+<p align="justify">
+</p><p>L’hémoglobine a une moyenne de 14,6 g/dL, avec des extrêmes allant de 4,9 à 21,1 g/dL. La créatinine sérique, indicateur de la fonction rénale, est en moyenne à 0,89 mg/dL, mais atteint un maximum de 11,6 mg/dL, ce qui est fortement suspect sans contexte clinique particulier.</p>
+<p></p>
+<p align="justify">
+</p><p>Les enzymes hépatiques AST, ALT et GTP présentent des moyennes situées dans les plages normales (entre 26 et 40 UI/L). Cependant, certaines valeurs sont exceptionnellement élevées : 2914 UI/L pour l’ALT, 999 UI/L pour le GTP, et 1311 UI/L pour l’AST. Bien que rares, ces cas pourraient s’expliquer par des pathologies sévères (hépatites, intoxications, etc.)</p>
+<p></p>
+<p align="justify">
+</p><p>Ainsi, comme nous l’avons constater, plusieurs variables présentent des valeurs aberrantes ou extrêmes, parfois très éloignées des plages physiologiques normales. Cela a été confirmé par le test des valeurs atypiques IQR (Un point est considéré comme un outlier s’il se situe en dehors de l’intervalle [Q1 - 1.5×IQR ; Q3 + 1.5×IQR])(<strong>Tableau 3</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Tableau 3 : Outliers selon la méthode IQR </span></p>
+<p></p>
+<div data-align="center">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Outliers</th>
+<th>Variable</th>
+<th>Outliers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+<td>245</td>
+<td>Cholesterol</td>
+<td>487</td>
+</tr>
+<tr class="even">
+<td>height(cm)</td>
+<td>203</td>
+<td>triglyceride</td>
+<td>1802</td>
+</tr>
+<tr class="odd">
+<td>weight(kg)</td>
+<td>160</td>
+<td>HDL</td>
+<td>802</td>
+</tr>
+<tr class="even">
+<td>waist(cm)</td>
+<td>414</td>
+<td>LDL</td>
+<td>515</td>
+</tr>
+<tr class="odd">
+<td>eyesight(left)</td>
+<td>1085</td>
+<td>hemoglobin</td>
+<td>616</td>
+</tr>
+<tr class="even">
+<td>eyesight(right)</td>
+<td>1084</td>
+<td>serum_creatinine</td>
+<td>2535</td>
+</tr>
+<tr class="odd">
+<td>systolic</td>
+<td>555</td>
+<td>AST</td>
+<td>2385</td>
+</tr>
+<tr class="even">
+<td>relaxation</td>
+<td>565</td>
+<td>ALT</td>
+<td>2979</td>
+</tr>
+<tr class="odd">
+<td>fasting_blood_sugar</td>
+<td>2657</td>
+<td>Gtp</td>
+<td>3838</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Un traitement spécifique sera donc appliqué lors de la phase de modélisation afin d’atténuer leur impact sans altérer la structure globale des données.</p>
+<p></p>
+</section>
+<section id="prédicteurs-qualitatifs" class="level3">
+<h3 class="anchored" data-anchor-id="prédicteurs-qualitatifs">3. Prédicteurs qualitatifs</h3>
+<p align="justify">
+</p><p>La distribution des variables qualitatives a été visualisée à l’aide de diagrammes en barres (<strong>Figure 3</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 3 : Distribution des variables qualitatives</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/graph_quali.png" alt="Graphique des variables qualitatives"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Cette analyse met en évidence plusieurs déséquilibres :</p>
+<p></p>
+<ul>
+<li>
+64 % des individus de la base de données sont des hommes, indiquant une surreprésentation masculine.
+</li>
+<li>
+Il y a 37 % de fumeurs, comme vu précédemment.
+</li>
+<li>
+21 % de la population présentent des caries dentaires, tandis que 55 % a du tartre.
+</li>
+<li>
+Les troubles auditifs sont rares : environ 2,6 % pour chaque oreille.
+</li>
+<li>
+La variable Urine_protein est très déséquilibrée : plus de 94 % des individus sont au niveau 1.0, indiquant l’absence de protéinurie. Les niveaux supérieurs (jusqu’à 6.0) sont rares mais peuvent avoir une forte signification clinique.
+</li>
+</ul>
+<p></p>
+<p align="justify">
+</p><p>Cette analyse descriptive nous a permis de mieux comprendre la structure et les caractéristiques de notre jeu de données. Elle révèle une population adulte majoritairement masculine, une proportion significative de fumeurs, et quelques variables présentant des valeurs extrêmes ou déséquilibrées.</p>
+<p></p>
+</section>
+</section>
+<section id="c.-analyse-bivariée" class="level2">
+<h2 class="anchored" data-anchor-id="c.-analyse-bivariée">C. Analyse bivariée</h2>
+<p align="justify">
+</p><p>Nous passons maintenant à l’analyse bivarié. Nous présenterons successivement les analyses bivariées entre la variable cible et les prédicteurs quantitatifs et qualitatifs puis l’étude des corrélations entre les variables quantitatives et enfin les liens entre les variables qualitatives.</p>
+<p></p>
+<section id="liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs-et-quantitatifs" class="level3">
+<h3 class="anchored" data-anchor-id="liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs-et-quantitatifs">1. Liens entre la variable cible et les prédicteurs qualitatifs et quantitatifs</h3>
+<section id="a-liens-entre-la-variable-cible-et-les-prédicteurs-quantitatifs" class="level4">
+<h4 class="anchored" data-anchor-id="a-liens-entre-la-variable-cible-et-les-prédicteurs-quantitatifs">a) Liens entre la variable cible et les prédicteurs quantitatifs</h4>
+<p align="justify">
+</p><p>Nous avons comparé les moyennes des variables numériques entre les individus fumeurs et non-fumeurs, ce qui a permis de dégager plusieurs différences significatives (<strong>Tableau 4</strong>) .</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Tableau 4 : Moyenne des variables quantitatives en fonction de la variable cible</span></p>
+<p></p>
+<div data-align="center">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Non-fumeur (False)</th>
+<th>Fumeur (True)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+<td>45.693972</td>
+<td>41.652703</td>
+</tr>
+<tr class="even">
+<td>height(cm)</td>
+<td>161.899291</td>
+<td>169.412916</td>
+</tr>
+<tr class="odd">
+<td>weight(kg)</td>
+<td>62.959397</td>
+<td>70.926186</td>
+</tr>
+<tr class="even">
+<td>waist(cm)</td>
+<td>80.490858</td>
+<td>84.812904</td>
+</tr>
+<tr class="odd">
+<td>eyesight(left)</td>
+<td>0.989656</td>
+<td>1.049798</td>
+</tr>
+<tr class="even">
+<td>eyesight(right)</td>
+<td>0.984894</td>
+<td>1.048202</td>
+</tr>
+<tr class="odd">
+<td>systolic</td>
+<td>120.761809</td>
+<td>122.852556</td>
+</tr>
+<tr class="even">
+<td>relaxation</td>
+<td>75.249149</td>
+<td>77.412916</td>
+</tr>
+<tr class="odd">
+<td>fasting_blood_sugar</td>
+<td>97.742376</td>
+<td>102.041279</td>
+</tr>
+<tr class="even">
+<td>Cholesterol</td>
+<td>197.833262</td>
+<td>195.552104</td>
+</tr>
+<tr class="odd">
+<td>triglyceride</td>
+<td>113.040567</td>
+<td>150.317148</td>
+</tr>
+<tr class="even">
+<td>HDL</td>
+<td>59.270071</td>
+<td>53.870841</td>
+</tr>
+<tr class="odd">
+<td>LDL</td>
+<td>116.441277</td>
+<td>112.617906</td>
+</tr>
+<tr class="even">
+<td>hemoglobin</td>
+<td>14.148823</td>
+<td>15.438662</td>
+</tr>
+<tr class="odd">
+<td>serum_creatinine</td>
+<td>0.850078</td>
+<td>0.948233</td>
+</tr>
+<tr class="even">
+<td>AST</td>
+<td>25.343404</td>
+<td>27.714836</td>
+</tr>
+<tr class="odd">
+<td>ALT</td>
+<td>24.802730</td>
+<td>31.020915</td>
+</tr>
+<tr class="even">
+<td>Gtp</td>
+<td>30.991773</td>
+<td>55.715325</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Les fumeurs sont, en moyenne, plus jeunes, mais aussi plus grands, plus lourds et présentent un tour de taille plus élevé — des caractéristiques probablement liées à une surreprésentation masculine dans ce groupe. Leur tension artérielle (systolique et diastolique) est légèrement plus élevée, en lien avec les effets vasoconstricteurs de la nicotine, et leur glycémie à jeun tend à être supérieure, ce qui peut indiquer un risque accru de troubles métaboliques. Paradoxalement, leur cholestérol total est légèrement inférieur à celui des non-fumeurs. Toutefois, cette différence masque une baisse du HDL (le bon cholestérol), ce qui n’indique pas nécessairement un meilleur profil lipidique. En effet, un HDL plus bas est associé à un risque cardiovasculaire accru, et peut déséquilibrer le rapport LDL/HDL. Enfin, l’acuité visuelle moyenne des fumeurs apparaît légèrement meilleure. Ce résultat, contre-intuitif, pourrait s’expliquer par une différence d’âge : les fumeurs de l’échantillon étant en moyenne plus jeunes, ils sont naturellement moins touchés par la presbytie ou d’autres troubles visuels liés à l’âge.</p>
+<p></p>
+<p align="justify">
+</p><p>Ces écarts suggèrent une association entre le statut tabagique et certaines caractéristiques physiologiques, cohérente avec les effets connus du tabac sur la santé métabolique et cardiovasculaire.</p>
+<p></p>
+<p align="justify">
+</p><p>De plus, une analyse de variance (ANOVA) a été conduite pour tester les différences moyennes entre fumeurs et non-fumeurs pour chaque variable continue. Les résultats indiquent que l’ensemble des variables analysées présentent des p-values significatives, suggérant des différences statistiquement robustes entre les deux groupes.</p>
+<p></p>
+<p align="justify">
+</p><p>Par ailleurs, la variable taille (height(cm)) présente une forte association avec le statut de fumeur. Toutefois, cette relation doit être interprétee avec prudence, car d’un point de vue biologique, la taille n’a pas de lien direct ou plausible avec le tabagisme. Il s’agit donc très probablement d’un effet de confusion, en particulier lié au sexe : les hommes sont en moyenne plus grands que les femmes et ils sont également plus souvent fumeurs. La taille sert alors de proxy implicite pour le genre. Ce type de biais est important à identifier car il peut fausser l’interprétation des modèles. Nous décidons alors de ne pas conserver la variable height(cm) pour la modélisation, d’autant plus que sa présence induit de la multicolinéarité.</p>
+<p></p>
+</section>
+<section id="b-liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs" class="level4">
+<h4 class="anchored" data-anchor-id="b-liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs">b) Liens entre la variable cible et les prédicteurs qualitatifs</h4>
+<p align="justify">
+</p><p>Nous avons également exploré les associations entre la variable cible et les prédicteurs qualitatifs (<strong>Figure 4</strong>) :</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 4 : Distribution des variables qualitatives en fonction de la variable cible</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/graph_ciblequali.png" alt="Graphique des variables qualitatives avec cible"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Les diagrammes en barres mettent en évidence des tendances marquées : les fumeurs sont plus nombreux à présenter du tartre et des caries dentaires, et la majorité des fumeurs sont des hommes. Ces éléments pourraient refléter des comportements ou des facteurs sociaux liés au tabagisme.</p>
+<p></p>
+<p align="justify">
+</p><p>Ces observations visuelles ont été confirmées par un test du chi², réalisé pour chacune des variables catégorielles. Les résultats révèlent que les variables <em>sex, dental_caries, tartar, pb_hearing (gauche et droite), urine_protein</em> présentent toutes des p-values significatives, confirmant l’existence de dépendances entre ces variables et le statut tabagique. Elles pourront donc être considérées comme prédicteurs pertinents dans la phase de modélisation.</p>
+<p></p>
+</section>
+</section>
+<section id="etude-des-corrélations" class="level3">
+<h3 class="anchored" data-anchor-id="etude-des-corrélations">2. Etude des corrélations</h3>
+<p align="justify">
+</p><p>L’analyse des corrélations entre variables continues nous a permis d’identifier des redondances potentielles (<strong>Figure 5</strong>) :</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 5 : Corrélations (Spearman) entre les variables quantitatives</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/corr.png" alt="Corrélations"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>À partir de la matrice de corrélation de Spearman, qui tient compte des relations monotones, nous avons mis en évidence plusieurs associations fortes (ρ ≥ 0.70), illustrées en <strong>Figure 5</strong>.</p>
+<p></p>
+<p align="justify">
+</p><p>Les principales corrélations observées sont les suivantes :</p>
+<ul>
+<li>
+<strong>Poids et tour de taille</strong> : ρ = 0.81 — forte corrélation attendue
+</li>
+<li>
+<strong>Acuité visuelle gauche/droite</strong> : ρ = 0.70 — logique biométrique
+</li>
+<li>
+<strong>Tension systolique/diastolique</strong> : ρ = 0.74 — pression artérielle intrinsèquement liée
+</li>
+<li>
+<strong>Cholestérol total et LDL</strong> : ρ = 0.89 — le LDL étant une composante du cholestérol total
+</li>
+<li>
+<strong>AST et ALT</strong> : ρ = 0.73 — enzymes hépatiques souvent corrélées
+</li>
+</ul>
+<p></p>
+<p align="justify">
+</p><p>L’analyse de la matrice de corrélation de Pearson, axée sur les relations linéaires, a également confirmé ces dépendances. Ces résultats nous permettent d’identifier des variables fortement liées entre elles et nous questionnent sur le besoin ou non de sélectionner des variables pour nos modélisations. Nous aborderons ce point dans la partie concernant l’optimisation des modèles.</p>
+</section>
+<section id="liens-entre-les-variables-qualitatives" class="level3">
+<h3 class="anchored" data-anchor-id="liens-entre-les-variables-qualitatives">3. Liens entre les variables qualitatives</h3>
+<p align="justify">
+</p><p>Enfin, nous avons étudié les liens entre variables qualitatives à l’aide de tests du chi² sur toutes les paires de variables. Plusieurs associations significatives ont été détectées, indiquant que certaines variables partagent une information redondante.</p>
+<p></p>
+<p align="justify">
+</p><p>Un exemple particulier concerne les variables <strong>pb_hearing (left)</strong> et <strong>pb_hearing (right)</strong>, qui sont fortement liées. Toutefois, une analyse plus fine a montré que les modalités diffèrent pour 1 107 individus, ce qui justifie la conservation des deux variables dans l’analyse, du moins dans un premier temps.</p>
+<p></p>
+<p align="justify">
+</p><p>Finalement, de manière générale, nous avons choisi de conserver l’ensemble des variables à ce stade, afin de ne pas écarter prématurément des informations potentiellement utiles. Une sélection de variables (via des méthodes automatiques ou empiriques) sera envisagée ultérieurement dans la phase de modélisation, pour optimiser la performance et la robustesse de nos modèles.</p>
+<p></p>
+</section>
+</section>
+</section>
+<section id="ii.-phase-préparatoire-et-modélisations" class="level1">
+<h1>II. Phase préparatoire et modélisations</h1>
+<p align="justify">
+</p><p>Après avoir exploré les caractéristiques individuelles et les relations entre variables, nous passons désormais à la phase de modélisation. Celle-ci se déroulera en deux temps : dans un premier temps, nous appliquerons un ensemble de traitements aux variables afin de les préparer correctement à l’apprentissage automatique (encodage, mise à l’échelle, traitement des valeurs extrêmes, etc.). Ensuite, nous testerons plusieurs modèles de classification afin de comparer leurs performances et de sélectionnder le meilleur modèle.</p>
+<p></p>
+<section id="a.-préparation-des-variables-pour-la-modélisation" class="level2">
+<h2 class="anchored" data-anchor-id="a.-préparation-des-variables-pour-la-modélisation">A. Préparation des variables pour la modélisation</h2>
+<section id="séparation-du-jeu-de-données-en-jeux-train-et-test" class="level3">
+<h3 class="anchored" data-anchor-id="séparation-du-jeu-de-données-en-jeux-train-et-test">1) Séparation du jeu de données en jeux train et test</h3>
+<p align="justify">
+</p><p>Afin de pouvoir évaluer la capacité de généralisation de nos modèles, nous avons divisé notre jeu de données en deux ensembles distincts en utilisant la fonction <code>train_test_split</code> de <code>sklearn.model_selection</code> avec un ratio de 80 % des données pour l’entraînement et 20 % pour le test. Cette séparation permet d’éviter les biais d’optimisme et de s’assurer que les modèles ne sont pas uniquement adaptés aux données vues pendant l’entraînement.</p>
+<p></p>
+<p align="justify">
+</p><p>De plus, nous avons effectué cette séparation avant les autres opérations de transformation (standardisation, winsorization) pour éviter tout data leakage, c’est-à-dire que des informations statistiques issues du test influencent l’entraînement. Tous les prétraitements ultérieurs sont ainsi appris uniquement à partir des données d’entraînement, puis appliqués aux données de test.</p>
+<p></p>
+</section>
+<section id="traitement-des-valeurs-atypiques---winsorization" class="level3">
+<h3 class="anchored" data-anchor-id="traitement-des-valeurs-atypiques---winsorization">2) Traitement des valeurs atypiques - winsorization</h3>
+<p align="justify">
+</p><p>Comme nous avons pu précedemment le constater, plusieurs variables numériques présentent des valeurs atypiques, parfois cliniquement peu plausibles, susceptibles de perturber l’entraînement des modèles. Pour limiter leur influence sans exclure d’observations, nous avons appliqué une technique de <strong>winsorization</strong> à l’ensemble des variables suivantes : <em>‘ALT’, ‘AST’, ‘Gtp’, ‘serum_creatinine’, ‘LDL’, ‘HDL’, ‘triglyceride’, ‘Cholesterol’, ‘fasting_blood_sugar’, ‘systolic’, ‘relaxation’, ‘hemoglobin’</em>. Cette méthode consiste à ramener les valeurs situées en dehors des 1er et 99e percentiles à ces bornes, de manière à réduire l’effet des outliers tout en conservant la distribution générale.</p>
+<p></p>
+<p align="justify">
+</p><p>Les variables <em>‘age’, ‘weight’, ‘height’, ‘waist(cm)’</em> ainsi que <em>‘eyesight(left)’</em> et <em>‘eyesight(right)’</em> n’ont pas été winsorisées : bien que certaines valeurs aient été identifiées comme atypiques par des tests statistiques (comme le test ESD), elles restent cohérentes.</p>
+<p></p>
+<p align="justify">
+</p><p>Les seuils de winsorization ont été calculés exclusivement sur le jeu d’entraînement, puis appliqués tels quels au jeu de test, afin de respecter les bonnes pratiques d’apprentissage automatique et d’éviter toute fuite d’information (<em>data leakage</em>). Cette approche contribue à stabiliser les performances des algorithmes sensibles aux valeurs extrêmes.</p>
+<p></p>
+</section>
+<section id="standardisation-et-encodage" class="level3">
+<h3 class="anchored" data-anchor-id="standardisation-et-encodage">3) Standardisation et encodage</h3>
+<p align="justify">
+</p><p>Pour que chaque variable quantitative contribue de manière équivalente aux algorithmes, et notamment aux modèles sensibles à l’échelle (comme les SVM ou la régression logistique), nous avons procédé à une standardisation. Celle-ci consiste à recentrer chaque variable (moyenne nulle) et à la réduire (écart-type unitaire). Pour ce faire, nous avons utilisé la fonction <code>StandardScaler</code> de <code>sklearn.preprocessing</code>. Comme pour les étapes précédentes, les paramètres de standardisation sont appris uniquement sur l’ensemble d’entraînement, puis appliqués au jeu de test.</p>
+<p></p>
+<p align="justify">
+</p><p>Concernant les variables qualitatives, la seule variable catégorielle nécessitant un encodage est urine_protein, considérée comme ordinale. En effet, les autres variables qualitatives présentes dans notre jeu de données sont déjà représentées sous forme booléenne (0/1), ce qui les rend directement exploitables par les algorithmes. Pour cette variable ordinale, nous avons appliqué un encodage à l’aide de la classe <code>OrdinalEncoder</code> de <code>sklearn</code>, qui transforme chaque modalité selon l’ordre naturel de la sévérité.</p>
+<p></p>
+<p align="justify">
+</p><p>Cette étape à été réalisé grâce à la pipeline ColumnTransformer qui permet d’appliquer des transformations spécifiques à chaque type de variable.</p>
+<p></p>
+</section>
+</section>
+<section id="b.-modélisations" class="level2">
+<h2 class="anchored" data-anchor-id="b.-modélisations">B. Modélisations</h2>
+<p align="justify">
+</p><p>Nous passons à présent à la partie dédiée aux modélisations. Nous commencerons par présenter les modèles testés ainsi que les métriques utilisées pour les comparer. Nous procéderons ensuite à une première série de modélisations en utilisant les paramètres par défaut des algorithmes, avant de chercher à optimiser les performances des modèles les plus prometteurs, puis de sélectionner le modèle retenu.</p>
+<p></p>
+<section id="présentation-des-modèles-et-métriques-pour-la-comparaison" class="level3">
+<h3 class="anchored" data-anchor-id="présentation-des-modèles-et-métriques-pour-la-comparaison">1) Présentation des modèles et métriques pour la comparaison</h3>
+<p align="justify">
+</p><p>Dans le but de prédire le <strong>statut tabagique</strong> des individus (variable cible : smoking), nous avons entraîné et comparé plusieurs modèles de classification binaire :</p>
+<p></p>
+<ul align="justify">
+<li>
+<strong>Régression logistique</strong> : modèle linéaire paramétrique, simple, rapide à entraîner et aisément interprétable. Il constitue un excellent <em>modèle de référence</em> pour évaluer la linéarité entre les variables prédictives et la variable cible.
+</li>
+<li>
+<strong>Random Forest</strong> : modèle non paramétrique basé sur un ensemble d’arbres de décision construits aléatoirement. Il est capable de capturer des interactions non linéaires, de gérer des variables hétérogènes (numériques, catégorielles, ordinales) et se montre robuste face aux valeurs aberrantes.
+</li>
+<li>
+<strong>Gradient Boosting</strong> : modèles puissants d’<em>ensemble learning</em> qui construisent séquentiellement des arbres pour corriger les erreurs des précédents. Très performants sur des relations complexes et adaptées à des effets faibles répartis sur de nombreuses variables.
+</li>
+<li>
+<strong>SVM (Support Vector Machines)</strong> avec différents noyaux (<em>linéaire</em>, <em>RBF</em>, <em>polynomial</em>) : ces modèles cherchent à maximiser la marge entre les classes. Le noyau linéaire permet de tester la séparabilité linéaire des données, tandis que les noyaux RBF et polynomial permettent de modéliser des frontières de décision plus complexes en projetant les données dans des espaces de dimension supérieure.
+</li>
+<li>
+<p><strong>Classifieurs linéaires</strong> :</p>
+<ul>
+<li>
+<strong>LinearSVC</strong> : une implémentation optimisée du SVM linéaire, adaptée aux grands jeux de données.
+</li>
+<li>
+<strong>SGDClassifier</strong> : algorithme basé sur la descente de gradient stochastique, très rapide, particulièrement efficace pour les jeux de données volumineux ou en streaming.
+</li>
+</ul>
+</li>
+</ul>
+<p align="justify">
+</p><p>Pour évaluer la performance de ces modèles, nous avons utilisé différentes métriques d’évaluation, mesurées à la fois :</p>
+<p></p>
+<ul align="justify">
+<li>
+Sur les jeux d’entraînement et de test pour évaluer leur capacité de généralisation.
+</li>
+<li>
+En validation croisée (5-fold) pour estimer la robustesse et la stabilité des performances.
+</li>
+</ul>
+<p align="justify">
+</p><p>Les résultats ont été synthétisés sous forme de tableaux et de graphiques comparatifs.</p>
+<p></p>
+<h4 class="anchored">
+<u align="justify">Métriques utilisées :
+</u></h4><u align="justify">
+<ul align="justify">
+<li>
+<strong>Accuracy</strong> : proportion globale de bonnes prédictions (vrais positifs + vrais négatifs). Elle répond à la question : <em>« À quelle fréquence le modèle est-il correct ? »</em>
+</li>
+<li>
+<strong>Erreur (1 - accuracy)</strong> : proportion d’observations mal classées. Elle permet de mesurer l’inefficacité du modèle. Un bon modèle aura une <strong>accuracy proche de 1</strong> et une erreur proche de 0.
+</li>
+<li>
+<strong>Précision</strong> : parmi les individus prédits comme fumeurs, quelle proportion l’est réellement ? Cette métrique est sensible aux <em>faux positifs</em>.
+</li>
+<li>
+<strong>Rappel (Recall)</strong> : parmi les fumeurs réels, combien ont été correctement identifiés ? Cette métrique est sensible aux <em>faux négatifs</em>.
+</li>
+<li>
+<strong>F1-score</strong> : moyenne harmonique entre précision et rappel. Elle est particulièrement utile lorsque les classes sont déséquilibrées (ce qui est modérément le cas ici). Un bon modèle affiche un F1-score élevé, proche de 1.
+</li>
+</ul>
+<p align="justify">
+</p><p>L’objectif de cette évaluation multiple est de ne pas se limiter à l’accuracy, qui peut être trompeuse en cas de déséquilibre de classes, Une forte accuracy peut masquer des performances médiocres sur la classe minoritaire, pourtant essentielle à détecter dans notre étude. C’est pourquoi d’autres métriques sont mobilisées afin de mieux comprendre les compromis entre faux positifs et faux négatifs.</p>
+<p></p>
+<p align="justify">
+</p><p>Ainsi, une attention particulière est portée au <strong>f1-score</strong> et au <strong>recall</strong>, car il est crucial d’<strong>identifier correctement les individus fumeurs</strong>, même au prix de quelques faux positifs. En effet, dans un contexte de prévention ou de dépistage médical, il est souvent préférable de <strong>ne pas rater un cas à risque</strong> (fumeur non détecté), quitte à déclencher des vérifications supplémentaires.</p>
+<p></p>
+</u></section><u align="justify">
+<section id="modélisations-avec-les-paramètres-par-défaut" class="level3">
+<h3 class="anchored" data-anchor-id="modélisations-avec-les-paramètres-par-défaut">2) Modélisations avec les paramètres par défaut</h3>
+<p align="justify">
+</p><p>Nous avons commencé par tester les modèles sans optimisation, avec leurs paramètres par défaut. Cela nous a permis d’identifier ceux qui étaient les plus prometteurs dans notre contexte.</p>
+<p></p>
+<p>
+</p><p align="justify">
+</p><p>Les résultats initiaux ont été obtenus sans validation croisée, en comparant directement les performances sur les jeux d’entraînement et de test. Cela permettait de détecter des cas de surapprentissage évident, notamment pour le modèle <strong>Random Forest</strong>, dont le F1-score chute de 0.999 sur le jeu d’entraînement à 0.677 sur le jeu de test, traduisant une très mauvaise généralisation. À l’inverse, les modèles comme le <strong>Gradient Boosting</strong> ou le <strong>LinearSVC</strong> présentent des scores cohérents entre entraînement et test, ce qui témoigne d’une meilleure robustesse (<strong>Tableau 5</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Tableau 5 : Performances des modèles non optimisés </span></p>
+<p></p>
+<div data-align="center">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modèle</th>
+<th>Données</th>
+<th>Accuracy</th>
+<th>Erreur</th>
+<th>Précision</th>
+<th>Recall</th>
+<th>F1-score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Logistic Regression</td>
+<td>Train</td>
+<td>0.722062</td>
+<td>0.277938</td>
+<td>0.633442</td>
+<td>0.576908</td>
+<td>0.603855</td>
+</tr>
+<tr class="even">
+<td>Logistic Regression</td>
+<td>Test</td>
+<td>0.727079</td>
+<td>0.272921</td>
+<td>0.638880</td>
+<td>0.586830</td>
+<td>0.611750</td>
+</tr>
+<tr class="odd">
+<td>Random Forest</td>
+<td>Train</td>
+<td>0.999972</td>
+<td>0.000028</td>
+<td>1.000000</td>
+<td>0.999924</td>
+<td>0.999962</td>
+</tr>
+<tr class="even">
+<td>Random Forest</td>
+<td>Test</td>
+<td>0.758276</td>
+<td>0.241724</td>
+<td>0.662760</td>
+<td>0.692802</td>
+<td>0.677448</td>
+</tr>
+<tr class="odd">
+<td>Gradient Boosting</td>
+<td>Train</td>
+<td>0.769619</td>
+<td>0.230381</td>
+<td>0.673080</td>
+<td>0.724459</td>
+<td>0.697825</td>
+</tr>
+<tr class="even">
+<td>Gradient Boosting</td>
+<td>Test</td>
+<td>0.763551</td>
+<td>0.236449</td>
+<td>0.664769</td>
+<td>0.715467</td>
+<td>0.689187</td>
+</tr>
+<tr class="odd">
+<td>SVC (RBF Kernel)</td>
+<td>Train</td>
+<td>0.713532</td>
+<td>0.286468</td>
+<td>0.669495</td>
+<td>0.434171</td>
+<td>0.526745</td>
+</tr>
+<tr class="even">
+<td>SVC (RBF Kernel)</td>
+<td>Test</td>
+<td>0.714959</td>
+<td>0.285041</td>
+<td>0.668526</td>
+<td>0.440429</td>
+<td>0.531019</td>
+</tr>
+<tr class="odd">
+<td>SVC (Linear Kernel)</td>
+<td>Train</td>
+<td>0.745602</td>
+<td>0.254398</td>
+<td>0.640894</td>
+<td>0.698632</td>
+<td>0.668519</td>
+</tr>
+<tr class="even">
+<td>SVC (Linear Kernel)</td>
+<td>Test</td>
+<td>0.753226</td>
+<td>0.246774</td>
+<td>0.648056</td>
+<td>0.714548</td>
+<td>0.679680</td>
+</tr>
+<tr class="odd">
+<td>SVC (Poly Kernel)</td>
+<td>Train</td>
+<td>0.724250</td>
+<td>0.275750</td>
+<td>0.679678</td>
+<td>0.471002</td>
+<td>0.556418</td>
+</tr>
+<tr class="even">
+<td>SVC (Poly Kernel)</td>
+<td>Test</td>
+<td>0.729884</td>
+<td>0.270116</td>
+<td>0.691347</td>
+<td>0.474732</td>
+<td>0.562920</td>
+</tr>
+<tr class="odd">
+<td>LinearSVC</td>
+<td>Train</td>
+<td>0.745378</td>
+<td>0.254622</td>
+<td>0.639752</td>
+<td>0.701689</td>
+<td>0.669290</td>
+</tr>
+<tr class="even">
+<td>LinearSVC</td>
+<td>Test</td>
+<td>0.753675</td>
+<td>0.246325</td>
+<td>0.647140</td>
+<td>0.720674</td>
+<td>0.681930</td>
+</tr>
+<tr class="odd">
+<td>SGDClassifier</td>
+<td>Train</td>
+<td>0.636177</td>
+<td>0.363823</td>
+<td>0.889610</td>
+<td>0.010468</td>
+<td>0.020693</td>
+</tr>
+<tr class="even">
+<td>SGDClassifier</td>
+<td>Test</td>
+<td>0.636853</td>
+<td>0.363147</td>
+<td>0.784314</td>
+<td>0.012251</td>
+<td>0.024125</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Pour affiner cette analyse, une validation croisée à 5 plis a été réalisée afin d’estimer la stabilité des modèles et leur capacité de généralisation sur des sous-ensembles différents du jeu de données. Les résultats par pli et les statistiques sont présentés dans le <strong>Tableau 6</strong> :</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Tableau 6 : Performances en cross-validation des modèles non optimisés </span></p>
+<p></p>
+<div data-align="center">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 51%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Graphique F1-score</th>
+<th>Moyenne et écart-type des F1-score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="https://github.com/Emmalabre/Cours_SVM_M2ECAP/raw/main/Screenshots/graph_cv.png" width="1500"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Le Gradient Boosting est le modèle le plus performant en validation croisée, avec un F1-score moyen de 0.684 et une variance très faible, ce qui témoigne de sa stabilité. Il surpasse le Random Forest et LinearSVC sur cette base. Le SGDClassifier, en revanche, affiche un F1-score moyen de seulement 0.195 avec un écart-type extrêmement élevé de 0.25, montrant une grande instabilité et des performances peu fiables.</p>
+<p></p>
+<p align="justify">
+</p><p>Compte tenu de ces résultats, nous avons décidé de retenir uniquement les modèles <strong>Gradient Boosting</strong> et <strong>LinearSVC</strong> pour la suite de l’étude et les étapes d’optimisation. Ce choix repose à la fois sur leurs bonnes performances sur les jeux de test, leur stabilité démontrée par la validation croisée, ainsi que sur des considérations pratiques : limiter à deux modèles permet de réduire le temps de calcul tout en concentrant les efforts sur les méthodes les plus prometteuses.</p>
+<p></p>
+</section>
+<section id="modélisations-optimisées---présentation-des-stratégies-d-optimisation" class="level3">
+<h3 class="anchored" data-anchor-id="modélisations-optimisées---présentation-des-stratégies-d-optimisation">3) Modélisations optimisées - Présentation des stratégies d optimisation</h3>
+<p align="justify">
+</p><p>Afin d’optimiser les performances des deux modèles retenus, nous avons plusieurs stratégies :</p>
+<p></p>
+<ul align="justify">
+<li>
+<strong>Recherche d’hyperparamètres</strong> (GridSearchCV)
+</li>
+<li>
+<strong>Resampling</strong>
+</li>
+<li>
+<strong>Sélection de variables</strong>
+</li>
+<li>
+<strong>Transformations log</strong>
+</li>
+<li>
+<strong>Combinaisons de ces stratégies</strong>
+</li>
+</ul>
+<p align="justify">
+</p><p>Cette approche nous permet d’évaluer si un modèle sans optimisation suffit ou si la recherche d’hyperparamètres, le resampling, la sélection de variables ou les transformations log améliorent significativement les résultats, notamment en termes de rappel.</p>
+<p></p>
+<p><strong>Pourquoi envisager une méthode de resampling : </strong></p>
+<p align="justify">
+</p><p>Le jeu de données présente un déséquilibre de classes : environ 37 % de fumeurs contre 63 % de non-fumeurs. Ce déséquilibre peut biaiser les modèles, qui auront tendance à prédire la classe majoritaire pour maximiser l’accuracy, au détriment de la détection des fumeurs.</p>
+<p></p>
+<p align="justify">
+</p><p>Pour corriger cela, deux options ont été envisagées :</p>
+<p></p>
+<ul>
+<li>
+<strong>Oversampling</strong> : duplication d’exemples de la classe minoritaire (fumeurs). Risque : surapprentissage.
+</li>
+<li>
+<strong>Undersampling</strong> : réduction du nombre d’exemples de la classe majoritaire (non-fumeurs). Risque : perte d’information.
+</li>
+</ul>
+<p align="justify">
+</p><p>Nous avons retenu l’<strong>undersampling</strong>, notre dataset étant suffisamment grand pour rendre cette perte acceptable. Le resampling a été appliqué uniquement sur l’échantillon d’entraînement, avant la validation croisée, en utilisant le recall comme critère d’optimisation.</p>
+<p></p>
+<p><strong>Pourquoi envisager une méthode de sélection de variable :</strong></p>
+<p align="justify">
+</p><p>Certaines variables montraient des corrélations fortes ou des redondances, ce qui soulevait la question de leur utilité dans le modèle. Afin de simplifier les modèles, d’en améliorer l’interprétabilité et de limiter les effets de multicolinéarité, nous avons appliqué une sélection automatique de variables.</p>
+<p></p>
+<p align="justify">
+</p><p>Cette sélection a été intégrée dans un pipeline combiné avec GridSearchCV, permettant d’optimiser simultanément les hyperparamètres et le sous-ensemble de variables retenu.</p>
+<p></p>
+</section>
+<section id="choix-du-meilleur-modèle" class="level3">
+<h3 class="anchored" data-anchor-id="choix-du-meilleur-modèle">4) Choix du meilleur modèle</h3>
+<p align="justify">
+</p><p>Après avoir testé un large éventail de modèles de classification, incluant des versions non optimisées, des modèles avec recherche d’hyperparamètres (GridSearchCV), des variantes intégrant un rééquilibrage de classes (<em>undersampling</em>) et des approches combinées à une sélection automatique de variables, le modèle présentant les meilleures performances globales est le <strong>Gradient Boosting avec undersampling</strong> (sans gridsearch et sans transformation logarithmique). Il atteint un recall de 0.8919= et un F1-score de 0.7201, surpassant ainsi les autres modèles, qu’il s’agisse de la régression logistique (F1-score ≈ 0.611), de LinearSVC (≈ 0.682), du Gradient Boosting non optimisé (≈ 0.689) ou même des modèles combinant undersampling, grid search ou sélection de variables.</p>
+<p></p>
+<p align="justify">
+</p><p>L’intégration de l’undersampling a joué un rôle important : elle a permis de réduire le déséquilibre entre classes et d’améliorer considérablement le rappel, en diminuant les cas de fumeurs non détectés. À l’inverse, la sélection de variables ou l’utilisation du gridsearch n’ont pas permis de dépasser les scores obtenus avec l’undersampling seul, ce qui confirme l’importance du rééquilibrage des données.</p>
+<p></p>
+<p align="justify">
+</p><p>Une version alternative avec transformation logarithmique des variables numériques (<strong>GradientBoostong + undersampling + log</strong>) a également été envisagée et a permis d’améliorer légèrement le <strong>recall</strong> (91,4 % vs 89,2 %) et de réduire les faux négatifs. Toutefois, cette amélioration se fait au prix d’une précision plus faible (≈ 0.588 vs 0.604) et d’un nombre accru de faux positifs (2 092 contre 1 910). Ce compromis n’a pas été jugé acceptable ici, car il dégrade l’équilibre général du modèle, en particulier si l’on considère les coûts potentiels d’un surdépistage.</p>
+<p></p>
+<p align="justify">
+</p><p>Dans le cadre de cette étude, où l’objectif est de détecter efficacement les fumeurs pour mieux orienter les actions de santé publique, le modèle Gradient Boosting avec undersampling sans transformation log, sans gridsearch et sans features selection représente le meilleur compromis entre rappel élevé, précision acceptable, et taux de faux positifs maîtrisé. Il permet d’atteindre une couverture satisfaisante sans générer un nombre excessif d’erreurs coûteuses.</p>
+<p></p>
+<p align="justify">
+</p><p>Ce choix reste toutefois contextuel : en dépistage ou prévention précoce, ce type de modèle reste justifié. Mais dans des cas plus sensibles — décisions médicales lourdes, stigmatisation, ou applications externes comme l’évaluation de risque pour des assurances —, il serait préférable d’envisager des modèles à plus forte précision, ou d’ajuster les seuils de classification pour limiter les faux positifs.</p>
+<p></p>
+<p align="justify">
+</p><p>Les performances des modèles LinearSVC et Gradient Boosting, optimisés et non optimisés sont présentées dans le tableau ci-dessous (<strong>Tableau 7</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Tableau 7 : Performances des différents modèles </span></p>
+<p></p>
+<div data-align="center">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nom</th>
+<th>Recall</th>
+<th>F1-score</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Best Params</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LinearSVC - Sans optimisation</td>
+<td>0.720674</td>
+<td>0.681930</td>
+<td>0.753675</td>
+<td>0.647140</td>
+<td>/</td>
+</tr>
+<tr class="even">
+<td>LinearSVC - GridSearch seul</td>
+<td>0.722818</td>
+<td>0.682278</td>
+<td>0.753339</td>
+<td>0.646044</td>
+<td>{‘model__C’: 1}</td>
+</tr>
+<tr class="odd">
+<td>LinearSVC - Undersampling seul</td>
+<td>0.937519</td>
+<td>0.707991</td>
+<td>0.716642</td>
+<td>0.568748</td>
+<td>C=1 (défaut)</td>
+</tr>
+<tr class="even">
+<td>LinearSVC - GridSearch + Undersampling</td>
+<td>0.937519</td>
+<td>0.708237</td>
+<td>0.716979</td>
+<td>0.569065</td>
+<td>{‘model__C’: 0.01}</td>
+</tr>
+<tr class="odd">
+<td>LinearSVC - Gridsearch + Sélection de variables</td>
+<td>0.719755</td>
+<td>0.681653</td>
+<td>0.753675</td>
+<td>0.647383</td>
+<td>C=0.01, vars: [‘systolic’, ‘respiratory’, ‘alcohol’, ‘age’, ‘cholesterol’]</td>
+</tr>
+<tr class="even">
+<td>Gradient Boosting - Sans optimisation</td>
+<td>0.715467</td>
+<td>0.689187</td>
+<td>0.763551</td>
+<td>0.664769</td>
+<td>/</td>
+</tr>
+<tr class="odd">
+<td>Gradient Boosting - GridSearch seul</td>
+<td>0.714548</td>
+<td>0.688404</td>
+<td>0.762990</td>
+<td>0.664105</td>
+<td>{‘model__learning_rate’: 0.05, ‘model__max_depth’: 3, ‘model__n_estimators’: 100}</td>
+</tr>
+<tr class="even">
+<td>Gradient Boosting - GridSearch seul + sélection</td>
+<td>0.713016</td>
+<td>0.686017</td>
+<td>0.760857</td>
+<td>0.660988</td>
+<td>{‘model__learning_rate’: 0.05, ‘model__max_depth’: 3, ‘model__n_estimators’: 100}</td>
+</tr>
+<tr class="odd">
+<td><strong>Gradient Boosting - Undersampling seul </strong></td>
+<td><strong>0.891884</strong></td>
+<td><strong>0.720168</strong></td>
+<td><strong>0.746044</strong></td>
+<td><strong>0.603899</strong></td>
+<td><strong>default </strong></td>
+</tr>
+<tr class="even">
+<td>Gradient Boosting - Undersampling seul + sélection</td>
+<td>0.715773</td>
+<td>0.689584</td>
+<td>0.763887</td>
+<td>0.665243</td>
+<td>default</td>
+</tr>
+<tr class="odd">
+<td>Gradient Boosting - GridSearch + Undersampling</td>
+<td>0.913936</td>
+<td>0.715931</td>
+<td>0.734261</td>
+<td>0.588444</td>
+<td>{‘model__learning_rate’: 0.05, ‘model__max_depth’: 3, ‘model__n_estimators’: 100}</td>
+</tr>
+<tr class="even">
+<td>Gradient Boosting - GridSearch + Undersampling + sélection</td>
+<td>0.715161</td>
+<td>0.685354</td>
+<td>0.759398</td>
+<td>0.657932</td>
+<td>{‘learning_rate’: 0.05, ‘max_depth’: 3, ‘n_estimators’: 100}</td>
+</tr>
+<tr class="odd">
+<td>Gradient Boosting - GridSearch + Undersampling + log</td>
+<td>0.914242</td>
+<td>0.715656</td>
+<td>0.733812</td>
+<td>0.587946</td>
+<td>{‘model__learning_rate’: 0.05, ‘model__max_depth’: 3, ‘model__n_estimators’: 100}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+</section>
+</u></section><u align="justify">
+</u></section><u align="justify">
+<section id="iii.-interprétation-du-meilleur-modèle" class="level1">
+<h1>III. Interprétation du meilleur modèle</h1>
+<p align="justify">
+</p><p>Dans cette troisième et dernière partie, nous nous attachons à interpréter le modèle sélectionné, à savoir le Gradient Boosting avec resampling (sans GridSearch ni sélection de variables).<br>
+Nous proposons tout d’abord une analyse globale de son fonctionnement afin d’identifier les variables les plus influentes dans les prédictions, avant de passer à une interprétation locale visant à mieux comprendre certains cas spécifiques.</p>
+<p></p>
+<section id="a.-interprétation-globale" class="level2">
+<h2 class="anchored" data-anchor-id="a.-interprétation-globale">A. Interprétation globale</h2>
+<section id="importance-des-variables" class="level3">
+<h3 class="anchored" data-anchor-id="importance-des-variables">1) Importance des variables</h3>
+<p align="justify">
+</p><p>Le graphique représentant l’importance des variables issu du modèle Gradient Boosting avec undersampling permet de visualiser quelles caractéristiques ont le plus contribué à la prédiction du statut de fumeur. Cette importance ne reflète pas la direction de l’effet (positive ou négative), mais indique dans quelle mesure chaque variable a été utilisée par le modèle pour améliorer sa capacité de prédiction. Donc, plus une variable a une importance élevée, plus elle a été jugée utile pour différencier les fumeurs des non-fumeurs dans les arbres de décision constituant le modèle (<strong>Figure 6</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 6 : Importance des variables dans la modélisation Gradient Boosting avec resample </span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/features_importance.png" alt="Importance"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Les résultats montrent que la variable la plus influente est le sexe, de très loin, ce qui souligne un lien fort entre genre et comportement tabagique dans l’échantillon étudié. D’autres variables biologiques importantes émergent, comme la gamma-glutamyl transpeptidase (Gtp), les triglycérides, les enzymes hépatiques (ALT, AST), ou encore l’hémoglobine, suggérant que le tabagisme pourrait être associé à des altérations métaboliques ou hépatiques détectables dans les données cliniques. Des facteurs liés à la santé bucco-dentaire (dental_caries, tartar) apparaissent également comme discriminants. À l’inverse, certaines variables comme les troubles de l’audition, la vision, ou la protéinurie (Urine_protein) semblent avoir une importance négligeable.</p>
+<p></p>
+</section>
+<section id="partial-dependence-plots---pdp" class="level3">
+<h3 class="anchored" data-anchor-id="partial-dependence-plots---pdp">2) Partial Dependence Plots - PDP</h3>
+<p align="justify">
+</p><p>Nous allons à présent nous intéresser aux Partial Dependence Plots (PDP), en focalisant notre attention sur les variables identifiées comme les plus importantes par le modèle de Gradient Boosting avec undersampling. Le but de cette visualisation est de mieux comprendre comment chaque variable influence, en moyenne, la prédiction du modèle, toutes choses égales par ailleurs.</p>
+<p></p>
+<p align="justify">
+</p><p>Les PDP permettent ainsi de représenter la relation marginale entre une variable et la probabilité prédite d’être fumeur. Chaque courbe montre alors comment le modèle ajuste sa prédiction moyenne en fonction d’une seule variable, en conservant les autres constantes .</p>
+<p></p>
+<section id="a-pdp-des-variables-quantitatives" class="level4">
+<h4 class="anchored" data-anchor-id="a-pdp-des-variables-quantitatives">a) PDP des variables quantitatives</h4>
+<p align="center">
+</p><p><span class="u"> Figure 7 : Partial dépendence plot (PDP) des variables quantitatives de la modélisation Gradient Boosting avec resample</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/pdp.png" alt="Importance"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>L’analyse des PDP (<strong>Figure 7</strong>) révèle que une augmentation de la variable GTP est fortement associée à une augmentation de la probabilité d’être fumeur. Le GTP est une enzyme hépatique dont le taux augmente fréquemment en cas de consommation chronique d’alcool, une habitude souvent corrélée au tabagisme. De nombreuses études mettent en évidence que les personnes fumeuses ont aussi une consommation d’alcool plus élevée en moyenne, ce qui peut expliquer cette relation indirecte mais robuste entre GTP et statut tabagique.</p>
+<p></p>
+<p align="justify">
+</p><p>Concernant l’âge, le modèle identifie une probabilité plus élevée d’être fumeur dans les tranches d’âge jeunes à moyennes, avec une baisse progressive au-delà d’un certain seuil. Ce comportement est cohérent avec les tendances épidémiologiques observées, où les jeunes adultes et les personnes d’âge moyen affichent une prévalence plus élevée du tabagisme, tandis qu’une partie des individus plus âgés a tendance à arrêter ou réduire leur consommation, notamment pour des raisons de santé.</p>
+<p></p>
+<p align="justify">
+</p><p>Les triglycérides montrent également une relation croissante avec la probabilité de fumer. Cela est biologiquement plausible, car le tabagisme est reconnu pour favoriser un profil lipidique perturbé, en augmentant notamment les triglycérides et en réduisant le HDL.</p>
+<p></p>
+<p align="justify">
+</p><p>Enfin, l’augmentation des enzymes hépatiques ALT et AST est associée à une légère baisse de la probabilité prédite d’être fumeur. Bien que cette relation puisse sembler contre-intuitive, elle pourrait refléter des effets indirects : ces enzymes peuvent être élevées dans certaines pathologies pour lesquelles les individus sont médicalement suivis, incités à adopter un mode de vie plus sain ou à arrêter de fumer.</p>
+<p></p>
+<p align="justify">
+</p><p>Nous avons également généré des PDP à partir des données non standardisées afin d’identifier les niveaux de rupture dans les relations (<strong>Figure 8</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 8 : Partial dépendence plot (PDP) des variables quantitatives de la modélisation Gradient Boosting avec resample </span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/pdpreel.png" alt="Importance"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Pour GTP, la probabilité de fumer augmente nettement jusqu’à environ 80 U/L, puis se stabilise. Pour l’âge, la probabilité augmente progressivement jusqu’à 40 ans, puis diminue au-delà. L’augmentation des triglycérides entraîne une hausse continue de la probabilité de fumer. Pour ALT, plus les valeurs augmentent, plus la probabilité diminue, de manière régulière. Enfin, pour AST, une hausse entre 10 et 20 U/L correspond à une diminution de la probabilité, qui se stabilise entre 20 et 40, avant d’augmenter légèrement au-delà de 40 U/L, avec une stabilisation vers 45.</p>
+<p></p>
+<p align="justify">
+</p><p>Par ailleurs, nous avons calculé les effets locaux accumulés (ALE) (<strong>Figure 9</strong>) pour vérifier la robustesse des résultats. Les courbes obtenues sont très proches de celles des PDP, ce qui confirme que les relations identifiées par le modèle ne semblent pas trop affectées par des corrélations entre variables.</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 9 : Accumulated Loccal Effect (ALE) des variables quantitatives de la modélisation Gradient Boosting avec resample </span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/ale.png" alt="ALE"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+</section>
+<section id="b-pdp-de-la-variable-qualitative" class="level4">
+<h4 class="anchored" data-anchor-id="b-pdp-de-la-variable-qualitative">b) PDP de la variable qualitative</h4>
+<p align="justify">
+</p><p>Concernant la variable qualitative identifiée comme la plus importante, selon ce PDP (<strong>Figure 10</strong>), on constate que le fait d’être un homme augmente significativement la probabilité prédite de fumer, tandis qu’être une femme la diminue. Autrement dit, toutes choses égales par ailleurs, le modèle estime qu’un homme a plus de chances d’être fumeur qu’une femme. Cette observation est cohérente avec de nombreuses données épidémiologiques : dans plusieurs pays, et notamment en population adulte, les taux de tabagisme sont plus élevés chez les hommes que chez les femmes. Cela peut s’expliquer par des facteurs sociaux et culturels, comme des différences dans les normes comportementales, une exposition plus fréquente à certains environnements propices au tabagisme (par exemple, certains milieux professionnels), ou encore des stratégies de gestion du stress qui varient selon le genre.</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 10 : Partial dépendence plot (PDP) de la variable homme de la modélisation Gradient Boosting avec resample </span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/pdp2.png" alt="Importance"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+</section>
+</section>
+<section id="permutation-features-importance" class="level3">
+<h3 class="anchored" data-anchor-id="permutation-features-importance">3) Permutation features importance</h3>
+<p align="justify">
+</p><p>Par la suite, nous avons évalué l’importance des variables via la méthode de permutation (<strong>Figure 11</strong>). Cette approche permet de quantifier la contribution réelle de chaque variable à la performance du modèle en mesurant l’impact de sa permutation aléatoire sur le score de rappel. L’axe des abscisses représente ici la variation moyenne du rappel induite par la perturbation de chaque variable : plus cette variation est élevée, plus la variable est jugée importante pour détecter les individus fumeurs.</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 11 : Permutation Features Importance de la modélisation Gradient Boosting avec resample</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/permutation.png" alt="Importance"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>La variable homme se distingue nettement, avec une augmentation moyenne de l’erreur de rappel d’environ 0,28 lorsqu’elle est permutée, confirmant ainsi son rôle central dans la prédiction du statut tabagique. Elle est suivie par GTP (~0,10), enzyme déjà identifiée comme fortement liée au comportement tabagique dans les PDP. D’autres variables telles que l’hémoglobine, ALT et les triglycérides présentent également une importance modérée (~0,02), suggérant qu’elles contribuent à la prédiction sans être centrale.</p>
+<p></p>
+<p align="justify">
+</p><p>Certaines variables, telles que pb_hearing, eyesight ou dental_caries, n’induisent aucune variation notable du score de rappel lorsqu’elles sont permutées. Elles sont donc considérées comme peu informatives dans ce contexte. À l’inverse, des variables comme serum_creatinine, waist ou fasting blood sugar présentent une importance négative, ce qui signifie que leur permutation améliore légèrement le rappel. Cela pourrait s’expliquer par la présence de bruit, une corrélation trompeuse ou une certaine redondance nuisible dans la modélisation.</p>
+<p></p>
+</section>
+</section>
+<section id="b.-interprétation-locale" class="level2">
+<h2 class="anchored" data-anchor-id="b.-interprétation-locale">B. Interprétation locale</h2>
+<p align="justify">
+</p><p>Finalement, nous nous intéressons à l’interprétation des prédictions individuelles, aussi appelée explicabilité locale. L’objectif est d’expliquer pourquoi le modèle a prédit qu’un individu était fumeur (ou non), en identifiant les variables qui ont le plus influencé cette prédiction.</p>
+<p></p>
+<section id="ice" class="level3">
+<h3 class="anchored" data-anchor-id="ice">1) ICE</h3>
+<p align="justify">
+</p><p>Les courbes ICE permettent d’analyser l’effet d’une variable spécifique sur la prédiction pour chaque individu. Contrairement aux PDP qui affichent la moyenne des effets, l’ICE trace une courbe par individu, révélant les variations individuelles. Cela permet d’aller plus loin en explorant la variabilité interindividuelle (<strong>Figure 12</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 12 : ICE de la modélisation Gradient Boosting avec resample</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/pdpindiv.png" alt="ICE"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Nous constatons que, pour GTP, les courbes ICE confirment une relation croissante pour la majorité des individus. Toutefois, on observe que l’intensité de l’effet varie selon les personnes, certaines courbes étant plus plates ou plus abruptes que d’autres. Cela montre que l’impact de GTP n’est pas homogène dans toute la population.</p>
+<p></p>
+<p align="justify">
+</p><p>Pour l’âge, les PDP suggéraient une relation non linéaire décroissante. Avec les courbes ICE on observe que de nombreuses courbes chutent fortement à partir d’un certain âge, confirmant que la majorité des individus âgés ont une probabilité prédite plus faible d’être fumeur. Mais d’autres courbes sont plus stables ou montrent un effet atténué, traduisant des profils atypiques : par exemple des fumeurs persistants parmi les personnes âgées.</p>
+<p></p>
+<p align="justify">
+</p><p>Concernant les triglycérides, les ICE confirment une tendance ascendante relativement homogène, avec cependant quelques variations dans la pente, suggérant un effet plus marqué chez certains individus.</p>
+<p></p>
+<p align="justify">
+</p><p>Et enfin les ICE des variables ALT et AST montrent quant à elles une baisse globale des prédictions avec l’augmentation de ces enzymes, mais avec une dispersion faible. Cela pourrait indiquer que l’effet est plus stable ou moins influent, et pourrait refléter un phénomène indirect.</p>
+<p></p>
+</section>
+<section id="lime" class="level3">
+<h3 class="anchored" data-anchor-id="lime">2) LIME</h3>
+<p align="justify">
+</p><p>Afin de mieux comprendre les décisions de notre modèle Gradient Boosting pour un individu donné, nous avons utilisé la méthode LIME (Local Interpretable Model-agnostic Explanations). Cette approche consiste à approximer localement le modèle complexe par un modèle linéaire plus simple, permettant d’identifier quelles variables influencent une prédiction spécifique.</p>
+<p></p>
+<p align="justify">
+</p><p>Dans notre cas, nous avons utilisé un explainer en mode classification, en passant les données transformées (X_test_prepared), les noms des variables (feature_names) et les noms de classes ([“non-fumeur”, “fumeur”]). Nous avons sélectionné l’individu d’index i = 10 de notre jeu de test, et généré une explication à l’aide de la fonction explain_instance (<strong>Figure 13</strong>).</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 13 : LIME de la modélisation Gradient Boosting avec resample</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/lime.png" alt="LIME"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Parmi les résultats obtenus :</p>
+<ul>
+<li>Intercept : 0.0665 — c’est la probabilité moyenne d’être fumeur dans le voisinage généré par LIME</li>
+<li>Prediction_local : 0.7746 — c’est la prédiction du modèle simplifié (local)</li>
+<li>Right : 0.7855 — c’est la prédiction du modèle complexe (Gradient Boosting) pour cet individu</li>
+</ul>
+<p></p>
+<p align="justify">
+</p><p>Ce résultat indique une prédiction de 79 % de probabilité d’être fumeur. Les variables qui ont le plus contribué à cette prédiction sont : - homme = 1 (poids : +0.49) : Être un homme a fortement poussé la prédiction vers “fumeur”. - triglyceride &gt; 0.40, hemoglobin &gt; 0.61, tartar = 1, et une valeur intermédiaire de GTP ont également influencé le modèle dans ce sens, mais de manière plus modérée.</p>
+<p></p>
+</section>
+<section id="shap" class="level3">
+<h3 class="anchored" data-anchor-id="shap">3) SHAP</h3>
+<p align="justify">
+</p><p>Après avoir exploré LIME, nous utilisons ici la méthode SHAP, qui décompose chaque prédiction en une somme de contributions individuelles attribuées aux variables, selon une logique d’équité. Chaque variable “participe” à la prédiction et se voit attribuer une valeur SHAP indiquant dans quelle mesure elle augmente ou diminue la probabilité prédite.</p>
+<p></p>
+<p align="justify">
+</p><p>Le <strong>graphique Waterfall</strong> (<strong>Figure 14</strong>) représente l’explication locale pour un individu spécifique. La valeur moyenne des prédictions du modèle (appelée <em>base value</em>, ici -0.191 en log-odds) constitue le point de départ. À partir de là, chaque variable vient ajouter ou soustraire un effet pour aboutir à la prédiction finale, ici -0.293. Par exemple, le fait d’être un homme contribue fortement à augmenter la probabilité d’être fumeur (+0.88), tout comme le fait d’avoir des carries. Tandis qu’un faible taux de GTP ou l’absence de tartre contribuent à réduire cette probabilité. On visualise ainsi clairement les forces “en présence” dans la décision du modèle.</p>
+<p></p>
+<p align="center">
+</p><p><span class="u">Figure 14 : Waterfall de la modélisation Gradient Boosting avec resample</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/waterfall.png" alt="Waterfall"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>Le <strong>graphique SHAP beeswarm</strong> <strong>Figure 15</strong>, quant à lui, offre une vue globale sur l’influence des variables pour l’ensemble des prédictions.</p>
+<p align="center">
+</p><p><span class="u">Figure 15 : Beeswarm de la modélisation Gradient Boosting avec resample</span></p>
+<p></p>
+<p align="center">
+</p><p><img src="https://raw.githubusercontent.com/Emmalabre/Cours_SVM_M2ECAP/main/Screenshots/beeswarm.png" alt="Beeswarm"></p>
+<p></p>
+<p align="center">
+</p><p><em>Source : Dossier SVM, Isabel Palacio et Emma Labre-Blanc</em></p>
+<p></p>
+<p align="justify">
+</p><p>On observe que la variable <code>homme</code> est la plus influente, suivie par <code>Gtp</code>, <code>triglyceride</code>, <code>age</code> ou encore <code>ALT</code>. Les couleurs représentent la valeur de la variable : en rose pour les valeurs élevées, en bleu pour les faibles. Par exemple, un GTP ou un taux de triglycérides élevé pousse le modèle à prédire un statut de fumeur, tandis qu’un âge élevé contribue au contraire à diminuer cette probabilité.</p>
+<p></p>
+<p align="justify">
+</p><p>On observe également une nette séparation des points colorés pour la majorité des variables dans le graphique beeswarm. Les valeurs en rouge sont associées à une augmentation de la probabilité d’être fumeur, tandis que les valeurs en bleu tendent à la diminuer. Par exemple, des taux élevés de triglycérides et de GTP augmentent la probabilité d’être fumeur, alors qu’un âge élevé la réduit. Pour les variables binaires comme homme, tartar et dental carries, la séparation est encore plus marquée, ce qui suggère qu’elles permettent de bien distinguer les individus fumeurs des non-fumeurs. Cette répartition claire reflète un comportement cohérent du modèle et confirme l’influence importante de ces variables dans ses décisions.</p>
+<p></p>
+<p align="justify">
+</p><p>Ces visualisations, nous permettent de mieux comprendre pourquoi un individu est classé comme fumeur (ou non) par le modèle, et d’identifier les facteurs personnels qui influencent le plus les prédictions.</p>
+<p></p>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p align="justify">
+</p><p>Cette étude visait à prédire le statut tabagique (fumeur ou non-fumeur) à partir de données biologiques et de santé issues d’examens médicaux réalisés en Corée du Sud entre 2002 et 2015. Il s’agissait d’un problème de classification binaire, mené à partir d’un échantillon extrait d’une base de données disponible sur Kaggle.</p>
+<p></p>
+<p align="justify">
+</p><p>Nous avons débuté par une analyse exploratoire rigoureuse des données : suppression des doublons, vérification de l’absence de valeurs manquantes, corrections de types et description statistique des variables. Cette phase nous a permis de mieux comprendre les distributions et les éventuelles corrélations.</p>
+<p></p>
+<p align="justify">
+</p><p>Un prétraitement a ensuite été appliqué pour préparer les données à la modélisation : séparation en jeu d’entraînement et de test, standardisation des variables numériques, winsorisation pour limiter l’effet des valeurs extrêmes, et encodage des variables catégorielles.</p>
+<p></p>
+<p align="justify">
+</p><p>Nous avons testé plusieurs approches de modélisation supervisée, en explorant différentes stratégies : utilisation des hyperparamètres par défaut, techniques de sous-échantillonnage (undersampling), sélection de variables, optimisation des hyperparamètres, ou encore transformation logarithmique de certaines variables. Les modèles ont été comparés à l’aide de plusieurs métriques, notamment le F1-score et le recall, afin de mieux prendre en compte le déséquilibre des classes.</p>
+<p></p>
+<p align="justify">
+</p><p>Au terme de cette analyse, le modèle de Gradient Boosting avec undersampling s’est avéré le plus performant et le plus adapté à notre problématique. En effet, il présentait le meilleur F1-score, ainsi qu’un des meilleurs recall, ce qui est particulièrement important dans notre contexte. Dans le domaine de la santé, il est essentiel de minimiser les faux négatifs, c’est-à-dire de bien identifier les individus fumeurs, afin de pouvoir cibler les actions de prévention ou de suivi médical. Ce modèle offrait ainsi un compromis optimal entre précision et sensibilité, rendant ses prédictions à la fois fiables et utiles pour un objectif d’identification.</p>
+<p></p>
+<p align="justify">
+</p><p>Grâce aux outils d’interprétabilité, nous avons pu identifier les variables ayant le plus influencé les décisions du modèle. En particulier, le fait d’être un homme s’est révélé comme le facteur le plus discriminant, contribuant fortement à augmenter la probabilité d’être fumeur. Les variables GTP, triglycérides, âge, ALT et AST ont également joué un rôle significatif. Une augmentation de GTP ou des triglycérides est associée à une probabilité plus élevée d’être fumeur, tandis qu’un âge avancé, ou des taux plus élevés de ALT/AST, tendent à réduire cette probabilité — même si cet effet reste plus modéré.</p>
+<p></p>
+<p align="justify">
+</p><p>Enfin, nos résultats apparaissent cohérents avec la littérature médicale : les biomarqueurs identifiés et les tendances observées s’alignent avec ce que l’on sait des profils biologiques associés au tabagisme. Cette étude illustre ainsi l’intérêt de combiner des approches de machine learning robustes avec des outils d’interprétabilité, pour à la fois prédire efficacement et mieux comprendre les facteurs de risque comportementaux à partir de données cliniques.</p>
+<p></p>
+</section>
+<section id="glossaire" class="level1">
+<h1>Glossaire</h1>
+<p align="justify">
+</p><p><strong>Pression artérielle systolique (systolic)</strong> : Le cœur se contracte avec une grande force à la pression artérielle la plus élevée de l’examiné. Il s’agit de la pression intravasculaire lorsque le cœur pousse le sang dans les artères. (mmHg)</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Pression artérielle diastolique (relaxation)</strong> : La pression artérielle enregistrée lorsque le cœur est en phase de relâchement (diastole), c’est-à-dire la pression minimale dans les artères entre deux battements. (mmHg)</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Glycémie préprandiale (fasting blood sugar)</strong> : Mesure de la concentration de glucose dans 100 ml de sang chez l’individu à jeun. Indicateur clé du métabolisme du glucose. (mg/dL)</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Cholestérol total (cholesterol)</strong> : Somme du cholestérol estérifié et non estérifié (libre) dans le sérum. Le cholestérol libre représente environ un tiers du total, le reste étant des esters. Normale : 150–250 mg/dL.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Triglycérides (triglyceride)</strong> : Lipides simples formés par l’estérification du glycérol avec trois acides gras. Ce sont les lipides les plus communs dans le corps. Valeur normale : 30–135 mg/dL.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>HDL Cholestérol (HDL)</strong> : Particules de cholestérol de haute densité impliquées dans le transport inverse du cholestérol. Elles aident à nettoyer les vaisseaux sanguins. Valeur normale : 30–65 mg/dL.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>LDL Cholestérol (LDL)</strong> : Cholestérol contenu dans les lipoprotéines de basse densité. Un excès peut s’accumuler sur les parois artérielles, provoquant de l’athérosclérose. Hyperlipidémie au-delà de 170 mg/dL. (mg/dL)</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Pigments sanguins / Hémoglobine (hemoglobin)</strong> : Protéine pigmentée du sang, composée de globine et d’un groupe hème, servant au transport de l’oxygène. (g/dL)</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Protéinurie (Urine_protein)</strong> : Présence de protéines dans les urines, codée de 1 à 6 : <br>1 (-) : Absence (normal), <br>2 (±) : Trace, <br>3 (+1) : Faible, <br>4 (+2) : Modérée, <br>5 (+3) : Importante, <br>6 (+4) : Sévère.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>Créatinine (creatinin)</strong> : Résidu métabolique issu de la créatine musculaire, excrété par les reins. Taux élevé en cas d’insuffisance rénale. Valeur normale : 0,8–1,7 mg/dL.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>AST (Aspartate Aminotransférase)</strong> : Enzyme hépatique également présente dans le cœur, les reins, les muscles, etc. Sa concentration augmente lors de lésions cellulaires. Valeur normale : 0–40 UI/L.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>ALT (Alanine Aminotransférase)</strong> : Enzyme principalement localisée dans le foie. Sa concentration augmente en cas de dommages hépatiques. Valeur normale : 0–40 UI/L.</p>
+<p></p>
+<p align="justify">
+</p><p><strong>GTP (Gamma-Glutamyl Transférase)</strong> : Enzyme biliaire mesurant la fonction hépatique. Taux élevé en cas de dysfonctionnement des canaux biliaires ou du foie. Valeurs normales : jusqu’à 1163 UI/L (homme), 835 UI/L (femme).</p>
+<p></p>
+<p></p>
+</section>
+<section id="table-des-matières" class="level1">
+<h1>Table des matières</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#i-analyse-exploratoire">I. Analyse exploratoire</a>
+<ul>
+<li><a href="#a-présentation-des-données">A. Présentation des données</a></li>
+<li><a href="#b-analyse-univariée">B. Analyse univariée</a>
+<ul>
+<li><a href="#1-variable-dintérêt">1) Variable d’intérêt</a></li>
+<li><a href="#2-prédicteurs-quantitatifs">2) Prédicteurs quantitatifs</a></li>
+<li><a href="#3-prédicteurs-qualitatifs">3) Prédicteurs qualitatifs</a></li>
+</ul></li>
+<li><a href="#c-analyse-bivariée">C. Analyse bivariée</a>
+<ul>
+<li><a href="#1-Liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs-et-quantitatifs">1) Liens entre la variable cible et les prédicteurs qualitatifs et quantitatifs</a>
+<ul>
+<li><a href="#a-Liens-entre-la-variable-cible-et-les-prédicteurs-quantitatifs">a) Liens entre la variable cible et les prédicteurs quantitatifs</a></li>
+<li><a href="#b-Liens-entre-la-variable-cible-et-les-prédicteurs-qualitatifs">b) Liens entre la variable cible et les prédicteurs qualitatifs</a></li>
+</ul></li>
+<li><a href="#2-etude-des-corrélations">2) Etude des corrélations</a></li>
+<li><a href="#3-liens-entre-les-variables-qualitatives">3) Liens entre les variables qualitatives</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ii-Phase-préparatoire-et-modélisations">II. Phase préparatoire et modélisations</a>
+<ul>
+<li><a href="#a-Préparation-des-variables-pour-la-modélisation">A. Préparation des variables pour la modélisation</a>
+<ul>
+<li><a href="#1-Séparation-du-jeu-de-données-en-jeux-train-et-test">1) Séparation du jeu de données en jeux train et test</a></li>
+<li><a href="#2-Traitement-des-valeurs-atypiques---winsorization">2) Traitement des valeurs atypiques : winsorization</a></li>
+<li><a href="#3-Standardisation-et-encodage">3) Standardisation et encodage</a></li>
+</ul></li>
+<li><a href="#b-Modélisations">B. Modélisations</a>
+<ul>
+<li><a href="#1-Présentation-des-modèles-et-métriques-pour-la-comparaison">1) Présentation des modèles et métriques pour la comparaison</a></li>
+<li><a href="#2-Modélisations-avec-les-paramètres-par-défaut">2) Modélisations avec les paramètres par défaut</a></li>
+<li><a href="#3-Modélisations-optimisées---Présentation-des-stratégies-d-optimisation">3) Modélisations optimisées : Présentation des stratégies d’optimisation</a></li>
+<li><a href="#4-Choix-du-meilleur-modèle">4) Choix du meilleur modèle</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#iii-interprétation-du-meilleur-modèle">III. Interprétation du meilleur modèle</a>
+<ul>
+<li><a href="#a-interprétation-globale">A. Interprétation globale</a>
+<ul>
+<li><a href="#1-Importance-des-variables">1) Importance des variables</a></li>
+<li><a href="#2-partial-dependence-plots---pdp">2) Partial Dependence Plots - PDP</a></li>
+<li><a href="#3-permutation-features-importance">3) Permutation features importance</a></li>
+</ul></li>
+<li><a href="#b-interprétation-locale">B. Interprétation locale</a>
+<ul>
+<li><a href="#1-ice">1) ICE</a></li>
+<li><a href="#2-lime">2) LIME</a></li>
+<li><a href="#3-shap">3) SHAP</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#Glossaire">Glossaire</a></li>
+</ul>
+<p></p>
+
+
+</section>
+
+</u></main><u align="justify"> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/isabel6198\.github\.io\/portfolio\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</u></div><u align="justify"> <!-- /content -->
+
+
+
+
+</u><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

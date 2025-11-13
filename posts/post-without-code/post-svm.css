@@ -1,0 +1,11 @@
+/* images incluses via Markdown ou HTML */
+img { max-width: 100%; height: auto; }
+
+/* figures Quarto : centrage doux */
+.quarto-figure img { display: block; margin: 0 auto; }
+
+/* optionnelle : limiter les très grandes images à 800px */
+img.limit-800 { max-width: 800px; }
+
+.u { text-decoration: underline; }
+.center { text-align: center; }
