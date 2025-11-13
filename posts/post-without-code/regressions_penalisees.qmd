@@ -1,0 +1,116 @@
+---
+title: "Régressions pénalisées et sélection de variables"
+subtitle: "Modélisation de l’inflation au Royaume-Uni (1998–2024)"
+date: "2024-11"
+image: "ecap.jpeg"
+categories: ["R", "Économétrie", "Machine Learning", "Variable Selection"]
+format:
+  html:
+    toc: true
+    toc-location: right
+    smooth-scroll: true
+---
+
+## Contexte du projet
+
+Ce projet met en œuvre plusieurs méthodes de régression pénalisée à l’analyse macroéconomique du Royaume-Uni.\
+L’objectif est de modéliser l’inflation mensuelle, représentée par l’indice CPI_ALL, à partir d’une base de données de 110 indicateurs macroéconomiques couvrant la période 1998–2024.
+
+Dans un contexte marqué par des événements majeurs ; crise financière de 2008, Brexit, pandémie de COVID-19, crise énergétique liée au conflit en Ukraine, le projet vise à identifier les facteurs déterminants de l’évolution des prix à la consommation, en combinant approches économétriques et apprentissage automatique.
+
+------------------------------------------------------------------------
+
+## Méthodologie
+
+Les étapes du projet s’articulent autour d’un enchaînement logique :
+
+1.  **Nettoyage et imputation des données**\
+    Les valeurs manquantes ont été corrigées par l’algorithme EM (*Expectation–Maximization*).\
+    Les mois de juin et juillet 2024, présentant trop de données manquantes, ont été exclus.
+
+2.  **Détection et correction des valeurs atypiques**\
+    À l’aide du package `tsoutliers`, trois outliers additifs ont été identifiés et corrigés :
+
+    -   Août 2020 : baisse liée à la pandémie de COVID-19\
+    -   Avril 2022 : reprise économique et hausse des prix\
+    -   Octobre 2022 : choc énergétique et tensions géopolitiques
+
+3.  **Stationnarisation et transformation**\
+    Les séries ont été différenciées en logarithme et désaisonnalisées avec X-13-ARIMA-SEATS pour assurer la stationnarité, vérifiée par le test ADF.
+
+4.  **Analyse exploratoire et classification**\
+    Une **ACP** et un **clustering hiérarchique** ont permis d’identifier les relations structurelles entre variables.\
+    Trois groupes majeurs ont émergé :
+
+    -   Marché du travail et production\
+    -   Revenus et consommation\
+    -   Prix, taux d’intérêt et marchés financiers
+
+------------------------------------------------------------------------
+
+## Sélection des variables
+
+### Approche GETS
+
+Le modèle GETS(General-to-Specific) a servi de référence économétrique.\
+Partant d’un modèle large (225 prédicteurs), il simplifie progressivement la spécification en éliminant les variables non significatives.\
+Cette méthode atteint toutefois ses limites face à la dimension du jeu de données, justifiant le recours à des modèles pénalisés.
+
+------------------------------------------------------------------------
+
+## Régressions pénalisées
+
+Les méthodes testées incluent **Ridge**, **Lasso**, **Elastic Net**, **SCAD** et **Adaptive Lasso**, avec ou sans filtrage préalable (**Sure Independence Screening – SIS**).\
+L’objectif était de comparer leurs capacités de sélection et leur robustesse face à la multicolinéarité.
+
+### Lasso
+
+La méthode Lasso, par sa pénalisation L1, a permis une réduction substantielle du nombre de variables (de 224 à 11), en conservant principalement des indices de prix et des variables liées à la production.
+
+### Ridge
+
+La régression Ridge (pénalisation L2) a conservé toutes les variables mais stabilisé les coefficients, offrant un compromis entre biais et variance sans véritable sélection.
+
+### Elastic Net
+
+L’approche Elastic Net, combinant Lasso et Ridge, a été testée avec différents niveaux d’alpha :\
+- α = 0.5 (équilibre L1/L2),\
+- α = 0.3 (sélection par grille),\
+- α = 0.8 (optimisation avec `caret`).\
+Elle montre une meilleure stabilité des coefficients tout en conservant la parcimonie du modèle.
+
+### SCAD
+
+La méthode SCAD (*Smoothly Clipped Absolute Deviation*) a retenu davantage de variables que Lasso, tout en limitant le biais de régularisation, ce qui améliore la précision sur les coefficients significatifs.
+
+### Adaptive Lasso
+
+Enfin, l’Adaptive Lasso a combiné la rigueur de la pénalisation L1 et l’ajustement des poids obtenus via un modèle Ridge.\
+C’est la méthode la plus sélective du projet, ne retenant que les variables les plus influentes sur l’inflation.
+
+------------------------------------------------------------------------
+
+## Comparaison et discussion
+
+Les résultats montrent que : - L’aLasso est la méthode la plus parcimonieuse, avec une sélection fine des variables pertinentes.\
+- SCAD conserve davantage de variables explicatives, offrant une lecture plus riche du phénomène.\
+- L’Elastic Net assure un compromis robuste entre biais, variance et interprétabilité.
+
+Ces méthodes surpassent le GETS classique lorsque le rapport *p/n* est élevé et permettent de mieux gérer la corrélation entre indicateurs macroéconomiques.
+
+------------------------------------------------------------------------
+
+## Rapport complet
+
+::: {style="text-align: center;"}
+<iframe src="/pdf/regressions_penalisees.pdf" title="Projet Régressions pénalisées" width="85%" height="640" loading="lazy">
+
+</iframe>
+:::
+
+------------------------------------------------------------------------
+
+## Conclusion
+
+Ce projet met en lumière la complémentarité entre approches économétriques et machine learning pour l’analyse macroéconomique.\
+Les régressions pénalisées offrent une solution performante au problème de sélection de variables dans les ensembles de données de grande dimension, tout en conservant une interprétation économiquement cohérente.

@@ -1,25 +1,86 @@
 ---
-title: "NLP - Etude des discours du trône au Royaume Uni"
+title: "Analyse NLP : Discours du trône (1911–2012)"
+subtitle: "Thématiques politiques, appartenance partisane et tonalité des discours"
 date: "2025-05"
-image: "ecap.jpeg"
-format: 
+image: "royal.jpeg"
+categories: ["NLP", "Text Mining", "Machine Learning"]
+format:
   html:
     toc: true
-    toc_float: 
-      collapsed: false
-      smooth_scroll: true
+    toc-location: right
+    smooth-scroll: true
 ---
 
-## Une analyse sur les thématiques, les partis politiques, et les sentiments des discours
+## Contexte du projet
 
-Date : Mai 2025
+Ce projet applique les méthodes de traitement automatique du langage naturel (NLP) à un corpus de 105 Discours du Trône britanniques prononcés entre 1911 et 2012.\
+Ces allocutions, rédigées par le gouvernement et lues par le monarque à l’ouverture du Parlement, constituent un observatoire unique des priorités politiques britanniques au fil du temps.\
+L’objectif est d’en identifier les grands thèmes, d’analyser leur évolution historique, et d’examiner les différences éventuelles selon les partis politiques et la tonalité des discours.
+
+------------------------------------------------------------------------
+
+## Méthodologie
+
+L’analyse repose sur trois approches principales :
+
+**1. Modélisation thématique (LDA)**\
+Le modèle *Latent Dirichlet Allocation* a permis de faire émerger automatiquement les sujets dominants à partir des textes vectorisés (CountVectorizer).\
+Le nombre optimal de topics a été déterminé à l’aide de la **perplexité**, donnant cinq thèmes principaux.
+
+**2. Classification supervisée**\
+Les discours ont été vectorisés via **TF-IDF** et utilisés pour prédire le parti au pouvoir (travailliste ou conservateur) à l’aide d’une **régression logistique** et d’une **forêt aléatoire**.\
+L’objectif : évaluer si un discours contient des marqueurs lexicaux propres à un parti.
+
+**3. Analyse de sentiment**\
+L’outil **VADER** (*Valence Aware Dictionary and sEntiment Reasoner*) a permis d’estimer la tonalité générale des discours — positive, neutre ou négative — en fonction du vocabulaire employé.
+
+------------------------------------------------------------------------
+
+## Principaux résultats
+
+**1. Cinq grands ensembles thématiques**
+
+-   Gouvernance publique et coopération internationale\
+-   Diplomatie et commerce extérieur\
+-   Réformes économiques et développement\
+-   Défense et sécurité nationale\
+-   Justice et inclusion sociale
+
+Avant 1950, la diplomatie et la sécurité dominent largement, tandis qu’à partir des années 1960, les thèmes économiques et sociaux deviennent centraux.\
+Les années 2000 voient émerger les questions de justice et d’inclusion.
+
+**2. Classification politique**\
+Les modèles atteignent une **accuracy d’environ 70 %**.\
+Les discours conservateurs sont mieux identifiés que les travaillistes, suggérant que ces derniers emploient une rhétorique plus neutre ou convergente selon les périodes.
+
+**3. Tonalité générale**\
+Les discours sont globalement **positifs et institutionnels**, conformément à leur nature solennelle.\
+Les rares inflexions négatives apparaissent durant les périodes de guerre, où le lexique de la perte et de la mobilisation influe sur le score de sentiment.
+
+------------------------------------------------------------------------
+
+## Discussion
+
+L’étude montre la puissance du NLP appliqué à des corpus historiques: il permet de détecter des tendances politiques et discursives sur plus d’un siècle.\
+Cependant, les modèles lexicaux comme VADER atteignent leurs limites face à un langage diplomatique et codifié, où le ton reste positif même en évoquant des crises.\
+Une extension naturelle consisterait à tester des modèles contextuels pour mieux capter la sémantique et les nuances.
+
+------------------------------------------------------------------------
+
+## Rapport complet
 
 ::: {style="text-align: center;"}
-<iframe src="/pdf/projet_NLP.pdf" width="80%" height="600px">
+<iframe src="/pdf/projet_NLP.pdf" title="Projet NLP - Discours du Trône" width="85%" height="640" loading="lazy">
 
 </iframe>
 :::
 
-code :
+------------------------------------------------------------------------
 
-<https://github.com/isabel6198/nlp_speech_throne/blob/main/notebook/01_speech_throne.ipynb>
+## Code et reproductibilité
+
+Le code complet du projet est disponible sur GitHub :\
+🔗 [Voir le notebook sur GitHub](https://github.com/isabel6198/nlp_speech_throne/tree/main)
+
+Le dépôt contient les étapes de préparation, de modélisation et de visualisation, avec les versions d’outils utilisées et les jeux de données nettoyés.\
+La reproduction est possible en installant les dépendances listées dans le fichier `requirements.txt`.
