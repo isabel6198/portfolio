@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-05-01">
+<meta name="dcterms.date" content="2024-11-01">
 
-<title>Analyse NLP : Discours du trône (1911–2012) – Menu principal</title>
+<title>Régressions pénalisées et sélection de variables – Menu principal</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,10 +124,21 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#contexte-du-projet" id="toc-contexte-du-projet" class="nav-link active" data-scroll-target="#contexte-du-projet">Contexte du projet</a></li>
   <li><a href="#méthodologie" id="toc-méthodologie" class="nav-link" data-scroll-target="#méthodologie">Méthodologie</a></li>
-  <li><a href="#principaux-résultats" id="toc-principaux-résultats" class="nav-link" data-scroll-target="#principaux-résultats">Principaux résultats</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#sélection-des-variables" id="toc-sélection-des-variables" class="nav-link" data-scroll-target="#sélection-des-variables">Sélection des variables</a>
+  <ul class="collapse">
+  <li><a href="#approche-gets" id="toc-approche-gets" class="nav-link" data-scroll-target="#approche-gets">Approche GETS</a></li>
+  </ul></li>
+  <li><a href="#régressions-pénalisées" id="toc-régressions-pénalisées" class="nav-link" data-scroll-target="#régressions-pénalisées">Régressions pénalisées</a>
+  <ul class="collapse">
+  <li><a href="#lasso" id="toc-lasso" class="nav-link" data-scroll-target="#lasso">Lasso</a></li>
+  <li><a href="#ridge" id="toc-ridge" class="nav-link" data-scroll-target="#ridge">Ridge</a></li>
+  <li><a href="#elastic-net" id="toc-elastic-net" class="nav-link" data-scroll-target="#elastic-net">Elastic Net</a></li>
+  <li><a href="#scad" id="toc-scad" class="nav-link" data-scroll-target="#scad">SCAD</a></li>
+  <li><a href="#adaptive-lasso" id="toc-adaptive-lasso" class="nav-link" data-scroll-target="#adaptive-lasso">Adaptive Lasso</a></li>
+  </ul></li>
+  <li><a href="#comparaison-et-discussion" id="toc-comparaison-et-discussion" class="nav-link" data-scroll-target="#comparaison-et-discussion">Comparaison et discussion</a></li>
   <li><a href="#rapport-complet" id="toc-rapport-complet" class="nav-link" data-scroll-target="#rapport-complet">Rapport complet</a></li>
-  <li><a href="#code-et-reproductibilité" id="toc-code-et-reproductibilité" class="nav-link" data-scroll-target="#code-et-reproductibilité">Code et reproductibilité</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -136,12 +147,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analyse NLP : Discours du trône (1911–2012)</h1>
-<p class="subtitle lead">Thématiques politiques, appartenance partisane et tonalité des discours</p>
+<h1 class="title">Régressions pénalisées et sélection de variables</h1>
+<p class="subtitle lead">Modélisation de l’inflation au Royaume-Uni (1998–2024)</p>
   <div class="quarto-categories">
-    <div class="quarto-category">NLP</div>
-    <div class="quarto-category">Text Mining</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Économétrie</div>
     <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Variable Selection</div>
   </div>
   </div>
 
@@ -153,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 1, 2025</p>
+      <p class="date">November 1, 2024</p>
     </div>
   </div>
   
@@ -167,69 +179,103 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="contexte-du-projet" class="level2">
 <h2 class="anchored" data-anchor-id="contexte-du-projet">Contexte du projet</h2>
-<p>Ce projet applique les méthodes de&nbsp;traitement automatique du langage naturel (NLP)&nbsp;à un corpus de&nbsp;105 Discours du Trône britanniques&nbsp;prononcés entre 1911 et 2012.<br>
-Ces allocutions, rédigées par le gouvernement et lues par le monarque à l’ouverture du Parlement, constituent un observatoire unique des&nbsp;priorités politiques&nbsp;britanniques au fil du temps.<br>
-L’objectif est d’en&nbsp;identifier les grands thèmes, d’analyser leur&nbsp;évolution historique, et d’examiner les différences éventuelles selon les&nbsp;partis politiques&nbsp;et la&nbsp;tonalité des discours.</p>
+<p>Ce projet met en œuvre plusieurs méthodes de régression pénalisée à l’analyse macroéconomique du Royaume-Uni.<br>
+L’objectif est de modéliser l’inflation mensuelle, représentée par l’indice CPI_ALL, à partir d’une base de données de 110 indicateurs macroéconomiques couvrant la période 1998–2024.</p>
+<p>Dans un contexte marqué par des événements majeurs ; crise financière de 2008, Brexit, pandémie de COVID-19, crise énergétique liée au conflit en Ukraine, le projet vise à identifier les facteurs déterminants de l’évolution des prix à la consommation, en combinant approches économétriques et apprentissage automatique.</p>
 <hr>
 </section>
 <section id="méthodologie" class="level2">
 <h2 class="anchored" data-anchor-id="méthodologie">Méthodologie</h2>
-<p>L’analyse repose sur trois approches principales :</p>
-<p><strong>1. Modélisation thématique (LDA)</strong><br>
-Le modèle <em>Latent Dirichlet Allocation</em> a permis de faire émerger automatiquement les sujets dominants à partir des textes vectorisés (CountVectorizer).<br>
-Le nombre optimal de topics a été déterminé à l’aide de la <strong>perplexité</strong>, donnant cinq thèmes principaux.</p>
-<p><strong>2. Classification supervisée</strong><br>
-Les discours ont été vectorisés via <strong>TF-IDF</strong> et utilisés pour prédire le parti au pouvoir (travailliste ou conservateur) à l’aide d’une <strong>régression logistique</strong> et d’une <strong>forêt aléatoire</strong>.<br>
-L’objectif : évaluer si un discours contient des marqueurs lexicaux propres à un parti.</p>
-<p><strong>3. Analyse de sentiment</strong><br>
-L’outil <strong>VADER</strong> (<em>Valence Aware Dictionary and sEntiment Reasoner</em>) a permis d’estimer la tonalité générale des discours — positive, neutre ou négative — en fonction du vocabulaire employé.</p>
-<hr>
-</section>
-<section id="principaux-résultats" class="level2">
-<h2 class="anchored" data-anchor-id="principaux-résultats">Principaux résultats</h2>
-<p><strong>1. Cinq grands ensembles thématiques</strong></p>
+<p>Les étapes du projet s’articulent autour d’un enchaînement logique :</p>
+<ol type="1">
+<li><p><strong>Nettoyage et imputation des données</strong><br>
+Les valeurs manquantes ont été corrigées par l’algorithme EM (<em>Expectation–Maximization</em>).<br>
+Les mois de juin et juillet 2024, présentant trop de données manquantes, ont été exclus.</p></li>
+<li><p><strong>Détection et correction des valeurs atypiques</strong><br>
+À l’aide du package <code>tsoutliers</code>, trois outliers additifs ont été identifiés et corrigés :</p>
 <ul>
-<li>Gouvernance publique et coopération internationale<br>
+<li>Août 2020 : baisse liée à la pandémie de COVID-19<br>
 </li>
-<li>Diplomatie et commerce extérieur<br>
+<li>Avril 2022 : reprise économique et hausse des prix<br>
 </li>
-<li>Réformes économiques et développement<br>
+<li>Octobre 2022 : choc énergétique et tensions géopolitiques</li>
+</ul></li>
+<li><p><strong>Stationnarisation et transformation</strong><br>
+Les séries ont été différenciées en logarithme et désaisonnalisées avec X-13-ARIMA-SEATS pour assurer la stationnarité, vérifiée par le test ADF.</p></li>
+<li><p><strong>Analyse exploratoire et classification</strong><br>
+Une <strong>ACP</strong> et un <strong>clustering hiérarchique</strong> ont permis d’identifier les relations structurelles entre variables.<br>
+Trois groupes majeurs ont émergé :</p>
+<ul>
+<li>Marché du travail et production<br>
 </li>
-<li>Défense et sécurité nationale<br>
+<li>Revenus et consommation<br>
 </li>
-<li>Justice et inclusion sociale</li>
-</ul>
-<p>Avant 1950, la diplomatie et la sécurité dominent largement, tandis qu’à partir des années 1960, les thèmes économiques et sociaux deviennent centraux.<br>
-Les années 2000 voient émerger les questions de justice et d’inclusion.</p>
-<p><strong>2. Classification politique</strong><br>
-Les modèles atteignent une <strong>accuracy d’environ 70 %</strong>.<br>
-Les discours conservateurs sont mieux identifiés que les travaillistes, suggérant que ces derniers emploient une rhétorique plus neutre ou convergente selon les périodes.</p>
-<p><strong>3. Tonalité générale</strong><br>
-Les discours sont globalement <strong>positifs et institutionnels</strong>, conformément à leur nature solennelle.<br>
-Les rares inflexions négatives apparaissent durant les périodes de guerre, où le lexique de la perte et de la mobilisation influe sur le score de sentiment.</p>
+<li>Prix, taux d’intérêt et marchés financiers</li>
+</ul></li>
+</ol>
 <hr>
 </section>
-<section id="discussion" class="level2">
-<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<p>L’étude montre la puissance du NLP appliqué à des corpus historiques: il permet de détecter des tendances politiques et discursives sur plus d’un siècle.<br>
-Cependant, les modèles lexicaux comme VADER atteignent leurs limites face à un langage diplomatique et codifié, où le ton reste positif même en évoquant des crises.<br>
-Une extension naturelle consisterait à tester des modèles contextuels pour mieux capter la sémantique et les nuances.</p>
+<section id="sélection-des-variables" class="level2">
+<h2 class="anchored" data-anchor-id="sélection-des-variables">Sélection des variables</h2>
+<section id="approche-gets" class="level3">
+<h3 class="anchored" data-anchor-id="approche-gets">Approche GETS</h3>
+<p>Le modèle GETS(General-to-Specific) a servi de référence économétrique.<br>
+Partant d’un modèle large (225 prédicteurs), il simplifie progressivement la spécification en éliminant les variables non significatives.<br>
+Cette méthode atteint toutefois ses limites face à la dimension du jeu de données, justifiant le recours à des modèles pénalisés.</p>
+<hr>
+</section>
+</section>
+<section id="régressions-pénalisées" class="level2">
+<h2 class="anchored" data-anchor-id="régressions-pénalisées">Régressions pénalisées</h2>
+<p>Les méthodes testées incluent <strong>Ridge</strong>, <strong>Lasso</strong>, <strong>Elastic Net</strong>, <strong>SCAD</strong> et <strong>Adaptive Lasso</strong>, avec ou sans filtrage préalable (<strong>Sure Independence Screening – SIS</strong>).<br>
+L’objectif était de comparer leurs capacités de sélection et leur robustesse face à la multicolinéarité.</p>
+<section id="lasso" class="level3">
+<h3 class="anchored" data-anchor-id="lasso">Lasso</h3>
+<p>La méthode Lasso, par sa pénalisation L1, a permis une réduction substantielle du nombre de variables (de 224 à 11), en conservant principalement des indices de prix et des variables liées à la production.</p>
+</section>
+<section id="ridge" class="level3">
+<h3 class="anchored" data-anchor-id="ridge">Ridge</h3>
+<p>La régression Ridge (pénalisation L2) a conservé toutes les variables mais stabilisé les coefficients, offrant un compromis entre biais et variance sans véritable sélection.</p>
+</section>
+<section id="elastic-net" class="level3">
+<h3 class="anchored" data-anchor-id="elastic-net">Elastic Net</h3>
+<p>L’approche Elastic Net, combinant Lasso et Ridge, a été testée avec différents niveaux d’alpha :<br>
+- α = 0.5 (équilibre L1/L2),<br>
+- α = 0.3 (sélection par grille),<br>
+- α = 0.8 (optimisation avec <code>caret</code>).<br>
+Elle montre une meilleure stabilité des coefficients tout en conservant la parcimonie du modèle.</p>
+</section>
+<section id="scad" class="level3">
+<h3 class="anchored" data-anchor-id="scad">SCAD</h3>
+<p>La méthode SCAD (<em>Smoothly Clipped Absolute Deviation</em>) a retenu davantage de variables que Lasso, tout en limitant le biais de régularisation, ce qui améliore la précision sur les coefficients significatifs.</p>
+</section>
+<section id="adaptive-lasso" class="level3">
+<h3 class="anchored" data-anchor-id="adaptive-lasso">Adaptive Lasso</h3>
+<p>Enfin, l’Adaptive Lasso a combiné la rigueur de la pénalisation L1 et l’ajustement des poids obtenus via un modèle Ridge.<br>
+C’est la méthode la plus sélective du projet, ne retenant que les variables les plus influentes sur l’inflation.</p>
+<hr>
+</section>
+</section>
+<section id="comparaison-et-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="comparaison-et-discussion">Comparaison et discussion</h2>
+<p>Les résultats montrent que : - L’aLasso est la méthode la plus parcimonieuse, avec une sélection fine des variables pertinentes.<br>
+- SCAD conserve davantage de variables explicatives, offrant une lecture plus riche du phénomène.<br>
+- L’Elastic Net assure un compromis robuste entre biais, variance et interprétabilité.</p>
+<p>Ces méthodes surpassent le GETS classique lorsque le rapport <em>p/n</em> est élevé et permettent de mieux gérer la corrélation entre indicateurs macroéconomiques.</p>
 <hr>
 </section>
 <section id="rapport-complet" class="level2">
 <h2 class="anchored" data-anchor-id="rapport-complet">Rapport complet</h2>
 <div style="text-align: center;">
-<iframe src="../../pdf/projet_NLP.pdf" title="Projet NLP - Discours du Trône" width="85%" height="640" loading="lazy">
+<iframe src="../../pdf/regressions_penalisees.pdf" title="Projet Régressions pénalisées" width="85%" height="640" loading="lazy">
 </iframe>
 </div>
 <hr>
 </section>
-<section id="code-et-reproductibilité" class="level2">
-<h2 class="anchored" data-anchor-id="code-et-reproductibilité">Code et reproductibilité</h2>
-<p>Le code complet du projet est disponible sur GitHub :<br>
-🔗 <a href="https://github.com/isabel6198/nlp_speech_throne/tree/main">Voir le notebook sur GitHub</a></p>
-<p>Le dépôt contient les étapes de préparation, de modélisation et de visualisation, avec les versions d’outils utilisées et les jeux de données nettoyés.<br>
-La reproduction est possible en installant les dépendances listées dans le fichier <code>requirements.txt</code>.</p>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Ce projet met en lumière la complémentarité entre approches économétriques et machine learning pour l’analyse macroéconomique.<br>
+Les régressions pénalisées offrent une solution performante au problème de sélection de variables dans les ensembles de données de grande dimension, tout en conservant une interprétation économiquement cohérente.</p>
 
 
 </section>

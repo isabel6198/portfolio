@@ -7,32 +7,123 @@
     "text": "Réalisée par Gloria Isabel PALACIO BARCO\nContact par mail :\ngloria.palacio-barco@etu.univ-nantes.fr\nisabel6198@hotmail.com"
   },
   {
-    "objectID": "posts/post-without-code/Projets.html",
-    "href": "posts/post-without-code/Projets.html",
-    "title": "ECAP Master1",
+    "objectID": "posts/post-without-code/regressions_penalisees.html",
+    "href": "posts/post-without-code/regressions_penalisees.html",
+    "title": "Régressions pénalisées et sélection de variables",
     "section": "",
-    "text": "Présentation des différents projets (sans code)"
+    "text": "Ce projet met en œuvre plusieurs méthodes de régression pénalisée à l’analyse macroéconomique du Royaume-Uni.\nL’objectif est de modéliser l’inflation mensuelle, représentée par l’indice CPI_ALL, à partir d’une base de données de 110 indicateurs macroéconomiques couvrant la période 1998–2024.\nDans un contexte marqué par des événements majeurs ; crise financière de 2008, Brexit, pandémie de COVID-19, crise énergétique liée au conflit en Ukraine, le projet vise à identifier les facteurs déterminants de l’évolution des prix à la consommation, en combinant approches économétriques et apprentissage automatique."
   },
   {
-    "objectID": "posts/post-without-code/Projets.html#series-temporelles-univariees",
-    "href": "posts/post-without-code/Projets.html#series-temporelles-univariees",
-    "title": "ECAP Master1",
-    "section": "Séries temporelles univariées",
-    "text": "Séries temporelles univariées\n\nÉtude des séries temporelles de l’indice de prix à la consommation (IPC), le prix du pétrole et la variation des températures en France, à l’aide de la méthodologie ARIMA\nUne analyse des tendances et des fluctuations de 2010 jusqu’à 2022\nPar : Gloria Isabel PALACIO\nDate : Février 2024"
+    "objectID": "posts/post-without-code/regressions_penalisees.html#contexte-du-projet",
+    "href": "posts/post-without-code/regressions_penalisees.html#contexte-du-projet",
+    "title": "Régressions pénalisées et sélection de variables",
+    "section": "",
+    "text": "Ce projet met en œuvre plusieurs méthodes de régression pénalisée à l’analyse macroéconomique du Royaume-Uni.\nL’objectif est de modéliser l’inflation mensuelle, représentée par l’indice CPI_ALL, à partir d’une base de données de 110 indicateurs macroéconomiques couvrant la période 1998–2024.\nDans un contexte marqué par des événements majeurs ; crise financière de 2008, Brexit, pandémie de COVID-19, crise énergétique liée au conflit en Ukraine, le projet vise à identifier les facteurs déterminants de l’évolution des prix à la consommation, en combinant approches économétriques et apprentissage automatique."
   },
   {
-    "objectID": "posts/post-without-code/Projets.html#évaluation-des-actifs-financiers",
-    "href": "posts/post-without-code/Projets.html#évaluation-des-actifs-financiers",
-    "title": "ECAP Master1",
-    "section": "Évaluation des actifs financiers",
-    "text": "Évaluation des actifs financiers\n\nEtude de fonds d’investissement social responsable sur l’année 2023\nPar : Marie KERHOAS & Gloria Isabel PALACIO\nDate : Mars 2024"
+    "objectID": "posts/post-without-code/regressions_penalisees.html#méthodologie",
+    "href": "posts/post-without-code/regressions_penalisees.html#méthodologie",
+    "title": "Régressions pénalisées et sélection de variables",
+    "section": "Méthodologie",
+    "text": "Méthodologie\nLes étapes du projet s’articulent autour d’un enchaînement logique :\n\nNettoyage et imputation des données\nLes valeurs manquantes ont été corrigées par l’algorithme EM (Expectation–Maximization).\nLes mois de juin et juillet 2024, présentant trop de données manquantes, ont été exclus.\nDétection et correction des valeurs atypiques\nÀ l’aide du package tsoutliers, trois outliers additifs ont été identifiés et corrigés :\n\nAoût 2020 : baisse liée à la pandémie de COVID-19\n\nAvril 2022 : reprise économique et hausse des prix\n\nOctobre 2022 : choc énergétique et tensions géopolitiques\n\nStationnarisation et transformation\nLes séries ont été différenciées en logarithme et désaisonnalisées avec X-13-ARIMA-SEATS pour assurer la stationnarité, vérifiée par le test ADF.\nAnalyse exploratoire et classification\nUne ACP et un clustering hiérarchique ont permis d’identifier les relations structurelles entre variables.\nTrois groupes majeurs ont émergé :\n\nMarché du travail et production\n\nRevenus et consommation\n\nPrix, taux d’intérêt et marchés financiers"
   },
   {
-    "objectID": "posts/post-without-code/Projets.html#analyse-de-données-et-descriptive",
-    "href": "posts/post-without-code/Projets.html#analyse-de-données-et-descriptive",
-    "title": "ECAP Master1",
-    "section": "Analyse de données et descriptive",
-    "text": "Analyse de données et descriptive\n\nAnalyse de l’attractivite touristique des départements en France métropolitaine 2022\nPar : Marie KERHOAS & Gloria Isabel PALACIO\nDate : Mars 2024"
+    "objectID": "posts/post-without-code/regressions_penalisees.html#sélection-des-variables",
+    "href": "posts/post-without-code/regressions_penalisees.html#sélection-des-variables",
+    "title": "Régressions pénalisées et sélection de variables",
+    "section": "Sélection des variables",
+    "text": "Sélection des variables\n\nApproche GETS\nLe modèle GETS(General-to-Specific) a servi de référence économétrique.\nPartant d’un modèle large (225 prédicteurs), il simplifie progressivement la spécification en éliminant les variables non significatives.\nCette méthode atteint toutefois ses limites face à la dimension du jeu de données, justifiant le recours à des modèles pénalisés."
+  },
+  {
+    "objectID": "posts/post-without-code/regressions_penalisees.html#régressions-pénalisées",
+    "href": "posts/post-without-code/regressions_penalisees.html#régressions-pénalisées",
+    "title": "Régressions pénalisées et sélection de variables",
+    "section": "Régressions pénalisées",
+    "text": "Régressions pénalisées\nLes méthodes testées incluent Ridge, Lasso, Elastic Net, SCAD et Adaptive Lasso, avec ou sans filtrage préalable (Sure Independence Screening – SIS).\nL’objectif était de comparer leurs capacités de sélection et leur robustesse face à la multicolinéarité.\n\nLasso\nLa méthode Lasso, par sa pénalisation L1, a permis une réduction substantielle du nombre de variables (de 224 à 11), en conservant principalement des indices de prix et des variables liées à la production.\n\n\nRidge\nLa régression Ridge (pénalisation L2) a conservé toutes les variables mais stabilisé les coefficients, offrant un compromis entre biais et variance sans véritable sélection.\n\n\nElastic Net\nL’approche Elastic Net, combinant Lasso et Ridge, a été testée avec différents niveaux d’alpha :\n- α = 0.5 (équilibre L1/L2),\n- α = 0.3 (sélection par grille),\n- α = 0.8 (optimisation avec caret).\nElle montre une meilleure stabilité des coefficients tout en conservant la parcimonie du modèle.\n\n\nSCAD\nLa méthode SCAD (Smoothly Clipped Absolute Deviation) a retenu davantage de variables que Lasso, tout en limitant le biais de régularisation, ce qui améliore la précision sur les coefficients significatifs.\n\n\nAdaptive Lasso\nEnfin, l’Adaptive Lasso a combiné la rigueur de la pénalisation L1 et l’ajustement des poids obtenus via un modèle Ridge.\nC’est la méthode la plus sélective du projet, ne retenant que les variables les plus influentes sur l’inflation."
+  },
+  {
+    "objectID": "posts/post-without-code/regressions_penalisees.html#comparaison-et-discussion",
+    "href": "posts/post-without-code/regressions_penalisees.html#comparaison-et-discussion",
+    "title": "Régressions pénalisées et sélection de variables",
+    "section": "Comparaison et discussion",
+    "text": "Comparaison et discussion\nLes résultats montrent que : - L’aLasso est la méthode la plus parcimonieuse, avec une sélection fine des variables pertinentes.\n- SCAD conserve davantage de variables explicatives, offrant une lecture plus riche du phénomène.\n- L’Elastic Net assure un compromis robuste entre biais, variance et interprétabilité.\nCes méthodes surpassent le GETS classique lorsque le rapport p/n est élevé et permettent de mieux gérer la corrélation entre indicateurs macroéconomiques."
+  },
+  {
+    "objectID": "posts/post-without-code/regressions_penalisees.html#rapport-complet",
+    "href": "posts/post-without-code/regressions_penalisees.html#rapport-complet",
+    "title": "Régressions pénalisées et sélection de variables",
+    "section": "Rapport complet",
+    "text": "Rapport complet"
+  },
+  {
+    "objectID": "posts/post-without-code/regressions_penalisees.html#conclusion",
+    "href": "posts/post-without-code/regressions_penalisees.html#conclusion",
+    "title": "Régressions pénalisées et sélection de variables",
+    "section": "Conclusion",
+    "text": "Conclusion\nCe projet met en lumière la complémentarité entre approches économétriques et machine learning pour l’analyse macroéconomique.\nLes régressions pénalisées offrent une solution performante au problème de sélection de variables dans les ensembles de données de grande dimension, tout en conservant une interprétation économiquement cohérente."
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html",
+    "href": "posts/post-without-code/econometrie_spatiale.html",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "",
+    "text": "Ce travail mobilise les outils de l’économétrie spatiale pour étudier la répartition des logements de grande superficie(&gt;120 m²) dans les 64 IRIS de la ville de Brest.\nL’analyse explore le rôle des facteurs socio-économiques, de la structure du bâti et des effets de voisinage dans la distribution des grands logements.\nL’objectif est d’évaluer comment les caractéristiques locales et la proximité géographique influencent la morphologie résidentielle urbaine."
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html#contexte-du-projet",
+    "href": "posts/post-without-code/econometrie_spatiale.html#contexte-du-projet",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "",
+    "text": "Ce travail mobilise les outils de l’économétrie spatiale pour étudier la répartition des logements de grande superficie(&gt;120 m²) dans les 64 IRIS de la ville de Brest.\nL’analyse explore le rôle des facteurs socio-économiques, de la structure du bâti et des effets de voisinage dans la distribution des grands logements.\nL’objectif est d’évaluer comment les caractéristiques locales et la proximité géographique influencent la morphologie résidentielle urbaine."
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html#méthodologie",
+    "href": "posts/post-without-code/econometrie_spatiale.html#méthodologie",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "Méthodologie",
+    "text": "Méthodologie\n\nDonnées et variables\nLa variable d’intérêt est la part des habitations &gt;120 m² par IRIS.\nQuatre variables explicatives ont été mobilisées : - Part des logements construits entre 1991–2005 - Part des logements construits entre 2006–2015 - Part des cadres et professions intellectuelles supérieures - Part des retraités\nCes variables, exprimées en pourcentage, combinent des dimensions structurelles (ancienneté du bâti) et socio-économiques (revenu, âge, profil des habitants).\nLes données spatiales proviennent du shapefile des IRIS de Brest, intégré dans GeoDa puis analysé sous R.\n\n\n\nAnalyse exploratoire\nUne première cartographie a mis en évidence une forte hétérogénéité :\n\nLes grands logements (&gt;120 m²) se concentrent dans quelques zones périphériques (Kerangall, Kervao, Mesdoun).\n\nLes logements récents (2006–2015) sont moins nombreux et davantage dispersés.\nLes cadres se localisent majoritairement dans le sud de la ville, près du littoral.\n\nLes retraités sont plus uniformément répartis sur le territoire.\n\nLes corrélations de Spearman révèlent une association positive entre la part de grands logements et la part de cadres (ρ = 0.58) ou de logements récents (ρ ≈ 0.45)."
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html#analyse-spatiale",
+    "href": "posts/post-without-code/econometrie_spatiale.html#analyse-spatiale",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "Analyse spatiale",
+    "text": "Analyse spatiale\n\nAutocorrélation spatiale\nTrois matrices de pondération ont été testées :\n\nContiguïté de type Reine (voisinage d’ordre 1)\n\nPlus proche voisin (1-NN)\n\nTrois plus proches voisins (3-NN)\n\nL’indice de Moran global révèle une autocorrélation spatiale positive significative dans les trois cas (p &lt; 0.01), indiquant que les IRIS présentant une forte proportion de grands logements ont tendance à être regroupés géographiquement.\nL’analyse locale (LISA) met en évidence des clusters High–High au nord (Kerallan, Le Restic) et au sud (Ports, Le Guelmeur), ainsi que des zones Low–Low autour de Bellevue et Kerbernard."
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html#modélisation-économétrique-spatiale",
+    "href": "posts/post-without-code/econometrie_spatiale.html#modélisation-économétrique-spatiale",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "Modélisation économétrique spatiale",
+    "text": "Modélisation économétrique spatiale\n\nÉtape 1 – Modèle MCO\nUne première régression linéaire a été estimée pour expliquer la part des habitations de plus de 120 m² à partir des variables explicatives sélectionnées.\nLes tests de Moran appliqués aux résidus ont mis en évidence une dépendance spatiale significative, indiquant que les hypothèses classiques d’indépendance ne sont pas vérifiées.\nCette observation justifie le recours à des modèles spécifiquement conçus pour prendre en compte la structure spatiale des données.\n\n\n\nÉtape 2 – Choix du modèle\nDes tests de Lagrange Multiplicateur (LM) et de leurs versions robustes (RLM) ont ensuite été réalisés pour déterminer la nature de la dépendance spatiale.\nLes résultats ont montré que la dépendance provenait principalement de la variable dépendante, orientant le choix vers un modèle SAR (Spatial Autoregressive Model) plutôt qu’un modèle d’erreurs spatiales (SEM).\n\n\n\nÉtape 3 – Estimation du modèle SAR\nL’estimation du modèle SAR a confirmé la présence d’une autocorrélation spatiale significative.\nToutes les variables explicatives conservent un effet positif sur la proportion de grands logements, ce qui traduit une cohérence entre le modèle et les dynamiques géographiques observées à Brest.\nLes résultats suggèrent ainsi que les caractéristiques socio-économiques et la structure du bâti des IRIS voisins exercent une influence conjointe sur la répartition des logements de grande superficie."
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html#discussion",
+    "href": "posts/post-without-code/econometrie_spatiale.html#discussion",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "Discussion",
+    "text": "Discussion\nLes résultats confirment que la structure du parc immobilier et la composition socio-professionnelle des quartiers influencent fortement la répartition des logements spacieux.\nL’existence d’un effet spatial montre que les IRIS voisins partagent des dynamiques communes, traduisant une segmentation résidentielle territorialisée.\nLes modèles SAR se sont révélés plus performants que les MCO, tandis que les modèles SDM testés n’ont pas apporté d’amélioration significative.\nCes conclusions rejoignent les travaux de Le Gallo (2002) sur la pertinence de l’économétrie spatiale pour corriger les biais liés à la dépendance géographique."
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html#carte-de-synthèse",
+    "href": "posts/post-without-code/econometrie_spatiale.html#carte-de-synthèse",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "Carte de synthèse",
+    "text": "Carte de synthèse\nLa carte finale, réalisée sous QGIS, illustre la distribution des grands logements à Brest et met en évidence les IRIS les plus concernés par les facteurs significatifs (période de construction, statut socio-économique).\nLes zones littorales et périphériques nord-ouest concentrent les surfaces les plus élevées.\n\n\n\nRépartition par IRIS de la ville de Brest de la part des habitations dont la surface est supérieure à 120 m2 selon des facteurs liés à la période de construction des habitations ainsi qu’au cadre socio- professionnels des habitants, en 2019"
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html#rapport-complet",
+    "href": "posts/post-without-code/econometrie_spatiale.html#rapport-complet",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "Rapport complet",
+    "text": "Rapport complet"
+  },
+  {
+    "objectID": "posts/post-without-code/econometrie_spatiale.html#conclusion",
+    "href": "posts/post-without-code/econometrie_spatiale.html#conclusion",
+    "title": "Économétrie spatiale : déterminants des grandes habitations à Brest",
+    "section": "Conclusion",
+    "text": "Conclusion\nCette étude montre l’apport des modèles spatiaux dans la compréhension des phénomènes urbains.\nLa répartition des grandes habitations à Brest dépend à la fois des caractéristiques locales et des effets de voisinage, traduisant une organisation spatiale cohérente avec les logiques socio-économiques urbaines.\nLes méthodes de l’économétrie spatiale offrent ici une lecture quantitative fine des inégalités territoriales et des dynamiques urbaines."
   },
   {
     "objectID": "posts/post-with-code/biostatistiques/Final_projet.html",
@@ -347,7 +438,7 @@
     "href": "index.html",
     "title": "Portfolio Isabel",
     "section": "",
-    "text": "Bienvenue!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNLP - Etude des discours du trône au Royaume Uni\n\n\n\n\n\n\n\n\n\nMay 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMémoire\n\n\n\n\n\n\n\n\n\nJun 12, 2024\n\n\n\n\n\n\n\n\n\n\n\nPackage olympicsWeather\n\n\n\n\n\n\n\n\n\nJun 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nTechniques de prévision et conjoncture\n\n\n\n\n\n\nIsabel PALACIO\n\n\nApr 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariables latentes\n\n\n\n\n\n\n\n\n\nMar 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nBiostatistiques\n\n\n\n\n\n\nC. ORHAN, Isabel PALACIO\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nÉconométrie linéaire avancée\n\n\n\n\n\n\nJ. DUPAU, V. Trillaud, Isabel PALACIO\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nECAP Master1\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Bienvenue!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalyse NLP : Discours du trône (1911–2012)\n\n\n\n\n\n\n\n\n\nMay 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nÉconométrie spatiale : déterminants des grandes habitations à Brest\n\n\n\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRégressions pénalisées et sélection de variables\n\n\n\n\n\n\n\n\n\nNov 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nMémoire\n\n\n\n\n\n\n\n\n\nJun 12, 2024\n\n\n\n\n\n\n\n\n\n\n\nPackage olympicsWeather\n\n\n\n\n\n\n\n\n\nJun 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nTechniques de prévision et conjoncture\n\n\n\n\n\n\nIsabel PALACIO\n\n\nApr 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariables latentes\n\n\n\n\n\n\n\n\n\nMar 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nBiostatistiques\n\n\n\n\n\n\nC. ORHAN, Isabel PALACIO\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nÉconométrie linéaire avancée\n\n\n\n\n\n\nJ. DUPAU, V. Trillaud, Isabel PALACIO\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nECAP Master1\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/variables_latentes/variables_latentes.html",
@@ -700,17 +791,80 @@
     "text": "Ce blog a été créé pour vous présenter quelques-uns des projets sur lesquels j’ai eu l’occasion de travailler au cours de mon Master en Économétrie et Statistiques, parcours Économétrie Appliquée, à l’IAE de Nantes.\n\nÀ propos de moi\nMes études en Économétrie et Statistiques s’inscrivent dans ma démarche de reconversion professionnelle.\nEn effet, après plusieurs années d’expérience en vente, j’ai rejoint le groupe Iliad (Free). Cette expérience, combinant innovation et gestion d’équipe, m’a permis de développer mes compétences commerciales et managériales. Bien qu’étant épanouie dans mon rôle de manager, responsable d’une surface de vente et d’une équipe, j’ai ressenti le besoin de me spécialiser davantage et d’élargir mes horizons.\nC’est ainsi que j’ai décidé de reprendre mes études en 2023, dans le monde de la donnée, qui m’intéressait particulièrement et dont j’étais convaincue de l’impact.  \nDès le mois d’avril, j’ai donc intégré la formation DESU “Data Science pour les professionnels” à l’Université d’Aix-Marseille, jusqu’en juin. Fortement motivée par l’envie d’approfondir davantage mes connaissances en statistique et informatique, j’ai ensuite choisi de poursuivre en Master Économétrie et Statistiques.\n\n\nLe master\n\nCe parcours à l’IAE est particulièrement attractif en raison de son approche professionnalisante, qui allie à la fois la théorique et la pratique. Il vise à développer des compétences solides dans des domaines tels que l’économie, l’économétrie, la statistique et l’informatique, des atouts indispensables pour évoluer dans le domaine du data science et de l’analyse quantitative. 📥 Télécharger “Présentation du Master économetrie et statistiques, économetrie appliquée M1 et M2” PDF\nActuellement, je suis à la recherche d’un stage de fin d’études pour concrétiser ce parcours et mettre en pratique les compétences acquises durant ma formation.\nCe blog vous permettra de découvrir mes projets et travaux réalisés, au cours desquels j’ai souhaité explorer divers sujets qui me passionnent, tels que l’agriculture, l’environnement, ainsi que différentes techniques d’analyse de données. Pour certains de ces projets, j’ai voulu non seulement vous présenter les résultats de l’analyse, mais aussi partager le code utilisé. Mon objectif est de rendre la démarche plus transparente, tout en illustrant mon évolution.\nJe vous souhaite une bonne visite, en espérant que vous y trouverez des éléments intéressants :) !"
   },
   {
-    "objectID": "posts/post-without-code/NLP.html",
-    "href": "posts/post-without-code/NLP.html",
-    "title": "NLP - Etude des discours du trône au Royaume Uni",
+    "objectID": "posts/post-without-code/Projets.html",
+    "href": "posts/post-without-code/Projets.html",
+    "title": "ECAP Master1",
     "section": "",
-    "text": "Date : Mai 2025\n\n\n\n\ncode :\nhttps://github.com/isabel6198/nlp_speech_throne/blob/main/notebook/01_speech_throne.ipynb"
+    "text": "Présentation des différents projets (sans code)"
   },
   {
-    "objectID": "posts/post-without-code/NLP.html#une-analyse-sur-les-thematiques-les-partis-politiques-et-les-sentiments-des-discours",
-    "href": "posts/post-without-code/NLP.html#une-analyse-sur-les-thematiques-les-partis-politiques-et-les-sentiments-des-discours",
-    "title": "NLP - Etude des discours du trône au Royaume Uni",
+    "objectID": "posts/post-without-code/Projets.html#series-temporelles-univariees",
+    "href": "posts/post-without-code/Projets.html#series-temporelles-univariees",
+    "title": "ECAP Master1",
+    "section": "Séries temporelles univariées",
+    "text": "Séries temporelles univariées\n\nÉtude des séries temporelles de l’indice de prix à la consommation (IPC), le prix du pétrole et la variation des températures en France, à l’aide de la méthodologie ARIMA\nUne analyse des tendances et des fluctuations de 2010 jusqu’à 2022\nPar : Gloria Isabel PALACIO\nDate : Février 2024"
+  },
+  {
+    "objectID": "posts/post-without-code/Projets.html#évaluation-des-actifs-financiers",
+    "href": "posts/post-without-code/Projets.html#évaluation-des-actifs-financiers",
+    "title": "ECAP Master1",
+    "section": "Évaluation des actifs financiers",
+    "text": "Évaluation des actifs financiers\n\nEtude de fonds d’investissement social responsable sur l’année 2023\nPar : Marie KERHOAS & Gloria Isabel PALACIO\nDate : Mars 2024"
+  },
+  {
+    "objectID": "posts/post-without-code/Projets.html#analyse-de-données-et-descriptive",
+    "href": "posts/post-without-code/Projets.html#analyse-de-données-et-descriptive",
+    "title": "ECAP Master1",
+    "section": "Analyse de données et descriptive",
+    "text": "Analyse de données et descriptive\n\nAnalyse de l’attractivite touristique des départements en France métropolitaine 2022\nPar : Marie KERHOAS & Gloria Isabel PALACIO\nDate : Mars 2024"
+  },
+  {
+    "objectID": "posts/post-without-code/NLP.html",
+    "href": "posts/post-without-code/NLP.html",
+    "title": "Analyse NLP : Discours du trône (1911–2012)",
     "section": "",
-    "text": "Date : Mai 2025\n\n\n\n\ncode :\nhttps://github.com/isabel6198/nlp_speech_throne/blob/main/notebook/01_speech_throne.ipynb"
+    "text": "Ce projet applique les méthodes de traitement automatique du langage naturel (NLP) à un corpus de 105 Discours du Trône britanniques prononcés entre 1911 et 2012.\nCes allocutions, rédigées par le gouvernement et lues par le monarque à l’ouverture du Parlement, constituent un observatoire unique des priorités politiques britanniques au fil du temps.\nL’objectif est d’en identifier les grands thèmes, d’analyser leur évolution historique, et d’examiner les différences éventuelles selon les partis politiques et la tonalité des discours."
+  },
+  {
+    "objectID": "posts/post-without-code/NLP.html#contexte-du-projet",
+    "href": "posts/post-without-code/NLP.html#contexte-du-projet",
+    "title": "Analyse NLP : Discours du trône (1911–2012)",
+    "section": "",
+    "text": "Ce projet applique les méthodes de traitement automatique du langage naturel (NLP) à un corpus de 105 Discours du Trône britanniques prononcés entre 1911 et 2012.\nCes allocutions, rédigées par le gouvernement et lues par le monarque à l’ouverture du Parlement, constituent un observatoire unique des priorités politiques britanniques au fil du temps.\nL’objectif est d’en identifier les grands thèmes, d’analyser leur évolution historique, et d’examiner les différences éventuelles selon les partis politiques et la tonalité des discours."
+  },
+  {
+    "objectID": "posts/post-without-code/NLP.html#méthodologie",
+    "href": "posts/post-without-code/NLP.html#méthodologie",
+    "title": "Analyse NLP : Discours du trône (1911–2012)",
+    "section": "Méthodologie",
+    "text": "Méthodologie\nL’analyse repose sur trois approches principales :\n1. Modélisation thématique (LDA)\nLe modèle Latent Dirichlet Allocation a permis de faire émerger automatiquement les sujets dominants à partir des textes vectorisés (CountVectorizer).\nLe nombre optimal de topics a été déterminé à l’aide de la perplexité, donnant cinq thèmes principaux.\n2. Classification supervisée\nLes discours ont été vectorisés via TF-IDF et utilisés pour prédire le parti au pouvoir (travailliste ou conservateur) à l’aide d’une régression logistique et d’une forêt aléatoire.\nL’objectif : évaluer si un discours contient des marqueurs lexicaux propres à un parti.\n3. Analyse de sentiment\nL’outil VADER (Valence Aware Dictionary and sEntiment Reasoner) a permis d’estimer la tonalité générale des discours — positive, neutre ou négative — en fonction du vocabulaire employé."
+  },
+  {
+    "objectID": "posts/post-without-code/NLP.html#principaux-résultats",
+    "href": "posts/post-without-code/NLP.html#principaux-résultats",
+    "title": "Analyse NLP : Discours du trône (1911–2012)",
+    "section": "Principaux résultats",
+    "text": "Principaux résultats\n1. Cinq grands ensembles thématiques\n\nGouvernance publique et coopération internationale\n\nDiplomatie et commerce extérieur\n\nRéformes économiques et développement\n\nDéfense et sécurité nationale\n\nJustice et inclusion sociale\n\nAvant 1950, la diplomatie et la sécurité dominent largement, tandis qu’à partir des années 1960, les thèmes économiques et sociaux deviennent centraux.\nLes années 2000 voient émerger les questions de justice et d’inclusion.\n2. Classification politique\nLes modèles atteignent une accuracy d’environ 70 %.\nLes discours conservateurs sont mieux identifiés que les travaillistes, suggérant que ces derniers emploient une rhétorique plus neutre ou convergente selon les périodes.\n3. Tonalité générale\nLes discours sont globalement positifs et institutionnels, conformément à leur nature solennelle.\nLes rares inflexions négatives apparaissent durant les périodes de guerre, où le lexique de la perte et de la mobilisation influe sur le score de sentiment."
+  },
+  {
+    "objectID": "posts/post-without-code/NLP.html#discussion",
+    "href": "posts/post-without-code/NLP.html#discussion",
+    "title": "Analyse NLP : Discours du trône (1911–2012)",
+    "section": "Discussion",
+    "text": "Discussion\nL’étude montre la puissance du NLP appliqué à des corpus historiques: il permet de détecter des tendances politiques et discursives sur plus d’un siècle.\nCependant, les modèles lexicaux comme VADER atteignent leurs limites face à un langage diplomatique et codifié, où le ton reste positif même en évoquant des crises.\nUne extension naturelle consisterait à tester des modèles contextuels pour mieux capter la sémantique et les nuances."
+  },
+  {
+    "objectID": "posts/post-without-code/NLP.html#rapport-complet",
+    "href": "posts/post-without-code/NLP.html#rapport-complet",
+    "title": "Analyse NLP : Discours du trône (1911–2012)",
+    "section": "Rapport complet",
+    "text": "Rapport complet"
+  },
+  {
+    "objectID": "posts/post-without-code/NLP.html#code-et-reproductibilité",
+    "href": "posts/post-without-code/NLP.html#code-et-reproductibilité",
+    "title": "Analyse NLP : Discours du trône (1911–2012)",
+    "section": "Code et reproductibilité",
+    "text": "Code et reproductibilité\nLe code complet du projet est disponible sur GitHub :\n🔗 Voir le notebook sur GitHub\nLe dépôt contient les étapes de préparation, de modélisation et de visualisation, avec les versions d’outils utilisées et les jeux de données nettoyés.\nLa reproduction est possible en installant les dépendances listées dans le fichier requirements.txt."
   }
 ]

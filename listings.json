@@ -4,6 +4,8 @@
     "items": [
       "/posts/welcome/bienvenue.html",
       "/posts/post-without-code/NLP.html",
+      "/posts/post-without-code/econometrie_spatiale.html",
+      "/posts/post-without-code/regressions_penalisees.html",
       "/posts/post-with-code/memoire/memoire_m1.html",
       "/posts/post-with-code/creation_package/index.html",
       "/posts/post-with-code/techniques_previsions/prevision_conjoncture.html",
